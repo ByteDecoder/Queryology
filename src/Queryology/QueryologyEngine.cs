@@ -18,10 +18,8 @@ namespace ByteDecoder.Queryology
     /// 
     /// </summary>
     /// <param name="dataContext">An Entity Framework DbContext</param>
-    public QueryologyEngine(T dataContext)
-    {
-      _dataContext = dataContext;
-    }
+    public QueryologyEngine(T dataContext) => _dataContext = dataContext;
+    
 
     /// <summary>
     /// Execute each query object IQuery, loaded in the Current AppDomain

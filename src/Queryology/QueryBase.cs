@@ -31,11 +31,8 @@ namespace ByteDecoder.Queryology
     /// 
     /// </summary>
     /// <param name="dataContext"></param>
-    protected QueryBase(T dataContext)
-    {
-      DataContext = dataContext;
-    }
-
+    protected QueryBase(T dataContext) => DataContext = dataContext;
+    
     /// <summary>
     /// 
     /// </summary>
@@ -50,7 +47,7 @@ namespace ByteDecoder.Queryology
     {
       Console.WriteLine();
       Console.WriteLine(title);
-      if (Data != null) ObjectDumper.Write(Data, depth);
+      ObjectDumper.Write(Data, depth);
       Console.WriteLine();
     }
 
