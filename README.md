@@ -10,10 +10,11 @@ Minimalist query engine executor used with Entity Framework Core + LINQ for quic
 First create the example database and apply the migrations with:
 
 ```bash
+$ cd ./src
 $ dotnet ef database update -p ./Queryology.Example
 ```
 
-Then run the sample console projecy:
+Then run the sample console project:
 
 ```bash
 $ cd Queryology.Example/   
