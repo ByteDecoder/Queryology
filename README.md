@@ -33,13 +33,13 @@ The basic theory that you need:
 - **Queryology** NuGet package installed
 - Your *EF Core DbContext class*, or if you want to use only *LINQ to Objects*, **Queryology** provides a default *NullDbContext* to avoid setting one by yourself
 - Have a query class per each one of your experiments
-- Inherit and implement *QueryBase<T>* where **T** is the type of your *EF Core DbContext class*
-- **QueryBase<T>** Uses an **ObjectDumper** from Microsoft for exploring your Linq results
+- Inherit and implement *QueryBase\<T\>* where **T** is the type of your *EF Core DbContext class*
+- **QueryBase\<T\>** Uses an **ObjectDumper** from Microsoft for exploring your Linq results
 - Don't forget to add a *logger* in your *EF Core DbContext class* to analyze the *SQL output*
-- Just call an instance of **QueryologyEngine** with your *EF Core DbContext class* and, it will find for you all your query classes that inherit from  **QueryBase<T>** and it will execute them
+- Just call an instance of **QueryologyEngine** with your *EF Core DbContext class* and, it will find for you all your query classes that inherit from  **QueryBase\<T\>** and it will execute them
 - Enjoy
 
-**QueryBase<T>** Provides you:
+**QueryBase\<T\>** Provides you:
 
 - *DataContext property* which holds the reference to the provided *EF Core DbContext class*
 - *DisplayData method* to write in the console the structure of your query result using the **Data** property
