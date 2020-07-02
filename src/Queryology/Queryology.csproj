@@ -1,15 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
+
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    
     <RootNamespace>ByteDecoder.Queryology</RootNamespace>
-
     <Authors>ByteDecoder</Authors>
-    <Company />
-    <PackageId>ByteDecoder.Queryology</PackageId>
-    <Title>ByteDecoder.Queryology</Title>
+    <Company/>
 
-    <Description>Easy way to create Models for use in Test Suites</Description>
+    <PackageId>ByteDecoder.Queryology</PackageId>
+    
+    <Title>ByteDecoder.Queryology</Title>
+    <Description>Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments</Description>
     <copyright>Copyright (c) 2020 released under the MIT license</copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/ByteDecoder/Queryology</RepositoryUrl>
@@ -18,13 +19,18 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.1.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
 
+  </PropertyGroup>
+  
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath/>
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5"/>
+    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.1.1"/>
+  </ItemGroup>
 </Project>
