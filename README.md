@@ -4,6 +4,23 @@
 # Queryology
 Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments
 
+Targeted to .Net Core 3.1
+
+## Installation
+
+Install the [Queryology NuGet Package](https://www.nuget.org/packages/ByteDecoder.Queryology).
+
+### Package Manager Console
+
+```
+Install-Package ByteDecoder.Queryology
+```
+
+### .NET Core CLI
+
+```
+dotnet add package ByteDecoder.Queryology
+```
 
 ## Running Example .Net Core Console App
 
@@ -20,3 +37,10 @@ Then run the example console project:
 $ cd Queryology.Example/   
 $ dotnet run
 ```
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/ByteDecoder/Queryology.
+
+
+Copyright (c) 2020 [Rodrigo Reyes](https://twitter.com/bytedecoder) released under the MIT license
