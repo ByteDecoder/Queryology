@@ -9,6 +9,8 @@ namespace Queryology.Example
     static void Main(string[] args)
     {
       new QueryologyEngine<EfCoreContext>(new EfCoreContext()).Execute();
+
+      Console.WriteLine("\nPress Enter to continue...");
       Console.ReadLine();
     }
   }
