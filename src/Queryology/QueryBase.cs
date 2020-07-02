@@ -50,6 +50,5 @@ namespace ByteDecoder.Queryology
       ObjectDumper.Write(Data, depth);
       Console.WriteLine();
     }
-
   }
 }
