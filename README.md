@@ -14,7 +14,7 @@ $ cd ./src
 $ dotnet ef database update -p ./Queryology.Example
 ```
 
-Then run the sample console project:
+Then run the example console project:
 
 ```bash
 $ cd Queryology.Example/   
