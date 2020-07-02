@@ -26,7 +26,7 @@ namespace Queryology.Example.Models
      optionsBuilder
       .UseLoggerFactory(_loggerFactory)
       .EnableSensitiveDataLogging()
-      .UseInMemoryDatabase(databaseName: "ExampleDatabase");
+      .UseSqlite("Filename=ExampleDatabase.db");
 
   }
 }
