@@ -117,7 +117,7 @@ class Program
 }
 ```
 
-Mark a *Query class* to be ignored in and not executed at runtime:
+Mark a *Query class* to be ignored and not to be executed at runtime:
 
 ```csharp
 // Just override the Executable property; and set it to false.
