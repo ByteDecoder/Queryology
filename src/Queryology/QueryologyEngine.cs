@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ByteDecoder.Queryology
 {
   /// <summary>
-  /// 
+  /// QueryologyEngine will look for all objects loaded with the type IQuery.
   /// </summary>
   /// <typeparam name="T"></typeparam>
   public class QueryologyEngine<T> where T : DbContext
