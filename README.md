@@ -1,2 +1,2 @@
 # Queryology
-Minimalist Entity Framework Core + LINQ query executor for quick experiments
+Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments
