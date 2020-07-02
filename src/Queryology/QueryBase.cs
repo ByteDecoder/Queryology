@@ -17,13 +17,13 @@ namespace ByteDecoder.Queryology
     public dynamic Data { get; protected set; }
 
     /// <summary>
-    /// 
+    /// Reference to the EF Core DbContext class allowed to use in the query
     /// </summary>
     /// <value></value>
     public T DataContext { get; private set; }
 
     /// <summary>
-    /// 
+    /// If the field is true, means the query can be executed, otherwise is not executed
     /// </summary>
     public virtual bool Executable => true;
 
@@ -34,7 +34,7 @@ namespace ByteDecoder.Queryology
     protected QueryBase(T dataContext) => DataContext = dataContext;
     
     /// <summary>
-    /// 
+    /// Execute the query main logic body 
     /// </summary>
     public abstract void Execute();
 

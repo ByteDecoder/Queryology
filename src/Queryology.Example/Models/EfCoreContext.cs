@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -22,11 +24,22 @@ namespace Queryology.Example.Models
       modelBuilder.Entity<PriceOffer>().HasData(SeedData.PromotionsData());
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+      Console.WriteLine(Directory.GetCurrentDirectory());
+
+      var currentDirectory = Directory.GetCurrentDirectory();
+      var dbPath = "";
+
+      if (currentDirectory.Contains("Queryology.Example")) 
+        dbPath = "ExampleDatabase.db";
+      else 
+        dbPath = Path.Combine(Directory.GetCurrentDirectory(), "/Queryology.Example/ExampleDatabase.db");
+      
+      Console.WriteLine($"dbPath => {dbPath}");
      optionsBuilder
       .UseLoggerFactory(_loggerFactory)
       .EnableSensitiveDataLogging()
-      .UseSqlite("Filename=ExampleDatabase.db");
-
+      .UseSqlite($"Data source={dbPath}");
+    }
   }
 }
