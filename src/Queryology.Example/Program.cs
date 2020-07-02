@@ -1,12 +1,15 @@
 ﻿using System;
+using ByteDecoder.Queryology;
+using Queryology.Example.Models;
 
 namespace Queryology.Example
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      new QueryologyEngine<EfCoreContext>(new EfCoreContext()).Execute();
+      Console.ReadLine();
     }
+  }
 }

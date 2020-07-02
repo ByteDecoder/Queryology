@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <ItemGroup>
-    <ProjectReference Include="..\Queryology\Queryology.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <RootNamespace>ByteDecoder.Queryology.Example</RootNamespace>
-
   </PropertyGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\Queryology\Queryology.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.1.1"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.5"/>
+  </ItemGroup>
 </Project>
