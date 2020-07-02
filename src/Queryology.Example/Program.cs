@@ -8,9 +8,10 @@ namespace Queryology.Example
   {
     static void Main(string[] args)
     {
-      new QueryologyEngine<EfCoreContext>(new EfCoreContext()).Execute();
+      var totalQueries = new QueryologyEngine<EfCoreContext>(new EfCoreContext()).Execute();
 
-      Console.WriteLine("\nPress Enter to continue...");
+      Console.WriteLine($"\nTotal Queries allowed to be executed: {totalQueries}");
+      Console.WriteLine("Press Enter to continue...");
       Console.ReadLine();
     }
   }

@@ -13,11 +13,17 @@ namespace ByteDecoder.Queryology
     /// </summary>
     /// <value></value>
     T DataContext { get; }
+
     /// <summary>
     /// 
     /// </summary>
     /// <value></value>
     dynamic Data { get; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    bool Executable { get; }
 
     /// <summary>
     /// 

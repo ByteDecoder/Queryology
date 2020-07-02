@@ -25,6 +25,11 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// 
     /// </summary>
+    public virtual bool Executable => true;
+
+    /// <summary>
+    /// 
+    /// </summary>
     /// <param name="dataContext"></param>
     protected QueryBase(T dataContext)
     {

@@ -22,7 +22,7 @@ namespace Queryology.Example.Queries
         .Query().Select(x => x.NumStars)
         .ToList();
 
-      DisplayData("Eager Loading EF Core Query # 2", 3);
+      DisplayData("Eager Loading EF Core Query # ExplicitLoadingQueryExampleTwo", 3);
       Console.WriteLine($"Review Count => {numReviews}");      
       ObjectDumper.Write(starRatings);
     }
