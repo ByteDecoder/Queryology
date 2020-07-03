@@ -24,22 +24,11 @@ namespace Queryology.Example.Models
       modelBuilder.Entity<PriceOffer>().HasData(SeedData.PromotionsData());
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-      Console.WriteLine(Directory.GetCurrentDirectory());
-
-      var currentDirectory = Directory.GetCurrentDirectory();
-      var dbPath = "";
-
-      if (currentDirectory.Contains("Queryology.Example")) 
-        dbPath = "ExampleDatabase.db";
-      else 
-        dbPath = Path.Combine(Directory.GetCurrentDirectory(), "/Queryology.Example/ExampleDatabase.db");
-      
-      Console.WriteLine($"dbPath => {dbPath}");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
      optionsBuilder
       .UseLoggerFactory(_loggerFactory)
       .EnableSensitiveDataLogging()
-      .UseSqlite($"Data source={dbPath}");
-    }
+      .UseSqlite($"Data source=ExampleDatabase.db");
+    
   }
 }
