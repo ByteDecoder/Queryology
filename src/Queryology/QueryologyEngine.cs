@@ -9,7 +9,7 @@ namespace ByteDecoder.Queryology
   /// <summary>
   /// QueryologyEngine will look for all query objects loaded in the Current AppDomain with the type IQuery.
   /// </summary>
-  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="T">An Entity Framework DbContext derived class</typeparam>
   public class QueryologyEngine<T> where T : DbContext
   {
     private readonly T _dataContext;
@@ -17,7 +17,7 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="dataContext">An Entity Framework DbContext</param>
+    /// <param name="dataContext">An Entity Framework DbContext class</param>
     public QueryologyEngine(T dataContext) => _dataContext = dataContext;
 
     /// <summary>
@@ -42,7 +42,7 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// 
     /// </summary>
-    /// <returns></returns>
+    /// <returns>An enumerator for each of the Query Types registered in the loaded assemblies</returns>
     private IEnumerable<IQuery<T>> CreateQuery()
     {
       var loadedTypes = GetLoadedTypes(typeof(IQuery<T>));
@@ -54,9 +54,9 @@ namespace ByteDecoder.Queryology
     }
 
     /// <summary>
-    /// 
+    /// From the loaded Assembly, finds the types assignable to the targetType
     /// </summary>
-    /// <param name="targetType"></param>
+    /// <param name="targetType">Target Type to find</param>
     /// <returns></returns>
     private IEnumerable<Type> GetLoadedTypes(Type targetType)
     {

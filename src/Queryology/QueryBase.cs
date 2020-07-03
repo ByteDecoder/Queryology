@@ -41,8 +41,8 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="title"></param>
-    /// <param name="depth"></param>
+    /// <param name="title">Message to label the query execution</param>
+    /// <param name="depth">Level of depth for object exploration</param>
     protected void DisplayData(string title, int depth = 1)
     {
       Console.WriteLine();
