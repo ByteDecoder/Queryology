@@ -16,7 +16,7 @@ namespace Queryology.Tests
       // Act
       var result = sut.Execute();
 
-      // Asset
+      // Assert
       Assert.Equal(2, result);
     }
 
@@ -30,7 +30,7 @@ namespace Queryology.Tests
       // Act
       var result = sut.Execute();
 
-      // Asset
+      // Assert
       Assert.Equal(1, result);
     }
   }
