@@ -72,7 +72,7 @@ public class MyQuery : QueryBase<MyDbCoreContext>
   }
 }
 
-// In your .Net Core application instatiate the engine and execute it 
+// In your .Net Core application, instantiate the engine and execute it! 
 class Program
 {
   static void Main(string[] args)
@@ -102,7 +102,7 @@ public class LinqToObjectsQuery : QueryBase<NullDbContext>
   }
 }
 
-// In your .Net Core application instatiate the engine and execute it 
+// In your .Net Core application, instantiate the engine and execute it!
 class Program
 {
   static void Main(string[] args)
