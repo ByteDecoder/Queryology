@@ -13,7 +13,7 @@
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp netcoreapp3.1</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
