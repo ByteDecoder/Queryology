@@ -6,9 +6,9 @@ namespace ByteDecoder.Queryology
   public interface IQueryologyEngine
   {
     /// <summary>
-    /// 
+    /// Execution contract for all queries registered
     /// </summary>
-    /// <returns></returns>    
+    /// <returns>Total executed queries</returns>
     int Execute();
   }
 }

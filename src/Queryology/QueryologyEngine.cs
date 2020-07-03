@@ -28,7 +28,7 @@ namespace ByteDecoder.Queryology
     {
       var totalExecQueries = 0;
 
-      CreateQuery()
+      RegisteredQueries()
         .Where(query => query.Executable)
         .ForEach(query =>
         {
@@ -43,7 +43,7 @@ namespace ByteDecoder.Queryology
     /// 
     /// </summary>
     /// <returns>An enumerator for each of the Query Types registered in the loaded assemblies</returns>
-    private IEnumerable<IQuery<T>> CreateQuery()
+    private IEnumerable<IQuery<T>> RegisteredQueries()
     {
       var loadedTypes = GetLoadedTypes(typeof(IQuery<T>));
 
