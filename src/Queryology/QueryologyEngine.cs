@@ -10,7 +10,7 @@ namespace ByteDecoder.Queryology
   /// QueryologyEngine will look for all query objects loaded in the Current AppDomain with the type IQuery.
   /// </summary>
   /// <typeparam name="T">An Entity Framework DbContext derived class</typeparam>
-  public class QueryologyEngine<T> where T : DbContext
+  public class QueryologyEngine<T> : IQueryologyEngine where T : DbContext
   {
     private readonly T _dataContext;
 
@@ -24,7 +24,7 @@ namespace ByteDecoder.Queryology
     /// Execute each query object IQuery, loaded in the Current AppDomain
     /// </summary>
     /// <returns>Total executed queries</returns>
-    public long Execute()
+    public int Execute()
     {
       var totalExecQueries = 0;
 
@@ -33,7 +33,7 @@ namespace ByteDecoder.Queryology
         .ForEach(query =>
         {
           query.Execute();
-          totalExecQueries++;
+          checked { totalExecQueries++; }
         });
 
       return totalExecQueries;
