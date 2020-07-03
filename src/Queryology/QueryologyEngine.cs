@@ -58,11 +58,10 @@ namespace ByteDecoder.Queryology
     /// </summary>
     /// <param name="targetType">Target Type to find</param>
     /// <returns></returns>
-    private IEnumerable<Type> GetLoadedTypes(Type targetType)
-    {
-      return AppDomain.CurrentDomain.GetAssemblies()
-         .SelectMany(assembly => assembly.GetTypes())
-         .Where(type => targetType.IsAssignableFrom(type));
-    }
+    private IEnumerable<Type> GetLoadedTypes(Type targetType) =>
+      AppDomain.CurrentDomain.GetAssemblies()
+        .SelectMany(assembly => assembly.GetTypes())
+        .Where(type => targetType.IsAssignableFrom(type));
+
   }
 }
