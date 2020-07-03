@@ -10,7 +10,6 @@ namespace Queryology.Tests.Queries
 
     public override void Execute()
     {
-      throw new System.NotImplementedException();
     }
   }
 }

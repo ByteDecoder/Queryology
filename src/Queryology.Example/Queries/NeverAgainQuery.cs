@@ -12,7 +12,6 @@ namespace ByteDecoder.Queryology.Example.Queries
     public override void Execute()
     {
       Console.WriteLine("Never again.. I will never get executwed by QueryologyEngine =(");
-      throw new NotImplementedException();
     }
   }
 }

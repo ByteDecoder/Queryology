@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.RoyalLibrary;
 using Microsoft.EntityFrameworkCore;
+using Queryology.Extensions;
 
 namespace ByteDecoder.Queryology
 {
@@ -23,13 +24,14 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// Execute each query object IQuery, loaded in the Current AppDomain
     /// </summary>
+    /// <param name="ignoreExcludedQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
     /// <returns>Total executed queries</returns>
-    public int Execute()
+    public int Execute(bool ignoreExcludedQueries = true)
     {
       var totalExecQueries = 0;
 
       RegisteredQueries()
-        .Where(query => query.Executable)
+        .AllowedQueries(ignoreExcludedQueries)
         .ForEach(query =>
         {
           query.Execute();
