@@ -5,12 +5,14 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
 {
   internal class QueryologyEngineTestBuilder<T> : IDisposable where T : DbContext
   {
-    private readonly QueryologyEngine<T> _queryologyEngine;
+    private T _dbContext;
+    private QueryologyEngine<T> _queryologyEngine;
     private bool disposedValue;
 
     public QueryologyEngineTestBuilder(T dbContext)
     {
-      _queryologyEngine = new QueryologyEngine<T>(dbContext);
+      _dbContext = dbContext;
+      _queryologyEngine = new QueryologyEngine<T>(_dbContext);
     }
 
     public QueryologyEngineTestBuilder<T> NotIgnoreExcludedQueries()
@@ -36,25 +38,18 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
       {
         if (disposing)
         {
-          // TODO: eliminar el estado administrado (objetos administrados)
+          _dbContext.Dispose();
         }
+        
+        _dbContext = null;
+        _queryologyEngine = null;
 
-        // TODO: liberar los recursos no administrados (objetos no administrados) y reemplazar el finalizador
-        // TODO: establecer los campos grandes como NULL
         disposedValue = true;
       }
     }
 
-    // // TODO: reemplazar el finalizador solo si "Dispose(bool disposing)" tiene código para liberar los recursos no administrados
-    // ~QueryologyEngineTestBuilder()
-    // {
-    //     // No cambie este código. Coloque el código de limpieza en el método "Dispose(bool disposing)".
-    //     Dispose(disposing: false);
-    // }
-
     public void Dispose()
     {
-      // No cambie este código. Coloque el código de limpieza en el método "Dispose(bool disposing)".
       Dispose(disposing: true);
       GC.SuppressFinalize(this);
     }
