@@ -6,7 +6,7 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
   {
     public QueryologyEngineTestBuilder<T> Create<T>() where T : DbContext, new()
     {
-      return new QueryologyEngineTestBuilder<T>(new T());
+      return new QueryologyEngineTestBuilder<T>();
     }
   }
 }

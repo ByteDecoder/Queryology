@@ -3,15 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology.Tests.TestBuilders
 {
-  internal class QueryologyEngineTestBuilder<T> : IDisposable where T : DbContext
+  internal class QueryologyEngineTestBuilder<T> : IDisposable where T : DbContext, new()
   {
     private T _dbContext;
     private QueryologyEngine<T> _queryologyEngine;
     private bool _disposedValue;
 
-    public QueryologyEngineTestBuilder(T dbContext)
+    public QueryologyEngineTestBuilder()
     {
-      _dbContext = dbContext;
+      _dbContext = new T();
       _queryologyEngine = new QueryologyEngine<T>(_dbContext);
     }
 
