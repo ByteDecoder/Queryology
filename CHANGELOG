@@ -1,3 +1,9 @@
+### 0.4.0 - 2020-07-04
+  * Now QueryologyEngine<T>.IgnoreExcludedQueries() fluent interface controls the queries execution if they are excluded or not
+    new QueryologyEngine<NullDbContext>(new NullDbContext()).IgnoreExcludedQueries(false).Execute();
+
+    QueryologyEngine<T>.Execute() is parameterless now
+    
 ### 0.3.0 - 2020-07-03
   * Assembly renamed to ByteDecoder.Queryology
   * Internal namespace adjustments

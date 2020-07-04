@@ -13,7 +13,7 @@
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp netcoreapp3.1</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>ByteDecoder.Queryology</AssemblyName>
   </PropertyGroup>

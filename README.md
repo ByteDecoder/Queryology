@@ -135,6 +135,17 @@ public class NeverAgainQuery : QueryBase<MyDbCoreContext>
 }
 ```
 
+Ignore excluded queries and execute all queries under type **T**
+
+```csharp
+// Changing the default value of *IgnoreExcludedQueries* affect your current engine instance.
+// If you want to call again in the same code block, you need to pass **true** if you do not want that behavior.
+using var nullDbContext = new NullDbContext();
+var totalQueries = new QueryologyEngine<NullDbContext>(nullDbContext)
+                       .IgnoreExcludedQueries(false)
+                       .Execute();
+```
+
 That is all, you can continue adding more queries and do not bother about the infrastructure
 
 ## Running Example .Net Core Console App
@@ -149,7 +160,7 @@ $ dotnet ef database update -p ./Queryology.Example
 Then run the example console project:
 
 ```bash
-$ cd Queryology.Example/   
+$ cd Queryology.Example/
 $ dotnet run
 ```
 
