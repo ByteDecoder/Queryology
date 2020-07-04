@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ByteDecoder.Queryology;
 using ByteDecoder.Queryology.Extensions;
 using ByteDecoder.Queryology.Tests.Queries;
 using Xunit;
 
-namespace Queryology.Tests
+namespace ByteDecoder.Queryology.Tests
 {
   public class QueryBaseExtensionsTests
   {
@@ -40,6 +39,23 @@ namespace Queryology.Tests
       Assert.Equal(2, result);
     }
 
+    [Fact]
+    public void IgnoreExcludedQueries_NoFiltersQueries_WhenIsSetToFalse()
+    {
+      // Arrange
+      using var dbContext = new NullDbContext();
+      var queries = new List<IQuery<NullDbContext>>()
+      {
+        new QueryTypeNullDbContextOne(dbContext),
+        new QueryTypeNullDbContextTwo(dbContext),
+        new QueryTypeNullDbContextThree(dbContext)
+      };
 
+      // Act
+      var result = queries.IgnoreExcludedQueries(false).Count();
+
+      // Assert
+      Assert.Equal(3, result);
+    }
   }
 }
