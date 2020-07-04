@@ -139,7 +139,8 @@ Ignore excluded queries and execute all queries under type **T**
 
 ```csharp
 // Changing the default value of *IgnoreExcludedQueries* affect your current engine instance.
-// If you want to call again in the same code block, you need to pass **true** if you do not want that behavior.
+// If you want to call again in the same code block, you need to pass **true** 
+// if you do not want that behavior.
 using var nullDbContext = new NullDbContext();
 var totalQueries = new QueryologyEngine<NullDbContext>(nullDbContext)
                        .IgnoreExcludedQueries(false)
