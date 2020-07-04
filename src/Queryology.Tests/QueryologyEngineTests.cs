@@ -11,7 +11,8 @@ namespace ByteDecoder.Queryology.Tests
     {
       //  Arrange
       using var dbContext = new NullDbContext();
-      var sut = new QueryologyEngine<NullDbContext>(dbContext);
+      var sut = new QueryologyEngineTestBuilder<NullDbContext>(dbContext)
+                    .Build();
 
       // Act
       var result = sut.Execute();
@@ -41,7 +42,8 @@ namespace ByteDecoder.Queryology.Tests
     {
       //  Arrange
       using var dbContext = new InMemoryDbContext();
-      var sut = new QueryologyEngine<InMemoryDbContext>(dbContext);
+      var sut = new QueryologyEngineTestBuilder<InMemoryDbContext>(dbContext)
+                    .Build();
 
       // Act
       var result = sut.Execute();
