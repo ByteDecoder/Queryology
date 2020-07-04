@@ -1,18 +1,26 @@
+using System;
 using ByteDecoder.Queryology.Tests.Data;
 using ByteDecoder.Queryology.Tests.TestBuilders;
 using Xunit;
 
 namespace ByteDecoder.Queryology.Tests
 {
-  public class QueryologyEngineTests
+  public class QueryologyEngineTests: IDisposable
   {
+    private TestBuilderFactory _testBuilderFactory;
+    private bool _disposedValue;
+
+    public QueryologyEngineTests()
+    {
+      _testBuilderFactory = new TestBuilderFactory();
+    }
+
     [Fact]
-    public void Execute_RunOnlyEnabledQueriesTypeA_WhenSomeAreDisabled()
+    public void Execute_RunOnlyEnabledQueriesTypeNullDbContext_WhenSomeAreDisabled()
     {
       //  Arrange
-      using var dbContext = new NullDbContext();
-      var sut = new QueryologyEngineTestBuilder<NullDbContext>(dbContext)
-                    .Build();
+      using var testBuilder = _testBuilderFactory.Create<NullDbContext>();
+      var sut = testBuilder.Build();
 
       // Act
       var result = sut.Execute();
@@ -22,13 +30,11 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
-    public void Execute_RunAllQueriesTypeA_WhenExecuteOverridesTheIgnoredQueries()
+    public void Execute_RunAllQueriesTypeNullDbContext_WhenExecuteOverridesTheIgnoredQueries()
     {
       //  Arrange
-      using var dbContext = new NullDbContext();
-      var sut = new QueryologyEngineTestBuilder<NullDbContext>(dbContext)
-                    .NotIgnoreExcludedQueries()
-                    .Build();
+      using var testBuilder = _testBuilderFactory.Create<NullDbContext>();
+      var sut = testBuilder.NotIgnoreExcludedQueries().Build();
 
       // Act
       var result = sut.Execute();
@@ -38,12 +44,11 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
-    public void Execute_RunOnlyEnabledQueriesTypeB_WhenSomeAreDisabled()
+    public void Execute_RunOnlyEnabledQueriesTypeInMemoryDbContext_WhenSomeAreDisabled()
     {
       //  Arrange
-      using var dbContext = new InMemoryDbContext();
-      var sut = new QueryologyEngineTestBuilder<InMemoryDbContext>(dbContext)
-                    .Build();
+      using var testBuilder = _testBuilderFactory.Create<InMemoryDbContext>();
+      var sut = testBuilder.Build();
 
       // Act
       var result = sut.Execute();
@@ -53,13 +58,11 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
-    public void Execute_AllQueriesTypeB_WhenExecuteOverridesTheIgnoredQueries()
+    public void Execute_AllQueriesTypeInMemoryDbContext_WhenExecuteOverridesTheIgnoredQueries()
     {
       //  Arrange
-      using var dbContext = new InMemoryDbContext();
-      var sut = new QueryologyEngineTestBuilder<InMemoryDbContext>(dbContext)
-                    .NotIgnoreExcludedQueries()
-                    .Build();
+      using var testBuilder = _testBuilderFactory.Create<InMemoryDbContext>();
+      var sut = testBuilder.NotIgnoreExcludedQueries().Build();
 
       // Act
       var result = sut.Execute();
@@ -69,19 +72,36 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
-    public void Execute_AllQueriesTypeC_WhenIsCalled()
+    public void Execute_AllQueriesTypeForeverAloneDbContext_WhenIsCalled()
     {
       //  Arrange
-      using var dbContext = new ForeverAloneDbContext();
-      var sut = new QueryologyEngineTestBuilder<ForeverAloneDbContext>(dbContext)
-                    .NotIgnoreExcludedQueries()
-                    .Build();
+      using var testBuilder = _testBuilderFactory.Create<ForeverAloneDbContext>();
+      var sut = testBuilder.NotIgnoreExcludedQueries().Build();
 
       // Act
       var result = sut.Execute();
 
       // Assert
       Assert.Equal(0, result);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if(_disposedValue) return;
+
+      if(disposing)
+      {
+        // Dispose manage resources
+      }
+
+      _testBuilderFactory = null;
+      _disposedValue = true;
+    }
+
+    public void Dispose()
+    {
+      Dispose(disposing: true);
+      GC.SuppressFinalize(this);
     }
   }
 }

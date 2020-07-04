@@ -7,7 +7,7 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
   {
     private T _dbContext;
     private QueryologyEngine<T> _queryologyEngine;
-    private bool disposedValue;
+    private bool _disposedValue;
 
     public QueryologyEngineTestBuilder(T dbContext)
     {
@@ -34,18 +34,17 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
 
     protected virtual void Dispose(bool disposing)
     {
-      if (!disposedValue)
-      {
-        if (disposing)
-        {
-          _dbContext.Dispose();
-        }
-        
-        _dbContext = null;
-        _queryologyEngine = null;
+      if (_disposedValue) return;
 
-        disposedValue = true;
+      if (disposing)
+      {
+        _dbContext.Dispose();
       }
+        
+      _dbContext = null;
+      _queryologyEngine = null;
+
+      _disposedValue = true;
     }
 
     public void Dispose()
