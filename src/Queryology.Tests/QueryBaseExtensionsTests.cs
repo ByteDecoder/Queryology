@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ByteDecoder.Queryology;
 using ByteDecoder.Queryology.Extensions;
+using ByteDecoder.Queryology.Tests.Queries;
 using Xunit;
 
 namespace Queryology.Tests
@@ -23,10 +25,21 @@ namespace Queryology.Tests
     public void IgnoreExcludedQueries_FiltersOnlyAllowedQueries_WhenIsSetToTrue()
     {
       // Arrange
+      using var dbContext = new NullDbContext();
+      var queries = new List<IQuery<NullDbContext>>()
+      {
+        new QueryTypeNullDbContextOne(dbContext),
+        new QueryTypeNullDbContextTwo(dbContext),
+        new QueryTypeNullDbContextThree(dbContext)
+      };
 
       // Act
+      var result = queries.IgnoreExcludedQueries().Count();
 
       // Assert
+      Assert.Equal(2, result);
     }
+
+
   }
 }
