@@ -46,7 +46,7 @@ namespace ByteDecoder.Queryology
       var totalExecQueries = 0;
 
       RegisteredQueries()
-        .AllowedQueries(_ignoreExcludedQueries)
+        .IgnoreExcludedQueries(_ignoreExcludedQueries)
         .ForEach(query =>
         {
           query.Execute();

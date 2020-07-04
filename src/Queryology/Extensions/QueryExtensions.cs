@@ -16,7 +16,7 @@ namespace ByteDecoder.Queryology.Extensions
     /// <param name="source">source enumerable sequence</param>
     /// <param name="ignoreExcludedQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
     /// <returns>Sequence affected after applying the query operator</returns>
-    public static IEnumerable<IQuery<T>> AllowedQueries<T>(this IEnumerable<IQuery<T>> source, bool ignoreExcludedQueries = true)
+    public static IEnumerable<IQuery<T>> IgnoreExcludedQueries<T>(this IEnumerable<IQuery<T>> source, bool ignoreExcludedQueries = true)
       where T : DbContext
     {
       if(source == null) throw new ArgumentNullException(nameof(source));
