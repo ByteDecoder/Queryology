@@ -2,13 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.Queryology.Extensions;
-using ByteDecoder.Queryology.Tests.Queries;
+using ByteDecoder.Queryology.Tests.TestBuilders;
 using Xunit;
 
 namespace ByteDecoder.Queryology.Tests
 {
-  public class QueryBaseExtensionsTests
+  public class QueryBaseExtensionsTests: IDisposable
   {
+    private TestBuilderFactory _testBuilderFactory;
+
+    public QueryBaseExtensionsTests() 
+    {
+      _testBuilderFactory = new TestBuilderFactory();
+    }
+
     [Fact]
     public void IgnoreExcludedQueries_ThrowsAnArgumentNullException_WhenSourceIsNull()
     {
@@ -25,12 +32,7 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       using var dbContext = new NullDbContext();
-      var queries = new List<IQuery<NullDbContext>>()
-      {
-        new QueryTypeNullDbContextOne(dbContext),
-        new QueryTypeNullDbContextTwo(dbContext),
-        new QueryTypeNullDbContextThree(dbContext)
-      };
+      var queries = _testBuilderFactory.CreateNullDbContextObjectQueries(dbContext);
 
       // Act
       var result = queries.IgnoreExcludedQueries().Count();
@@ -44,12 +46,7 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       using var dbContext = new NullDbContext();
-      var queries = new List<IQuery<NullDbContext>>()
-      {
-        new QueryTypeNullDbContextOne(dbContext),
-        new QueryTypeNullDbContextTwo(dbContext),
-        new QueryTypeNullDbContextThree(dbContext)
-      };
+      var queries = _testBuilderFactory.CreateNullDbContextObjectQueries(dbContext);
 
       // Act
       var result = queries.IgnoreExcludedQueries(false).Count();
@@ -57,5 +54,7 @@ namespace ByteDecoder.Queryology.Tests
       // Assert
       Assert.Equal(3, result);
     }
+
+    public void Dispose() => _testBuilderFactory = null;
   }
 }
