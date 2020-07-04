@@ -91,7 +91,7 @@ namespace ByteDecoder.Queryology.Tests
 
       if(disposing)
       {
-        // Dispose manage resources
+        // Dispose managed resources
       }
 
       _testBuilderFactory = null;
