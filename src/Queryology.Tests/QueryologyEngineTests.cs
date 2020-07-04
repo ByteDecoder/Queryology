@@ -1,4 +1,5 @@
 using ByteDecoder.Queryology.Tests.Data;
+using ByteDecoder.Queryology.Tests.TestBuilders;
 using Xunit;
 
 namespace ByteDecoder.Queryology.Tests
@@ -24,10 +25,12 @@ namespace ByteDecoder.Queryology.Tests
     {
       //  Arrange
       using var dbContext = new NullDbContext();
-      var sut = new QueryologyEngine<NullDbContext>(dbContext);
+      var sut = new QueryologyEngineTestBuilder<NullDbContext>(dbContext)
+                    .NotIgnoreExcludedQueries()
+                    .Build();
 
       // Act
-      var result = sut.Execute(false);
+      var result = sut.Execute();
 
       // Assert
       Assert.Equal(3, result);
@@ -52,10 +55,12 @@ namespace ByteDecoder.Queryology.Tests
     {
       //  Arrange
       using var dbContext = new InMemoryDbContext();
-      var sut = new QueryologyEngine<InMemoryDbContext>(dbContext);
+      var sut = new QueryologyEngineTestBuilder<InMemoryDbContext>(dbContext)
+                    .NotIgnoreExcludedQueries()
+                    .Build();
 
       // Act
-      var result = sut.Execute(false);
+      var result = sut.Execute();
 
       // Assert
       Assert.Equal(2, result);
@@ -66,10 +71,12 @@ namespace ByteDecoder.Queryology.Tests
     {
       //  Arrange
       using var dbContext = new ForeverAloneDbContext();
-      var sut = new QueryologyEngine<ForeverAloneDbContext>(dbContext);
+      var sut = new QueryologyEngineTestBuilder<ForeverAloneDbContext>(dbContext)
+                    .NotIgnoreExcludedQueries()
+                    .Build();
 
       // Act
-      var result = sut.Execute(false);
+      var result = sut.Execute();
 
       // Assert
       Assert.Equal(0, result);

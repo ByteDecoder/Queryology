@@ -1,15 +1,24 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace ByteDecoder.Queryology
 {
   /// <summary>
   /// QueryologyEngine base contract
   /// </summary>
-  public interface IQueryologyEngine
+  public interface IQueryologyEngine<T> where T : DbContext
   {
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="ignoreExcludedQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
+    /// <returns></returns>
+    QueryologyEngine<T> IgnoreExcludedQueries(bool ignoreExcludedQueries);
+
     /// <summary>
     /// Execution contract for all queries registered
     /// </summary>
-    /// <param name="ignoreExcludedQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
     /// <returns>Total executed queries</returns>
-    int Execute(bool ignoreExcludedQueries);
+    int Execute();
   }
 }
