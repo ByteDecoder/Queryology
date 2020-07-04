@@ -1,11 +1,11 @@
 using System.Linq;
-using ByteDecoder.Queryology;
+using ByteDecoder.Queryology.Example.Models;
 using ByteDecoder.RoyalLibrary;
 using Queryology.Example.Models;
 
-namespace Queryology.Example.Queries
+namespace ByteDecoder.Queryology.Example.Queries
 {
-  public class ExplicitLoadingQueryExampleOne : QueryBase<EfCoreContext>
+  public class ExplicitLoadingQueryExampleOne: QueryBase<EfCoreContext>
   {
     public ExplicitLoadingQueryExampleOne(EfCoreContext dataContext) : base(dataContext) { }
 

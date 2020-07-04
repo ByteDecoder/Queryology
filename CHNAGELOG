@@ -1,3 +1,7 @@
+### 0.3.0 - 2020-07-03
+  * Assembly renamed to ByteDecoder.Queryology
+  * Internal namespace adjustments
+  
 ### 0.2.0 - 2020-07-03
   * QueryologyEngine now accepts and optional param in the Execute method to override the exluded queries execution
   * QueryologyEngine<T>.Execute() now returns and int instead of a long type

@@ -1,12 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Queryology
+namespace ByteDecoder.Queryology
 {
   /// <summary>
   /// 
   /// </summary>
-  public class NullDbContext : DbContext
-  {
-
-  }
+  public class NullDbContext: DbContext { }
 }

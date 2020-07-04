@@ -1,4 +1,5 @@
 ﻿using System;
+using ByteDecoder.Queryology.Example.Models;
 using Queryology.Example.Models;
 
 namespace ByteDecoder.Queryology.Example.Queries
@@ -11,7 +12,7 @@ namespace ByteDecoder.Queryology.Example.Queries
 
     public override void Execute()
     {
-      Console.WriteLine("Never again.. I will never get executwed by QueryologyEngine =(");
+      Console.WriteLine("Never again.. I will never get executed by QueryologyEngine =(");
     }
   }
 }

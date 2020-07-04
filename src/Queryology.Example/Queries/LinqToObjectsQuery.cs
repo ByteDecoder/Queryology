@@ -1,9 +1,8 @@
 using System;
-using ByteDecoder.Queryology;
 
-namespace Queryology.Example.Queries
+namespace ByteDecoder.Queryology.Example.Queries
 {
-  public class LinqToObjectsQuery : QueryBase<NullDbContext>
+  public class LinqToObjectsQuery: QueryBase<NullDbContext>
   {
     public LinqToObjectsQuery(NullDbContext dataContext) : base(dataContext) { }
 

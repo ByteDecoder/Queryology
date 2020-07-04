@@ -1,8 +1,6 @@
-using ByteDecoder.Queryology;
-
-namespace Queryology.Tests.Queries
+namespace ByteDecoder.Queryology.Tests.Queries
 {
-  public class QueryTypeAOne : QueryBase<NullDbContext>
+  public class QueryTypeAOne: QueryBase<NullDbContext>
   {
     public QueryTypeAOne(NullDbContext dataContext) : base(dataContext) { }
 

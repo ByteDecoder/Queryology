@@ -1,12 +1,12 @@
 ﻿using System;
-using ByteDecoder.Queryology;
+using ByteDecoder.Queryology.Example.Models;
 using Queryology.Example.Models;
 
-namespace Queryology.Example
+namespace ByteDecoder.Queryology.Example
 {
   class Program
   {
-    static void Main(string[] args)
+    static void Main()
     {
       // Using an EF Core provider
       using var dbContext = new EfCoreContext();

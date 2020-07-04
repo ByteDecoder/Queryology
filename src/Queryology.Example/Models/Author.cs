@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Queryology.Example.Models;
 
-namespace Queryology.Example.Models
+namespace ByteDecoder.Queryology.Example.Models
 {
   public class Author
   {

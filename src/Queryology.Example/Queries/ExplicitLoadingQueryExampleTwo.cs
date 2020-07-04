@@ -1,12 +1,12 @@
 using System;
 using System.Linq;
-using ByteDecoder.Queryology;
+using ByteDecoder.Queryology.Example.Models;
 using ByteDecoder.Queryology.Utils;
 using Queryology.Example.Models;
 
-namespace Queryology.Example.Queries
+namespace ByteDecoder.Queryology.Example.Queries
 {
-  public class ExplicitLoadingQueryExampleTwo : QueryBase<EfCoreContext>
+  public class ExplicitLoadingQueryExampleTwo: QueryBase<EfCoreContext>
   {
     public ExplicitLoadingQueryExampleTwo(EfCoreContext dataContext) : base(dataContext) { }
 
@@ -23,7 +23,7 @@ namespace Queryology.Example.Queries
         .ToList();
 
       DisplayData("Eager Loading EF Core Query # ExplicitLoadingQueryExampleTwo", 3);
-      Console.WriteLine($"Review Count => {numReviews}");      
+      Console.WriteLine($"Review Count => {numReviews}");
       ObjectDumper.Write(starRatings);
     }
   }

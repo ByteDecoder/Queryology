@@ -1,4 +1,4 @@
-namespace Queryology.Example.Models
+namespace ByteDecoder.Queryology.Example.Models
 {
   public class BookAuthor
   {

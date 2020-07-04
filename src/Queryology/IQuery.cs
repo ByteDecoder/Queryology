@@ -6,7 +6,7 @@ namespace ByteDecoder.Queryology
   /// 
   /// </summary>
   /// <typeparam name="T"></typeparam>
-  public interface IQuery<T> where T : DbContext
+  public interface IQuery<out T> where T : DbContext
   {
     /// <summary>
     /// Reference to the EF Core DbContext class allowed to use in the query

@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Queryology.Example.Models;
 
-namespace Queryology.Example.Models
+namespace ByteDecoder.Queryology.Example.Models
 {
   public class EfCoreContext : DbContext
   {
-    private static readonly ILoggerFactory _loggerFactory = LoggerFactory.Create(configure => configure.AddConsole());
+    private static readonly ILoggerFactory LoggerFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(configure => configure.AddConsole());
 
     public DbSet<Book> Books { get; set; }
     public DbSet<Author> Authors { get; set; }
@@ -24,7 +25,7 @@ namespace Queryology.Example.Models
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
      optionsBuilder
-      .UseLoggerFactory(_loggerFactory)
+      .UseLoggerFactory(LoggerFactory)
       .EnableSensitiveDataLogging()
       .UseSqlite($"Data source=ExampleDatabase.db");
     

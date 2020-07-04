@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ByteDecoder.Queryology.Extensions;
 using ByteDecoder.RoyalLibrary;
 using Microsoft.EntityFrameworkCore;
-using Queryology.Extensions;
 
 namespace ByteDecoder.Queryology
 {
@@ -11,7 +11,7 @@ namespace ByteDecoder.Queryology
   /// QueryologyEngine will look for all query objects loaded in the Current AppDomain with the type IQuery.
   /// </summary>
   /// <typeparam name="T">An Entity Framework DbContext derived class</typeparam>
-  public class QueryologyEngine<T> : IQueryologyEngine where T : DbContext
+  public class QueryologyEngine<T>: IQueryologyEngine where T : DbContext
   {
     private readonly T _dataContext;
 
@@ -49,7 +49,7 @@ namespace ByteDecoder.Queryology
     {
       var loadedTypes = GetLoadedTypes(typeof(IQuery<T>));
 
-      foreach (var type in loadedTypes)
+      foreach(var type in loadedTypes)
       {
         yield return (IQuery<T>)Activator.CreateInstance(type, _dataContext);
       }
@@ -63,7 +63,7 @@ namespace ByteDecoder.Queryology
     private IEnumerable<Type> GetLoadedTypes(Type targetType) =>
       AppDomain.CurrentDomain.GetAssemblies()
         .SelectMany(assembly => assembly.GetTypes())
-        .Where(type => targetType.IsAssignableFrom(type));
+        .Where(targetType.IsAssignableFrom);
 
   }
 }

@@ -8,7 +8,7 @@ namespace ByteDecoder.Queryology
   /// 
   /// </summary>
   /// <typeparam name="T"></typeparam>
-  public abstract class QueryBase<T> : IQuery<T> where T : DbContext
+  public abstract class QueryBase<T>: IQuery<T> where T : DbContext
   {
     /// <summary>
     /// 
@@ -32,7 +32,7 @@ namespace ByteDecoder.Queryology
     /// </summary>
     /// <param name="dataContext"></param>
     protected QueryBase(T dataContext) => DataContext = dataContext;
-    
+
     /// <summary>
     /// Execute the query main logic body 
     /// </summary>

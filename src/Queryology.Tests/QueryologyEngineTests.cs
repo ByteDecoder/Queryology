@@ -1,13 +1,12 @@
-using ByteDecoder.Queryology;
-using Queryology.Tests.Data;
+using ByteDecoder.Queryology.Tests.Data;
 using Xunit;
 
-namespace Queryology.Tests
+namespace ByteDecoder.Queryology.Tests
 {
   public class QueryologyEngineTests
   {
     [Fact]
-    public void Execute_RunOnlyEnabledQueriesTypeA_WhenSomeAreDiseabled()
+    public void Execute_RunOnlyEnabledQueriesTypeA_WhenSomeAreDisabled()
     {
       //  Arrange
       using var dbContext = new NullDbContext();
@@ -35,7 +34,7 @@ namespace Queryology.Tests
     }
 
     [Fact]
-    public void Execute_RunOnlyEnabledQueriesTypeB_WhenSomeAreDiseabled()
+    public void Execute_RunOnlyEnabledQueriesTypeB_WhenSomeAreDisabled()
     {
       //  Arrange
       using var dbContext = new InMemoryDbContext();
