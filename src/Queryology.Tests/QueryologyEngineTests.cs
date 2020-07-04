@@ -60,5 +60,19 @@ namespace ByteDecoder.Queryology.Tests
       // Assert
       Assert.Equal(2, result);
     }
+
+    [Fact]
+    public void Execute_AllQueriesTypeC_WhenIsCalled()
+    {
+      //  Arrange
+      using var dbContext = new ForeverAloneDbContext();
+      var sut = new QueryologyEngine<ForeverAloneDbContext>(dbContext);
+
+      // Act
+      var result = sut.Execute(false);
+
+      // Assert
+      Assert.Equal(0, result);
+    }
   }
 }
