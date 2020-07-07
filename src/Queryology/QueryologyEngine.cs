@@ -31,7 +31,7 @@ namespace ByteDecoder.Queryology
     /// </summary>
     /// <param name="ignoreQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
     /// <returns></returns>
-    public QueryologyEngine<T> IgnoreExcludedQueries(bool ignoreQueries = true)
+    public IQueryologyEngine<T> IgnoreExcludedQueries(bool ignoreQueries = true)
     {
       _ignoreExcludedQueries = ignoreQueries;
       return this;
