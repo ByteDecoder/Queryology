@@ -1,6 +1,7 @@
 ### 0.4.1 - 2020-07-07
   * Changed to fluent inetrface the next contrat in IQueryologyEngine<T>  
     IQueryologyEngine<T> IgnoreExcludedQueries(bool ignoreQueries); 
+  * ByteDecoder.RoyalLibrary upgraded to 1.3.0
 
 ### 0.4.0 - 2020-07-04
   * Now QueryologyEngine<T>.IgnoreExcludedQueries() fluent interface controls the queries execution if they are excluded or not
