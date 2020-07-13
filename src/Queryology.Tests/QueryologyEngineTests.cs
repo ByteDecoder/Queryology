@@ -72,6 +72,22 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
+    public void Execute_ResetToDefaultIgnoreExcludedQueriesTypeInMemoryDbContext_WhenIsExecutedAgain()
+    {
+      //  Arrange
+      using var testBuilder = _testBuilderFactory.Create<InMemoryDbContext>();
+      var sut = testBuilder.NotIgnoreExcludedQueries().Build();
+
+      // Act
+      var totalQueriesIteration1 = sut.Execute();
+      var totalQueriesIteration2 = sut.Execute();
+
+      // Assert
+      Assert.Equal(2, totalQueriesIteration1);
+      Assert.Equal(1, totalQueriesIteration2);
+    }
+
+    [Fact]
     public void Execute_AllQueriesTypeForeverAloneDbContext_WhenIsCalled()
     {
       //  Arrange

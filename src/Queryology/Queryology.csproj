@@ -13,7 +13,7 @@
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp netcoreapp3.1 EntityFrameworkCore EFCore entity-framework-core </PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.4.1</Version>
+    <Version>0.4.2</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>ByteDecoder.Queryology</AssemblyName>
     <PackageProjectUrl>https://github.com/ByteDecoder/Queryology</PackageProjectUrl>
