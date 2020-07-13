@@ -53,6 +53,7 @@ namespace ByteDecoder.Queryology
           checked { totalExecQueries++; }
         });
 
+      _ignoreExcludedQueries = true;
       return totalExecQueries;
     }
 
