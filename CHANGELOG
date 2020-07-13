@@ -1,3 +1,6 @@
+### 0.4.2 - 2020-07-13
+  * IgnoredExcludedQueries returns to its default state equals true when the engine completes all the query processing
+
 ### 0.4.1 - 2020-07-07
   * Changed to fluent inetrface the next contrat in IQueryologyEngine<T>  
     IQueryologyEngine<T> IgnoreExcludedQueries(bool ignoreQueries); 

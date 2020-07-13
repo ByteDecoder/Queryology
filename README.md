@@ -138,9 +138,8 @@ public class NeverAgainQuery : QueryBase<MyDbCoreContext>
 Ignore excluded queries and execute all queries under type **T**
 
 ```csharp
-// Changing the default value of *IgnoreExcludedQueries* affect your current engine instance.
-// If you want to call again in the same code block, you need to pass **true** 
-// if you do not want that behavior.
+// Changing the default value of *IgnoreExcludedQueries* resets to its true default value
+// after the engine completes all the query processing
 using var nullDbContext = new NullDbContext();
 var totalQueries = new QueryologyEngine<NullDbContext>(nullDbContext)
                        .IgnoreExcludedQueries(false)
