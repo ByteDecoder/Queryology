@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queryology.Tests", "Queryol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queryology.Example", "Queryology.Example\Queryology.Example.csproj", "{E05AF4FE-D398-4995-8F0E-57164DFA2B21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteDecoder.Queryology.Utils", "ByteDecoder.Queryology.Utils\ByteDecoder.Queryology.Utils.csproj", "{09E60F2C-622F-4A20-B2BD-89D13622B6BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{E05AF4FE-D398-4995-8F0E-57164DFA2B21}.Release|x64.Build.0 = Release|Any CPU
 		{E05AF4FE-D398-4995-8F0E-57164DFA2B21}.Release|x86.ActiveCfg = Release|Any CPU
 		{E05AF4FE-D398-4995-8F0E-57164DFA2B21}.Release|x86.Build.0 = Release|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Debug|x64.Build.0 = Debug|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Debug|x86.Build.0 = Debug|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|x64.ActiveCfg = Release|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|x64.Build.0 = Release|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|x86.ActiveCfg = Release|Any CPU
+		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
