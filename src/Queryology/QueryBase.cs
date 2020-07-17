@@ -22,7 +22,12 @@ namespace ByteDecoder.Queryology
     /// Reference to the EF Core DbContext class allowed to use in the query
     /// </summary>
     /// <value></value>
-    public T DataContext { get; private set; }
+    public T DataContext { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public IObjectDisplayer ObjectDisplayer { get; set; }
 
     /// <summary>
     /// If the field is true, means the query can be executed, otherwise is not executed
@@ -32,11 +37,24 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// 
     /// </summary>
+    protected QueryBase() { }
+
+    /// <summary>
+    /// 
+    /// </summary>
     /// <param name="dataContext"></param>
-    /// <param name="objectDisplayer"></param>
-    protected QueryBase(T dataContext, IObjectDisplayer objectDisplayer)
+    protected QueryBase(T dataContext)
     {
       DataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="dataContext"></param>
+    /// <param name="objectDisplayer"></param>
+    protected QueryBase(T dataContext, IObjectDisplayer objectDisplayer) : this(dataContext)
+    {
       _objectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(dataContext));
     }
 

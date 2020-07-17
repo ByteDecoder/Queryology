@@ -1,14 +1,11 @@
 using System.Linq;
 using ByteDecoder.Queryology.Example.Models;
 using Microsoft.EntityFrameworkCore;
-using Queryology.Example.Models;
 
 namespace ByteDecoder.Queryology.Example.Queries
 {
-  public class EagerLoadingQueryExample: QueryBase<EfCoreContext>
+  public class EagerLoadingQueryExample : QueryBase<EfCoreContext>
   {
-    public EagerLoadingQueryExample(EfCoreContext dataContext) : base(dataContext) { }
-
     public override void Execute()
     {
       Data = DataContext.Books
