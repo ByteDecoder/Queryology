@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Extensions;
 using ByteDecoder.RoyalLibrary;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace ByteDecoder.Queryology
   public class QueryologyEngine<T> : IQueryologyEngine<T> where T : DbContext
   {
     private readonly T _dataContext;
+    private readonly IObjectDisplayer _objectDisplayer;
     private bool _ignoreExcludedQueries;
 
     /// <summary>
@@ -22,8 +24,19 @@ namespace ByteDecoder.Queryology
     /// <param name="dataContext">An Entity Framework DbContext class</param>
     public QueryologyEngine(T dataContext)
     {
-      _dataContext = dataContext;
+      _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
       _ignoreExcludedQueries = true;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="dataContext"></param>
+    /// <param name="objectDisplayer"></param>
+    /// <returns></returns>
+    public QueryologyEngine(T dataContext, IObjectDisplayer objectDisplayer) : this(dataContext)
+    {
+      _objectDisplayer = objectDisplayer;
     }
 
     /// <summary>
@@ -67,7 +80,10 @@ namespace ByteDecoder.Queryology
 
       foreach (var type in loadedTypes)
       {
-        yield return (IQuery<T>)Activator.CreateInstance(type, _dataContext);
+        var query = (IQuery<T>)Activator.CreateInstance(type);
+        query.DataContext = _dataContext;
+        query.ObjectDisplayer = _objectDisplayer;
+        yield return query;
       }
     }
 

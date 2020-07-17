@@ -12,7 +12,7 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
     public QueryologyEngineTestBuilder()
     {
       _dbContext = new T();
-      _queryologyEngine = new QueryologyEngine<T>(_dbContext);
+      _queryologyEngine = new QueryologyEngine<T>(_dbContext, new DefaultObjectDisplayer());
     }
 
     public QueryologyEngineTestBuilder<T> NotIgnoreExcludedQueries()

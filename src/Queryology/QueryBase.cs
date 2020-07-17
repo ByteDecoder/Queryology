@@ -1,5 +1,5 @@
 using System;
-using ByteDecoder.Queryology.Utils;
+using ByteDecoder.Queryology.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology
@@ -8,8 +8,10 @@ namespace ByteDecoder.Queryology
   /// 
   /// </summary>
   /// <typeparam name="T"></typeparam>
-  public abstract class QueryBase<T>: IQuery<T> where T : DbContext
+  public abstract class QueryBase<T> : IQuery<T> where T : DbContext
   {
+    private readonly IObjectDisplayer _objectDisplayer;
+
     /// <summary>
     /// 
     /// </summary>
@@ -20,7 +22,12 @@ namespace ByteDecoder.Queryology
     /// Reference to the EF Core DbContext class allowed to use in the query
     /// </summary>
     /// <value></value>
-    public T DataContext { get; private set; }
+    public T DataContext { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public IObjectDisplayer ObjectDisplayer { get; set; }
 
     /// <summary>
     /// If the field is true, means the query can be executed, otherwise is not executed
@@ -30,8 +37,26 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// 
     /// </summary>
+    protected QueryBase() { }
+
+    /// <summary>
+    /// 
+    /// </summary>
     /// <param name="dataContext"></param>
-    protected QueryBase(T dataContext) => DataContext = dataContext;
+    protected QueryBase(T dataContext)
+    {
+      DataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="dataContext"></param>
+    /// <param name="objectDisplayer"></param>
+    protected QueryBase(T dataContext, IObjectDisplayer objectDisplayer) : this(dataContext)
+    {
+      _objectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(dataContext));
+    }
 
     /// <summary>
     /// Execute the query main logic body 
@@ -45,10 +70,7 @@ namespace ByteDecoder.Queryology
     /// <param name="depth">Level of depth for object exploration</param>
     protected void DisplayData(string title, int depth = 1)
     {
-      Console.WriteLine();
-      Console.WriteLine(title);
-      ObjectDumper.Write(Data, depth);
-      Console.WriteLine();
+      _objectDisplayer.DisplayData(title, Data, depth);
     }
   }
 }

@@ -1,11 +1,11 @@
-//Copyright (C) Microsoft Corporation.  All rights reserved.
+﻿//Copyright (C) Microsoft Corporation.  All rights reserved.
 
 using System;
 using System.Collections;
 using System.IO;
 using System.Reflection;
 
-namespace ByteDecoder.Queryology.Utils
+namespace ByteDecoder.Queryology.Providers.ObjectDumper
 {
   /// <summary>
   /// 

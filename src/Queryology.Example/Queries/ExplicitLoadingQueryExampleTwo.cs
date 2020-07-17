@@ -1,15 +1,12 @@
 using System;
 using System.Linq;
 using ByteDecoder.Queryology.Example.Models;
-using ByteDecoder.Queryology.Utils;
-using Queryology.Example.Models;
+using ByteDecoder.Queryology.Providers.ObjectDumper;
 
 namespace ByteDecoder.Queryology.Example.Queries
 {
   public class ExplicitLoadingQueryExampleTwo: QueryBase<EfCoreContext>
   {
-    public ExplicitLoadingQueryExampleTwo(EfCoreContext dataContext) : base(dataContext) { }
-
     public override void Execute()
     {
       var book = DataContext.Books.First();

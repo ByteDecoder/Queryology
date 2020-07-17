@@ -5,12 +5,15 @@
     <RootNamespace>ByteDecoder.Queryology.Example</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Queryology\Queryology.csproj"/>
+    <ProjectReference Include="..\Queryology\Queryology.csproj" />
+    <ProjectReference Include="..\Queryology.Providers.ObjectDumper\Queryology.Providers.ObjectDumper.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.4.0"/>
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5"/>
+    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6"><IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+<PrivateAssets>all</PrivateAssets>
+</PackageReference>
   </ItemGroup>
 </Project>
