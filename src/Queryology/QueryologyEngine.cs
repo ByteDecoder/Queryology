@@ -22,7 +22,7 @@ namespace ByteDecoder.Queryology
     /// <param name="dataContext">An Entity Framework DbContext class</param>
     public QueryologyEngine(T dataContext)
     {
-      _dataContext = dataContext;
+      _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
       _ignoreExcludedQueries = true;
     }
 
