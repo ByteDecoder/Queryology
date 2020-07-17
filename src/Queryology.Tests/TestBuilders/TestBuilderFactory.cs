@@ -11,12 +11,12 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
       return new QueryologyEngineTestBuilder<T>();
     }
 
-    public IEnumerable<IQuery<NullDbContext>> CreateNullDbContextObjectQueries(NullDbContext dbContext) => 
+    public IEnumerable<IQuery<NullDbContext>> CreateNullDbContextObjectQueries(NullDbContext dbContext) =>
       new List<IQuery<NullDbContext>>()
         {
-          new QueryTypeNullDbContextOne(dbContext),
-          new QueryTypeNullDbContextTwo(dbContext),
-          new QueryTypeNullDbContextThree(dbContext)
+          new QueryTypeNullDbContextOne  { DataContext = dbContext },
+          new QueryTypeNullDbContextTwo  { DataContext = dbContext },
+          new QueryTypeNullDbContextThree  { DataContext = dbContext }
         };
   }
 }

@@ -12,7 +12,7 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       using var dbContext = new InMemoryDbContext();
-      var query = new QueryTypeInMemoryDbContextTwo(dbContext);
+      var query = new QueryTypeInMemoryDbContextTwo { DataContext = dbContext };
 
       // Act
       // Assert
@@ -24,7 +24,7 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       using var dbContext = new InMemoryDbContext();
-      var query = new QueryTypeInMemoryDbContextTwo(dbContext);
+      var query = new QueryTypeInMemoryDbContextTwo { DataContext = dbContext };
 
       // Act
       query.Execute();
@@ -38,20 +38,11 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       using var dbContext = new InMemoryDbContext();
-      var query = new QueryTypeInMemoryDbContextTwo(dbContext);
+      var query = new QueryTypeInMemoryDbContextTwo { DataContext = dbContext };
 
       // Act
       // Assert
       Assert.NotNull(query.DataContext);
-    }
-
-    [Fact]
-    public void Intantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsDbObject()
-    {
-      // Arrange
-      // Act
-      // Assert
-      Assert.Throws<ArgumentNullException>(() => new QueryTypeInMemoryDbContextTwo(null));
     }
   }
 }
