@@ -16,6 +16,9 @@ namespace ByteDecoder.Queryology
     /// <param name="depth"></param>
     public void DisplayData(string title, object data, int depth)
     {
+      if (data == null)
+        throw new ArgumentNullException(nameof(data));
+
       Console.WriteLine($"{title} - {data.ToString()} - {depth}");
     }
   }
