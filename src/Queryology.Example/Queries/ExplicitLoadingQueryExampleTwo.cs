@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using ByteDecoder.Queryology.Example.Models;
-using ByteDecoder.Queryology.Utils;
+using ByteDecoder.Queryology.Providers.ObjectDumper;
 using Queryology.Example.Models;
 
 namespace ByteDecoder.Queryology.Example.Queries

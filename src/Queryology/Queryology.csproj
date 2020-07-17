@@ -30,6 +30,6 @@
     <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ByteDecoder.Queryology.Utils\ByteDecoder.Queryology.Utils.csproj" />
+    <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj" />
   </ItemGroup>
 </Project>

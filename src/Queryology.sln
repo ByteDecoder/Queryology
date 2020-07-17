@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queryology.Tests", "Queryol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queryology.Example", "Queryology.Example\Queryology.Example.csproj", "{E05AF4FE-D398-4995-8F0E-57164DFA2B21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteDecoder.Queryology.Utils", "ByteDecoder.Queryology.Utils\ByteDecoder.Queryology.Utils.csproj", "{09E60F2C-622F-4A20-B2BD-89D13622B6BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queryology.Providers.ObjectDumper", "Queryology.Providers.ObjectDumper\Queryology.Providers.ObjectDumper.csproj", "{09E60F2C-622F-4A20-B2BD-89D13622B6BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queryology.Abstractions", "Queryology.Abstractions\Queryology.Abstractions.csproj", "{1FE325B9-6288-408C-AD66-883302C24185}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,5 +74,17 @@ Global
 		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|x64.Build.0 = Release|Any CPU
 		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|x86.ActiveCfg = Release|Any CPU
 		{09E60F2C-622F-4A20-B2BD-89D13622B6BA}.Release|x86.Build.0 = Release|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Debug|x64.Build.0 = Debug|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Debug|x86.Build.0 = Debug|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Release|x64.ActiveCfg = Release|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Release|x64.Build.0 = Release|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Release|x86.ActiveCfg = Release|Any CPU
+		{1FE325B9-6288-408C-AD66-883302C24185}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>ByteDecoder.Queryology.Utils</RootNamespace>
+    <RootNamespace>ByteDecoder.Queryology.Abstractions</RootNamespace>
   </PropertyGroup>
 
 </Project>

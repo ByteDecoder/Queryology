@@ -1,5 +1,5 @@
 using System;
-using ByteDecoder.Queryology.Utils;
+using ByteDecoder.Queryology.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology
@@ -10,6 +10,8 @@ namespace ByteDecoder.Queryology
   /// <typeparam name="T"></typeparam>
   public abstract class QueryBase<T> : IQuery<T> where T : DbContext
   {
+    private readonly IObjectDisplayer _objectDisplayer;
+
     /// <summary>
     /// 
     /// </summary>
@@ -31,9 +33,11 @@ namespace ByteDecoder.Queryology
     /// 
     /// </summary>
     /// <param name="dataContext"></param>
-    protected QueryBase(T dataContext)
+    /// <param name="objectDisplayer"></param>
+    protected QueryBase(T dataContext, IObjectDisplayer objectDisplayer)
     {
       DataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+      _objectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(dataContext));
     }
 
     /// <summary>
@@ -48,10 +52,7 @@ namespace ByteDecoder.Queryology
     /// <param name="depth">Level of depth for object exploration</param>
     protected void DisplayData(string title, int depth = 1)
     {
-      Console.WriteLine();
-      Console.WriteLine(title);
-      ObjectDumper.Write(Data, depth);
-      Console.WriteLine();
+      _objectDisplayer.DisplayData(title, Data, depth);
     }
   }
 }

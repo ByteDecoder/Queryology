@@ -5,7 +5,7 @@ using System.Collections;
 using System.IO;
 using System.Reflection;
 
-namespace ByteDecoder.Queryology.Utils
+namespace ByteDecoder.Queryology.Providers.ObjectDumper
 {
   /// <summary>
   /// 

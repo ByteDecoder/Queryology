@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Queryology\Queryology.csproj" />
+    <ProjectReference Include="..\Queryology.Providers.ObjectDumper\Queryology.Providers.ObjectDumper.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.4.0" />

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ByteDecoder.Queryology.Providers.ObjectDumper</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
