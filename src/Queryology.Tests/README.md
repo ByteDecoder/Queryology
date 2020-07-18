@@ -15,6 +15,22 @@ Required VSCode extensions for code coverage and line coverage
 dotnet test /p:CollectCoverage=true
 ```
 
+## Installing globally the ReportGenerator tool
+
+```bash
+dotnet tool install -g dotnet-reportgenerator-globaltool
+```
+
+## Generating a Coverage Report
+
+Inside .src/ directory execute:
+
+```bash
+reportgenerator "-reports:coverage/lcov.info" "-reporttypes:HTMLInline;Badges" "-targetdir:coverage/report"
+```
+
+Then Press **F1** in *VSCode* and choose *Coverage Gutters: Preview Report Coverage*
+
 ## Example of .Net Test Explorer Configuration file
 
 Install VSCode .Net Test Explorer extension and add this configuration
