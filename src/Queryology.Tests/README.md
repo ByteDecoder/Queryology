@@ -1,6 +1,13 @@
-# RUnning the Queryology Test Suite
+# Running the Queryology Test Suite
 
-TBD
+The test suite is using **xUnit** as testing framework. For *Code Coverage*
+
+Required VSCode extensions
+
+- Coverage Gutters
+- .Net Test Explorer
+
+**Note** Dont forget to activate the *Coverage Glutter Watch* in the bottom option line in VSCode to see line coverage colors in the code.
 
 ## Running tests with coverage
 
@@ -18,6 +25,13 @@ Install VSCode .Net Test Explorer extension and add this configuration
   "dotnet-test-explorer.testArguments": "/p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=../coverage/lcov.info"
 }
 ```
+
+## Coverage Gutters
+
+In the Nuget palette you can choose the next options to be displayed:
+
+- Coverage Gutters: Display Coverage
+- Coverage Gutters: Preview Report Coverage
 
 ## Reference links
 

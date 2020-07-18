@@ -73,7 +73,6 @@ namespace ByteDecoder.Queryology
       foreach(var type in loadedTypes)
       {
         var query = (IQuery<T>)Activator.CreateInstance(type);
-        if(query == null) continue;
         query.DataContext = _dataContext;
         query.ObjectDisplayer = _objectDisplayer;
         yield return query;
