@@ -21,7 +21,21 @@ namespace ByteDecoder.Queryology.Tests
       // Arrange
       // Act
       // Assert
-      Assert.Throws<ArgumentNullException>(() => new QueryologyEngine<InMemoryDbContext>(null));
+      Assert.Throws<ArgumentNullException>(() => new QueryologyEngine<InMemoryDbContext>(null, null));
+    }
+
+
+    [Fact]
+    public void Instantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsObjectDisplayer()
+    {
+      // Arrange
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() =>
+      {
+        var dbContext = new InMemoryDbContext();
+        return new QueryologyEngine<InMemoryDbContext>(dbContext, null);
+      });
     }
 
     [Fact]

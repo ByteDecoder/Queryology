@@ -8,7 +8,7 @@ namespace ByteDecoder.Queryology
   /// 
   /// </summary>
   /// <typeparam name="T"></typeparam>
-  public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T> where T : DbContext
+  public class QueryologyEngineBuilder<T>: IQueryologyEngineBuilder<T> where T : DbContext
   {
     private IQueryologyEngine<T> _queryologyEngine;
 

@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using ByteDecoder.Queryology.Example.Models;
 
-namespace Queryology.Example.Models
+namespace ByteDecoder.Queryology.Example.Models
 {
   public static class SeedData
   {

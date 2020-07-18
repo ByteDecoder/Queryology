@@ -12,7 +12,7 @@ namespace ByteDecoder.Queryology
   /// QueryologyEngine will look for all query objects loaded in the Current AppDomain with the type IQuery.
   /// </summary>
   /// <typeparam name="T">An Entity Framework DbContext derived class</typeparam>
-  public class QueryologyEngine<T> : IQueryologyEngine<T> where T : DbContext
+  public class QueryologyEngine<T>: IQueryologyEngine<T> where T : DbContext
   {
     private readonly T _dataContext;
     private readonly IObjectDisplayer _objectDisplayer;
@@ -21,22 +21,14 @@ namespace ByteDecoder.Queryology
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="dataContext">An Entity Framework DbContext class</param>
-    public QueryologyEngine(T dataContext)
-    {
-      _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
-      _ignoreExcludedQueries = true;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="dataContext"></param>
     /// <param name="objectDisplayer"></param>
     /// <returns></returns>
-    public QueryologyEngine(T dataContext, IObjectDisplayer objectDisplayer) : this(dataContext)
+    public QueryologyEngine(T dataContext, IObjectDisplayer objectDisplayer)
     {
-      _objectDisplayer = objectDisplayer;
+      _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+      _objectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(objectDisplayer));
+      _ignoreExcludedQueries = true;
     }
 
     /// <summary>
@@ -44,7 +36,7 @@ namespace ByteDecoder.Queryology
     /// </summary>
     /// <param name="ignoreQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
     /// <returns></returns>
-    public IQueryologyEngine<T> IgnoreExcludedQueries(bool ignoreQueries = true)
+    public IQueryologyEngine<T> IgnoreExcludedQueries(bool ignoreQueries)
     {
       _ignoreExcludedQueries = ignoreQueries;
       return this;
@@ -78,7 +70,7 @@ namespace ByteDecoder.Queryology
     {
       var loadedTypes = GetLoadedTypes(typeof(IQuery<T>));
 
-      foreach (var type in loadedTypes)
+      foreach(var type in loadedTypes)
       {
         var query = (IQuery<T>)Activator.CreateInstance(type);
         query.DataContext = _dataContext;
@@ -92,7 +84,7 @@ namespace ByteDecoder.Queryology
     /// </summary>
     /// <param name="targetType">Target Type to find</param>
     /// <returns></returns>
-    private IEnumerable<Type> GetLoadedTypes(Type targetType) =>
+    private static IEnumerable<Type> GetLoadedTypes(Type targetType) =>
       AppDomain.CurrentDomain.GetAssemblies()
         .SelectMany(assembly => assembly.GetTypes())
         .Where(targetType.IsAssignableFrom);

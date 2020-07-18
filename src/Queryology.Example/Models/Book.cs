@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Queryology.Example.Models;
 
 namespace ByteDecoder.Queryology.Example.Models
 {
