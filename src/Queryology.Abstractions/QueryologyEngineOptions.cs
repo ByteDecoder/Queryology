@@ -19,10 +19,5 @@ namespace ByteDecoder.Queryology.Abstractions
     /// </summary>
     /// <value></value>
     public IObjectDisplayer ObjectDisplayerProvider { get; set; }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public QueryologyEngineOptions() { }
   }
 }
