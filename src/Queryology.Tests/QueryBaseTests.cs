@@ -47,6 +47,17 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
+    public void ObjectDisplayer_IsNullByDefault_WhenObjectIsCreated()
+    {
+      // Arrange
+      // Act
+      var sut = new QueryTypeInMemoryDbContextTwo();
+
+      // Assert
+      Assert.Null(sut.ObjectDisplayer);
+    }
+
+    [Fact]
     public void Data_SetDataToNull_WhenNullWhenQueryObjectIsCreated()
     {
       // Arrange
