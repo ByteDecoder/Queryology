@@ -1,4 +1,5 @@
 # Queryology
+
 Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments
 
 Targeted to .Net Core 3.1
@@ -9,13 +10,13 @@ Install the [Queryology NuGet Package](https://www.nuget.org/packages/ByteDecode
 
 ### Package Manager Console
 
-```
+```bash
 Install-Package ByteDecoder.Queryology
 ```
 
 ### .NET Core CLI
 
-```
+```bash
 dotnet add package ByteDecoder.Queryology
 ```
 
@@ -69,7 +70,7 @@ public class MyQuery : QueryBase<MyDbCoreContext>
   }
 }
 
-// In your .Net Core application, instantiate the engine and execute it! 
+// In your .Net Core application, instantiate the engine and execute it!
 class Program
 {
   static void Main(string[] args)
@@ -150,13 +151,13 @@ That is all, you can continue adding more queries and do not bother about the in
 First create the example database and apply the migrations with:
 
 ```bash
-$ cd ./src
-$ dotnet ef database update -p ./Queryology.Example
+cd ./src
+dotnet ef database update -p ./Queryology.Example
 ```
 
 Then run the example console project:
 
 ```bash
-$ cd Queryology.Example/
-$ dotnet run
+cd Queryology.Example/
+dotnet run
 ```
