@@ -4,6 +4,7 @@
 You can find the documentation for previous versions < 1.0.0 here [DOCUMENTATION_UNTIL_0.4.3.md](DOCUMENTATION_UNTIL_0.4.3.md)
 
 # Queryology
+
 Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments
 
 Targeted to .Net Core 3.1
@@ -14,14 +15,16 @@ Install the [Queryology NuGet Package](https://www.nuget.org/packages/ByteDecode
 
 ### Package Manager Console
 
-```
+```porwershell
 Install-Package ByteDecoder.Queryology
+Install-Package ByteDecoder.Queryology.Providers.ObjectDumper
 ```
 
 ### .NET Core CLI
 
-```
+```bash
 dotnet add package ByteDecoder.Queryology
+dotnet add package ByteDecoder.Queryology.Providers.ObjectDumper
 ```
 
 ## Examples and usage
@@ -32,11 +35,11 @@ By using it, allow you to stay focus reviewing and writing your queries, executi
 
 The basic theory that you need:
 
-- **Queryology** NuGet package installed
+- **Queryology** NuGet package installed and *Object Dumper* provider
 - Your *EF Core DbContext class*, or if you want to use only *LINQ to Objects*, **Queryology** provides a default *NullDbContext* to avoid setting one by yourself
 - Have a query class per each one of your experiments
 - Inherit and implement *QueryBase\<T\>* where **T** is the type of your *EF Core DbContext class*
-- **QueryBase\<T\>** Uses an **ObjectDumper** from Microsoft for exploring your Linq results
+- **QueryBase\<T\>** Uses an **ObjectDumper** as provider from Microsoft for exploring your Linq results
 - Don't forget to add a *logger* in your *EF Core DbContext class* to analyze the *SQL output*
 - Just call an instance of **QueryologyEngine** with your *EF Core DbContext class* and, it will find for you all your query classes that inherit from  **QueryBase\<T\>** and it will execute them
 - Enjoy
@@ -58,8 +61,6 @@ public class MyDbCoreContext : DbContext { ... }
 // is your EF Core DbContext class
 public class MyQuery : QueryBase<MyDbCoreContext>
 {
-  public MyQuery(MyDbCoreContext dataContext) : base(dataContext) { }
-
   public override void Execute()
   {
     Data = DataContext.Books
@@ -74,13 +75,17 @@ public class MyQuery : QueryBase<MyDbCoreContext>
   }
 }
 
-// In your .Net Core application, instantiate the engine and execute it! 
+// In your .Net Core application, instantiate the engine and execute it!
 class Program
 {
   static void Main(string[] args)
   {
     using var dbContext = new MyDbCoreContext();
-    var totalQueries = new QueryologyEngine<MyDbCoreContext>(dbContext).Execute();
+    var totalQueries = new QueryologyEngineBuilder<MyDbCoreContext>()
+        .AddObjectDumper(dbContext)
+        .Build()
+        .Execute();
+
 
     Console.WriteLine($"\n🦄🦄 Total Queries allowed to be executed: {totalQueries}");
     Console.WriteLine("🐵🐵 Press Enter to continue... 🐵🐵");
@@ -96,8 +101,6 @@ Minimalist EF Core only with LINQ to Objects example code:
 // as your type T
 public class LinqToObjectsQuery : QueryBase<NullDbContext>
 {
-  public LinqToObjectsQuery(NullDbContext dataContext) : base(dataContext) { }
-
   public override void Execute()
   {
     Console.WriteLine("Some LINQ to Objects code here");
@@ -110,7 +113,11 @@ class Program
   static void Main(string[] args)
   {
     using var nullDbContext = new NullDbContext();
-    var totalQueries = new QueryologyEngine<NullDbContext>(nullDbContext).Execute();
+    var totalQueries = new QueryologyEngineBuilder<NullDbContext>()
+        .AddObjectDumper(nullDbContext)
+        .Build()
+        .Execute();
+
 
     Console.WriteLine($"\n🦄🦄 Total Queries allowed to be executed: {totalQueries}");
     Console.WriteLine("🐵🐵 Press Enter to continue... 🐵🐵");
@@ -127,8 +134,6 @@ public class NeverAgainQuery : QueryBase<MyDbCoreContext>
 {
   public override bool Executable => false;
 
-  public NeverAgainQuery(EfCoreContext dataContext) : base(dataContext) { }
-
   public override void Execute()
   {
     Console.WriteLine("Never again.. I will never get executwed by QueryologyEngine =(");
@@ -143,9 +148,12 @@ Ignore excluded queries and execute all queries under type **T**
 // Changing the default value of *IgnoreExcludedQueries* resets to its true default value
 // after the engine completes all the query processing
 using var nullDbContext = new NullDbContext();
-var totalQueries = new QueryologyEngine<NullDbContext>(nullDbContext)
-                       .IgnoreExcludedQueries(false)
-                       .Execute();
+var queryologyEngine = new QueryologyEngineBuilder<NullDbContext>()
+                            .AddObjectDumper(nullDbContext)
+                            .Build();
+var totalQueries = queryologyEngine
+                    .IgnoreExcludedQueries(false)
+                    .Execute();
 ```
 
 That is all, you can continue adding more queries and do not bother about the infrastructure
@@ -155,20 +163,19 @@ That is all, you can continue adding more queries and do not bother about the in
 First create the example database and apply the migrations with:
 
 ```bash
-$ cd ./src
-$ dotnet ef database update -p ./Queryology.Example
+cd ./src
+dotnet ef database update -p ./Queryology.Example
 ```
 
 Then run the example console project:
 
 ```bash
-$ cd Queryology.Example/
-$ dotnet run
+cd Queryology.Example/
+dotnet run
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ByteDecoder/Queryology.
-
+Bug reports and pull requests are welcome on GitHub at <https://github.com/ByteDecoder/Queryology>.
 
 Copyright (c) 2020 [Rodrigo Reyes](https://twitter.com/bytedecoder) released under the MIT license
