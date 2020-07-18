@@ -16,7 +16,7 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
-    public void Intantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsDbObject()
+    public void Instantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsDbObject()
     {
       // Arrange
       // Act
