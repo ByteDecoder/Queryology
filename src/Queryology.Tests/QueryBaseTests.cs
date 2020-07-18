@@ -1,6 +1,7 @@
 ﻿using System;
 using ByteDecoder.Queryology.Tests.Data;
 using ByteDecoder.Queryology.Tests.Queries;
+using ByteDecoder.Queryology.Tests.Support;
 using Xunit;
 
 namespace ByteDecoder.Queryology.Tests
@@ -29,6 +30,20 @@ namespace ByteDecoder.Queryology.Tests
 
       // Assert
       Assert.IsType<ArgumentNullException>(exception);
+    }
+
+    [Fact]
+    public void Constructor_CreatesObjectInstance_WhenHasValidParams()
+    {
+      // Arrange
+      using var dbContext = new InMemoryDbContext();
+      var objectViewer = new TestObjectViewer();
+
+      // Act
+      var sut = new QueryTypeInMemoryDbContextTwo(dbContext, objectViewer);
+
+      // Assert
+      Assert.NotNull(sut);
     }
 
     [Fact]
