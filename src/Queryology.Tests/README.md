@@ -1,6 +1,6 @@
 # Running the Queryology Test Suite
 
-The test suite is using **xUnit** as testing framework. For *Code Coverage* the usite uses **Corvelet**, **Corvelet.MSBuild** 
+The test suite is using **xUnit** as testing framework and for *Code Coverage* the test suite uses **Corvelet**, **Corvelet.MSBuild** 
 
 Required VSCode extensions for code coverage and line coverage
 
