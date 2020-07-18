@@ -5,7 +5,7 @@ using Xunit;
 
 namespace ByteDecoder.Queryology.Tests
 {
-  public class QueryologyEngineTests : IDisposable
+  public class QueryologyEngineTests: IDisposable
   {
     private TestBuilderFactory _testBuilderFactory;
     private bool _disposedValue;
@@ -16,12 +16,26 @@ namespace ByteDecoder.Queryology.Tests
     }
 
     [Fact]
-    public void Intantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsDbObject()
+    public void Instantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsDbObject()
     {
       // Arrange
       // Act
       // Assert
-      Assert.Throws<ArgumentNullException>(() => new QueryologyEngine<InMemoryDbContext>(null));
+      Assert.Throws<ArgumentNullException>(() => new QueryologyEngine<InMemoryDbContext>(null, null));
+    }
+
+
+    [Fact]
+    public void Instantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsObjectDisplayer()
+    {
+      // Arrange
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() =>
+      {
+        var dbContext = new InMemoryDbContext();
+        return new QueryologyEngine<InMemoryDbContext>(dbContext, null);
+      });
     }
 
     [Fact]
@@ -112,9 +126,9 @@ namespace ByteDecoder.Queryology.Tests
 
     protected virtual void Dispose(bool disposing)
     {
-      if (_disposedValue) return;
+      if(_disposedValue) return;
 
-      if (disposing)
+      if(disposing)
       {
         // Dispose managed resources
       }

@@ -12,7 +12,7 @@ namespace ByteDecoder.Queryology.Tests
   {
     private TestBuilderFactory _testBuilderFactory;
 
-    public QueryBaseExtensionsTests() 
+    public QueryBaseExtensionsTests()
     {
       _testBuilderFactory = new TestBuilderFactory();
     }

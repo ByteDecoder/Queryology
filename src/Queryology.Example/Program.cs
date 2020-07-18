@@ -1,16 +1,19 @@
-﻿using System;
-using ByteDecoder.Queryology.Example.Models;
-using Queryology.Example.Models;
+﻿using ByteDecoder.Queryology.Example.Models;
+using System;
+using ByteDecoder.Queryology.Providers.ObjectDumper;
 
 namespace ByteDecoder.Queryology.Example
 {
-  class Program
+  internal static class Program
   {
-    static void Main()
+    internal static void Main()
     {
       // Using an EF Core provider
       using var dbContext = new EfCoreContext();
-      var totalQueries = new QueryologyEngine<EfCoreContext>(dbContext).Execute();
+      var totalQueries = new QueryologyEngineBuilder<EfCoreContext>()
+        .AddObjectDumper(dbContext)
+        .Build()
+        .Execute();
 
       Console.WriteLine($"\n🦄🦄 Total Queries allowed to be executed by QueryologyEngine<EfCoreContext>: {totalQueries}");
       Console.WriteLine("🐵🐵 Press Enter to continue... 🐵🐵");
@@ -18,7 +21,10 @@ namespace ByteDecoder.Queryology.Example
 
       // Only to work with LINQ to Objects
       using var nullDbContext = new NullDbContext();
-      totalQueries = new QueryologyEngine<NullDbContext>(nullDbContext).Execute();
+      totalQueries = new QueryologyEngineBuilder<NullDbContext>()
+        .AddObjectDumper(nullDbContext)
+        .Build()
+        .Execute();
 
       Console.WriteLine($"\n🦄🦄 Total Queries allowed to be executed by QueryologyEngine<NullDbContext>: {totalQueries}");
       Console.WriteLine("🐵🐵 Press Enter to continue... 🐵🐵");

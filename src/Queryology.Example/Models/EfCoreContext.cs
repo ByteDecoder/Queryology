@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Queryology.Example.Models;
 
 namespace ByteDecoder.Queryology.Example.Models
 {
