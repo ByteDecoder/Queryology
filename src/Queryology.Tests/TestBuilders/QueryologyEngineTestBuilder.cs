@@ -1,4 +1,5 @@
 using System;
+using ByteDecoder.Queryology.Tests.Support;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology.Tests.TestBuilders
@@ -6,13 +7,17 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
   internal class QueryologyEngineTestBuilder<T> : IDisposable where T : DbContext, new()
   {
     private T _dbContext;
-    private QueryologyEngine<T> _queryologyEngine;
+    private IQueryologyEngine<T> _queryologyEngine;
     private bool _disposedValue;
 
     public QueryologyEngineTestBuilder()
     {
       _dbContext = new T();
-      _queryologyEngine = new QueryologyEngine<T>(_dbContext, new DefaultObjectDisplayer());
+      _queryologyEngine = new QueryologyEngineBuilder<T>().Configure(options =>
+      {
+        options.DataContextProvider = _dbContext;
+        options.ObjectDisplayerProvider = new TestObjectViewer();
+      }).Build();
     }
 
     public QueryologyEngineTestBuilder<T> NotIgnoreExcludedQueries()
@@ -23,11 +28,11 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
 
     public QueryologyEngineTestBuilder<T> IgnoreExcludedQueries()
     {
-      _queryologyEngine.IgnoreExcludedQueries();
+      _queryologyEngine.IgnoreExcludedQueries(true);
       return this;
     }
 
-    public QueryologyEngine<T> Build()
+    public IQueryologyEngine<T> Build()
     {
       return _queryologyEngine;
     }
