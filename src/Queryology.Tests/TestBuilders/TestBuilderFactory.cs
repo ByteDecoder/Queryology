@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Tests.Queries;
 using Microsoft.EntityFrameworkCore;
 

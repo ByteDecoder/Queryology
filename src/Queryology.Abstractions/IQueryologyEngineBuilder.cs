@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace ByteDecoder.Queryology
+namespace ByteDecoder.Queryology.Abstractions
 {
   /// <summary>
   /// 

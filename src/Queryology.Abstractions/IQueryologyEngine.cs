@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace ByteDecoder.Queryology
+namespace ByteDecoder.Queryology.Abstractions
 {
   /// <summary>
   /// QueryologyEngine base contract

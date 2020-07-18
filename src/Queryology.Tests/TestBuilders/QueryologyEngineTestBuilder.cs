@@ -1,4 +1,5 @@
 using System;
+using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Tests.Support;
 using Microsoft.EntityFrameworkCore;
 
