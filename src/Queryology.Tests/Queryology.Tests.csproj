@@ -18,6 +18,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.6" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Queryology.Providers.ObjectDumper\Queryology.Providers.ObjectDumper.csproj" />
     <ProjectReference Include="..\Queryology\Queryology.csproj" />
   </ItemGroup>
   <ItemGroup>
