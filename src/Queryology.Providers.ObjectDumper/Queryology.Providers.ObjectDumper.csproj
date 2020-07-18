@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>ByteDecoder.Queryology.Providers.ObjectDumper</RootNamespace>
+    <AssemblyName>ByteDecoder.Queryology.Providers.ObjectDumper</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
