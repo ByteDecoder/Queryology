@@ -39,10 +39,15 @@ namespace Queryology.Tests.Providers
     public void AddObjectDumper_ReturnsIQueryologyEngineBuilder_WhenHasCorrectInputParams()
     {
       // Arrange
+      var sut = new QueryologyEngineBuilder<InMemoryDbContext>();
+      using var dbContext = new InMemoryDbContext();
 
       // Act
+      sut.AddObjectDumper(dbContext);
 
       // Assert
+      Assert.NotNull(sut);
+      Assert.IsType<QueryologyEngine<InMemoryDbContext>>(sut.Build());
     }
   }
 }
