@@ -19,7 +19,7 @@ namespace ByteDecoder.Queryology
       if (data == null)
         throw new ArgumentNullException(nameof(data));
 
-      Console.WriteLine($"{title} - {data.ToString()} - {depth}");
+      Console.WriteLine($"{title} - {data} - {depth}");
     }
   }
 }

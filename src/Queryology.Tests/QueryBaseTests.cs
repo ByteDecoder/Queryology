@@ -8,6 +8,30 @@ namespace ByteDecoder.Queryology.Tests
   public class QueryBaseTests
   {
     [Fact]
+    public void Constructor_ThrowsArgumentNullException_WhenNullIsPassedAsDbContext()
+    {
+      // Arrange
+      // Act
+      var exception = Record.Exception(() => new QueryTypeInMemoryDbContextTwo(null, null));
+
+      // Assert
+      Assert.IsType<ArgumentNullException>(exception);
+    }
+
+    [Fact]
+    public void Constructor_ThrowsArgumentNullException_WhenNullIsPassedAsObjectViewer()
+    {
+      // Arrange
+      using var dbContext = new InMemoryDbContext();
+
+      // Act
+      var exception = Record.Exception(() => new QueryTypeInMemoryDbContextTwo(dbContext, null));
+
+      // Assert
+      Assert.IsType<ArgumentNullException>(exception);
+    }
+
+    [Fact]
     public void Data_SetDataToNull_WhenNullWhenQueryObjectIsCreated()
     {
       // Arrange
