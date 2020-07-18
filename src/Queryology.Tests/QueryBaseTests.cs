@@ -23,10 +23,12 @@ namespace ByteDecoder.Queryology.Tests
     public void Constructor_ThrowsArgumentNullException_WhenNullIsPassedAsObjectViewer()
     {
       // Arrange
-      using var dbContext = new InMemoryDbContext();
-
       // Act
-      var exception = Record.Exception(() => new QueryTypeInMemoryDbContextTwo(dbContext, null));
+      var exception = Record.Exception(() =>
+      {
+        using var dbContext = new InMemoryDbContext();
+        return new QueryTypeInMemoryDbContextTwo(dbContext, null);
+      });
 
       // Assert
       Assert.IsType<ArgumentNullException>(exception);
@@ -74,8 +76,8 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       using var dbContext = new InMemoryDbContext();
-      var objectVievwer = new TestObjectViewer();
-      var query = new QueryTypeInMemoryDbContextTwo(dbContext, objectVievwer);
+      var objectViewer = new TestObjectViewer();
+      var query = new QueryTypeInMemoryDbContextTwo(dbContext, objectViewer);
 
       // Act
       query.Execute();
