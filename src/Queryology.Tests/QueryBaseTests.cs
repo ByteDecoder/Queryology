@@ -74,7 +74,8 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       using var dbContext = new InMemoryDbContext();
-      var query = new QueryTypeInMemoryDbContextTwo { DataContext = dbContext };
+      var objectVievwer = new TestObjectViewer();
+      var query = new QueryTypeInMemoryDbContextTwo(dbContext, objectVievwer);
 
       // Act
       query.Execute();
@@ -93,6 +94,19 @@ namespace ByteDecoder.Queryology.Tests
       // Act
       // Assert
       Assert.NotNull(query.DataContext);
+    }
+
+    [Fact]
+    public void Execute_ThrowsNullReferenceException_WhenStrategyIsNull()
+    {
+      // Arrange
+      var query = new QueryTypeInMemoryDbContextTwo();
+
+      // Act
+      var exception = Record.Exception(() => query.Execute());
+
+      // Assert
+      Assert.IsType<NullReferenceException>(exception);
     }
   }
 }

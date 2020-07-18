@@ -13,6 +13,8 @@ namespace ByteDecoder.Queryology.Tests.Queries
     public override void Execute()
     {
       Data = new { Id = 1, Name = "Charcoral" };
+
+      DisplayData("Test");
     }
   }
 }
