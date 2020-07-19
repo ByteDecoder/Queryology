@@ -1,13 +1,19 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using ByteDecoder.Queryology.Providers.ObjectDumper;
+using Queryology.Tests.Providers.Dummies;
 using Xunit;
 
 namespace Queryology.Tests.Providers
 {
   public class ObjectDumperDisplayerTests
   {
-    private readonly IEnumerable<string> _friends = new[] { "Jeremias", "Matias" };
+    private readonly DataStorage _dataStorage;
+
+    public ObjectDumperDisplayerTests()
+    {
+      _dataStorage = new DataStorage();
+    }
 
     [Fact]
     public void DisplayData_DoNotThrowsExceptions_WhenIsCalled()
@@ -18,12 +24,15 @@ namespace Queryology.Tests.Providers
       {
         Name = "Jane Louis",
         Age = 25,
-        Date = DateTime.Now.ToShortDateString(),
-        Books = new[] {
-          new { Title = "Euridice", Price = 25.99 },
+        Date = DateTime.Now,
+        Books = new ArrayList() {
+          new { Title = "Euridice", Price = 25.99, Friends = _dataStorage.Friends },
           new { Title = "Euridice", Price = 25.99 },
         },
-        Friends = _friends
+        Friends = _dataStorage.Friends,
+        Magical = _dataStorage.Magical,
+        Materials = _dataStorage.Materials,
+        Misc = _dataStorage.Misc
       };
 
       // Act        

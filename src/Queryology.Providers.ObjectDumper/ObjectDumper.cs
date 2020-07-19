@@ -10,8 +10,9 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
   /// <summary>
   /// 
   /// </summary>
-  public class ObjectDumper
+  public partial class ObjectDumper
   {
+    #region static public methods
     ///
     public static void Write(object element)
     {
@@ -41,10 +42,12 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
       dumper.WriteObject(null, element);
     }
 
-    TextWriter writer;
-    int pos;
-    int level;
-    int depth;
+    #endregion
+
+    private TextWriter writer;
+    private int pos;
+    private int level;
+    private int depth;
 
     private ObjectDumper(int depth)
     {
@@ -91,26 +94,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
         IEnumerable enumerableElement = element as IEnumerable;
         if (enumerableElement != null)
         {
-          foreach (object item in enumerableElement)
-          {
-            if (item is IEnumerable && !(item is string))
-            {
-              WriteIndent();
-              Write(prefix);
-              Write("...");
-              WriteLine();
-              if (level < depth)
-              {
-                level++;
-                WriteObject(prefix, item);
-                level--;
-              }
-            }
-            else
-            {
-              WriteObject(prefix, item);
-            }
-          }
+          WriteEnumerable(enumerableElement, prefix);
         }
         else
         {
@@ -177,6 +161,30 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
               }
             }
           }
+        }
+      }
+    }
+
+    private void WriteEnumerable(IEnumerable enumerableElement, string prefix)
+    {
+      foreach (object item in enumerableElement)
+      {
+        if (item is IEnumerable && !(item is string))
+        {
+          WriteIndent();
+          Write(prefix);
+          Write("...");
+          WriteLine();
+          if (level < depth)
+          {
+            level++;
+            WriteObject(prefix, item);
+            level--;
+          }
+        }
+        else
+        {
+          WriteObject(prefix, item);
         }
       }
     }
