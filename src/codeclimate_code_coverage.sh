@@ -9,9 +9,7 @@ dotnet add package coverlet.msbuild
 # Start codeclimate process
 ./codeclimate-test-reporter before-build
 
-# Build solution
-dotnet restore
-dotnet build ./Queryology.sln
+echo "Running test suite"
 
 # Running unit tests - 'lcov' output format (and put coverage in correct path)
 dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=coverage /p:Exclude=[xunit.*]* ./Queryology.sln --no-restore --verbosity normal
