@@ -11,11 +11,11 @@ dotnet add package coverlet.msbuild
 
 # Build solution
 dotnet restore
-dotnet build ./MySolution.sln
+dotnet build ./Queryology.sln
 
 # Running unit tests - 'lcov' output format (and put coverage in correct path)
-dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=coverage /p:Exclude=[xunit.*]* ./MySolution.sln
-mkdir coverage && mv ./MyProject.Tests/coverage.info coverage/lcov.info
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=coverage /p:Exclude=[xunit.*]* ./Queryology.sln
+mkdir coverage && mv ./Queryology.Tests/coverage.info coverage/lcov.info
 
 # Send test report result to codeclimate
-./codeclimate-test-reporter after-build -t lcov -r ${CC_TEST_REPORTER_ID} -p ./ --exit-code $?
+./codeclimate-test-reporter after-build -t lcov -r ${4756e012cbc04ec5e5138b27e2f8800832fd6645c1e59ff0e6baed170f92242e} -p ./ --exit-code $?
