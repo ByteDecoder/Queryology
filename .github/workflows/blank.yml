@@ -22,4 +22,5 @@ jobs:
     - name: Build
       run: cd src && dotnet build --configuration Release --no-restore
     - name: Test
-      run: cd src && dotnet test --no-restore --verbosity normal
+      run: cd src && ./codeclimate_code_coverage.sh
+      #run: cd src && dotnet test --no-restore --verbosity normal
