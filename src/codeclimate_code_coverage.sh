@@ -16,4 +16,4 @@ dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutp
 ls
 
 # Send test report result to codeclimate
-./codeclimate-test-reporter after-build -h -t lcov -r ${CC_TEST_REPORTER_ID} -p ./src --exit-code $?
+./codeclimate-test-reporter after-build -h -t lcov -r ${CC_TEST_REPORTER_ID} -p ./ --exit-code $?
