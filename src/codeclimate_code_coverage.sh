@@ -13,7 +13,7 @@ dotnet tool install --global coverlet.console
 dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=../coverage/lcov --no-restore --verbosity normal
 #cmkdir coverage && mv ./Queryology.Tests/coverage.info coverage/lcov.info
 
-ls ./coverage/
+ls
 
 # Send test report result to codeclimate
-./codeclimate-test-reporter after-build -t lcov -r ${CC_TEST_REPORTER_ID} -p ./ --exit-code $?
+./codeclimate-test-reporter after-build -t lcov -r ${CC_TEST_REPORTER_ID} -p ./home/runner/work/Queryology/Queryology/src/ --exit-code $?
