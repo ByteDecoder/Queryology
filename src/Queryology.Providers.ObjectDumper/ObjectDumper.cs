@@ -11,7 +11,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
   /// <summary>
   /// 
   /// </summary>
-  public partial class ObjectDumper
+  public class ObjectDumper
   {
     #region static public methods
     ///
@@ -56,14 +56,14 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void Write(string s)
     {
-      if (s == null) return;
+      if(s == null) return;
       _writer.Write(s);
       _pos += s.Length;
     }
 
     private void WriteIndent()
     {
-      for (var i = 0; i < _level; i++) _writer.Write("  ");
+      for(var i = 0; i < _level; i++) _writer.Write("  ");
     }
 
     private void WriteLine()
@@ -75,87 +75,81 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
     private void WriteTab()
     {
       Write("  ");
-      while (_pos % 8 != 0) Write(" ");
+      while(_pos % 8 != 0) Write(" ");
     }
 
     private bool IsBasicType(object element) => element == null || element is ValueType || element is string;
 
     private void WriteObject(string prefix, object element)
     {
-      if (IsBasicType(element))
+      if(IsBasicType(element))
       {
         WriteBasicType(element, prefix);
-      }
-      else
+      } else
       {
-        if (element is IEnumerable enumerableElement)
+        var members = element.GetType().GetMembers(BindingFlags.Public | BindingFlags.Instance);
+
+        if(element is IEnumerable enumerableElement)
         {
           WriteEnumerable(enumerableElement, prefix);
-        }
-        else
+        } else
         {
-          MemberInfo[] members = element.GetType().GetMembers(BindingFlags.Public | BindingFlags.Instance);
-          WriteIndent();
-          Write(prefix);
-          bool propWritten = false;
-          foreach (MemberInfo m in members)
-          {
-            FieldInfo f = m as FieldInfo;
-            PropertyInfo p = m as PropertyInfo;
-            if (f != null || p != null)
-            {
-              if (propWritten)
-              {
-                WriteTab();
-              }
-              else
-              {
-                propWritten = true;
-              }
-
-              Write(m.Name);
-              Write("=");
-              Type t = f != null ? f.FieldType : p.PropertyType;
-              if (t.IsValueType || t == typeof(string))
-              {
-                WriteValue(f != null ? f.GetValue(element) : p.GetValue(element, null));
-              }
-              else
-              {
-                if (typeof(IEnumerable).IsAssignableFrom(t))
-                {
-                  Write("...");
-                }
-                else
-                {
-                  Write("{ }");
-                }
-              }
-            }
-          }
-
-          if (propWritten) WriteLine();
+          WriteMemberInfo(element, prefix, members);
           DepthWriter(element, members);
         }
       }
     }
 
+    private void WriteMemberInfo(object element, string prefix, IEnumerable<MemberInfo> members)
+    {
+      WriteIndent();
+      Write(prefix);
+      var propWritten = false;
+      foreach(var m in members)
+      {
+        var f = m as FieldInfo;
+        var p = m as PropertyInfo;
+        if (f == null && p == null) continue;
+
+        if(propWritten)
+        {
+          WriteTab();
+        } else
+        {
+          propWritten = true;
+        }
+
+        Write(m.Name);
+        Write("=");
+
+        var t = f != null ? f.FieldType : p.PropertyType;
+        if(t.IsValueType || t == typeof(string))
+        {
+          WriteValue(f != null ? f.GetValue(element) : p.GetValue(element, null));
+        } else
+        {
+          Write(typeof(IEnumerable).IsAssignableFrom(t) ? "..." : "{ }");
+        }
+      }
+      if(propWritten) WriteLine();
+    }
+
     private void DepthWriter(object element, IEnumerable<MemberInfo> members)
     {
-      if (_level >= _depth) return;
+      if(_level >= _depth) return;
 
-      foreach (var m in members)
+      foreach(var m in members)
       {
         var f = m as FieldInfo;
         var p = m as PropertyInfo;
 
-        if (f == null && p == null) continue;
+        if(f == null && p == null) continue;
         var t = f != null ? f.FieldType : p.PropertyType;
 
-        if (t.IsValueType || t == typeof(string)) continue;
+        if(t.IsValueType || t == typeof(string)) continue;
         var value = f != null ? f.GetValue(element) : p.GetValue(element, null);
 
-        if (value == null) continue;
+        if(value == null) continue;
         _level++;
         WriteObject(m.Name + ": ", value);
         _level--;
@@ -172,20 +166,19 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void WriteEnumerable(IEnumerable enumerableElement, string prefix)
     {
-      foreach (var item in enumerableElement)
+      foreach(var item in enumerableElement)
       {
-        if (item is IEnumerable && !(item is string))
+        if(item is IEnumerable && !(item is string))
         {
           WriteIndent();
           Write(prefix);
           Write("...");
           WriteLine();
-          if (_level >= _depth) continue;
+          if(_level >= _depth) continue;
           _level++;
           WriteObject(prefix, item);
           _level--;
-        }
-        else
+        } else
         {
           WriteObject(prefix, item);
         }
@@ -194,7 +187,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void WriteValue(object o)
     {
-      switch (o)
+      switch(o)
       {
         case null:
           Write("null");
