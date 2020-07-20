@@ -21,6 +21,12 @@ dotnet test /p:CollectCoverage=true
 dotnet tool install -g dotnet-reportgenerator-globaltool
 ```
 
+## Check all dotnet tools installed
+
+```bash
+dotnet tool list --global
+```
+
 ## Generating a Coverage Report
 
 Inside .src/ directory execute:
