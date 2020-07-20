@@ -14,4 +14,4 @@ dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutp
 #cmkdir coverage && mv ./Queryology.Tests/coverage.info coverage/lcov.info
 
 # Send test report result to codeclimate
-./codeclimate-test-reporter after-build -t lcov -r ${CC_TEST_REPORTER_ID} -p ./ --exit-code $?
+./codeclimate-test-reporter after-build -t lcov -r ${CC_TEST_REPORTER_ID} -p ./src --exit-code $?
