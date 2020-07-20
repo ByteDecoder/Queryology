@@ -80,14 +80,13 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
       while (pos % 8 != 0) Write(" ");
     }
 
+    private bool IsBasicType(object element) => element == null || element is ValueType || element is string;
+
     private void WriteObject(string prefix, object element)
     {
-      if (element == null || element is ValueType || element is string)
+      if (IsBasicType(element))
       {
-        WriteIndent();
-        Write(prefix);
-        WriteValue(element);
-        WriteLine();
+        WriteBasicType(element, prefix);
       }
       else
       {
@@ -163,6 +162,14 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
           }
         }
       }
+    }
+
+    private void WriteBasicType(object element, string prefix)
+    {
+      WriteIndent();
+      Write(prefix);
+      WriteValue(element);
+      WriteLine();
     }
 
     private void WriteEnumerable(IEnumerable enumerableElement, string prefix)
