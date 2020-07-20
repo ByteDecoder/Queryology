@@ -37,47 +37,44 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
     /// <param name="log"></param>
     public static void Write(object element, int depth, TextWriter log)
     {
-      ObjectDumper dumper = new ObjectDumper(depth);
-      dumper.writer = log;
+      var dumper = new ObjectDumper(depth) {_writer = log};
       dumper.WriteObject(null, element);
     }
 
     #endregion
 
-    private TextWriter writer;
-    private int pos;
-    private int level;
-    private int depth;
+    private TextWriter _writer;
+    private int _pos;
+    private int _level;
+    private readonly int _depth;
 
     private ObjectDumper(int depth)
     {
-      this.depth = depth;
+      _depth = depth;
     }
 
     private void Write(string s)
     {
-      if (s != null)
-      {
-        writer.Write(s);
-        pos += s.Length;
-      }
+      if (s == null) return;
+      _writer.Write(s);
+      _pos += s.Length;
     }
 
     private void WriteIndent()
     {
-      for (int i = 0; i < level; i++) writer.Write("  ");
+      for (var i = 0; i < _level; i++) _writer.Write("  ");
     }
 
     private void WriteLine()
     {
-      writer.WriteLine();
-      pos = 0;
+      _writer.WriteLine();
+      _pos = 0;
     }
 
     private void WriteTab()
     {
       Write("  ");
-      while (pos % 8 != 0) Write(" ");
+      while (_pos % 8 != 0) Write(" ");
     }
 
     private bool IsBasicType(object element) => element == null || element is ValueType || element is string;
@@ -90,8 +87,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
       }
       else
       {
-        IEnumerable enumerableElement = element as IEnumerable;
-        if (enumerableElement != null)
+        if (element is IEnumerable enumerableElement)
         {
           WriteEnumerable(enumerableElement, prefix);
         }
@@ -138,7 +134,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
           }
 
           if (propWritten) WriteLine();
-          if (level < depth)
+          if (_level < _depth)
           {
             foreach (MemberInfo m in members)
             {
@@ -152,9 +148,9 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
                   object value = f != null ? f.GetValue(element) : p.GetValue(element, null);
                   if (value != null)
                   {
-                    level++;
+                    _level++;
                     WriteObject(m.Name + ": ", value);
-                    level--;
+                    _level--;
                   }
                 }
               }
@@ -174,7 +170,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void WriteEnumerable(IEnumerable enumerableElement, string prefix)
     {
-      foreach (object item in enumerableElement)
+      foreach (var item in enumerableElement)
       {
         if (item is IEnumerable && !(item is string))
         {
@@ -182,12 +178,10 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
           Write(prefix);
           Write("...");
           WriteLine();
-          if (level < depth)
-          {
-            level++;
-            WriteObject(prefix, item);
-            level--;
-          }
+          if (_level >= _depth) continue;
+          _level++;
+          WriteObject(prefix, item);
+          _level--;
         }
         else
         {
@@ -198,25 +192,24 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void WriteValue(object o)
     {
-      if (o == null)
+      switch (o)
       {
-        Write("null");
-      }
-      else if (o is DateTime)
-      {
-        Write(((DateTime)o).ToShortDateString());
-      }
-      else if (o is ValueType || o is string)
-      {
-        Write(o.ToString());
-      }
-      else if (o is IEnumerable)
-      {
-        Write("...");
-      }
-      else
-      {
-        Write("{ }");
+        case null:
+          Write("null");
+          break;
+        case DateTime time:
+          Write(time.ToShortDateString());
+          break;
+        case ValueType _:
+        case string _:
+          Write(o.ToString());
+          break;
+        case IEnumerable _:
+          Write("...");
+          break;
+        default:
+          Write("{ }");
+          break;
       }
     }
   }
