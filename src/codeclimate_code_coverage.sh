@@ -4,7 +4,7 @@ chmod +x ./codeclimate-test-reporter
 
 # Install dotnet tools to generate test report
 dotnet tool install --global coverlet.console 
-dotnet add package coverlet.msbuild
+#dotnet add package coverlet.msbuild
 
 # Start codeclimate process
 ./codeclimate-test-reporter before-build
