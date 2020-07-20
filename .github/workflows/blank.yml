@@ -22,5 +22,7 @@ jobs:
     - name: Build
       run: cd src && dotnet build --configuration Release --no-restore
     - name: Test
+    env:
+      CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       run: cd src && ./codeclimate_code_coverage.sh
       #run: cd src && dotnet test --no-restore --verbosity normal
