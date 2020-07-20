@@ -56,14 +56,14 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void Write(string s)
     {
-      if(s == null) return;
+      if (s == null) return;
       _writer.Write(s);
       _pos += s.Length;
     }
 
     private void WriteIndent()
     {
-      for(var i = 0; i < _level; i++) _writer.Write("  ");
+      for (var i = 0; i < _level; i++) _writer.Write("  ");
     }
 
     private void WriteLine()
@@ -75,24 +75,26 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
     private void WriteTab()
     {
       Write("  ");
-      while(_pos % 8 != 0) Write(" ");
+      while (_pos % 8 != 0) Write(" ");
     }
 
     private bool IsBasicType(object element) => element == null || element is ValueType || element is string;
 
     private void WriteObject(string prefix, object element)
     {
-      if(IsBasicType(element))
+      if (IsBasicType(element))
       {
         WriteBasicType(element, prefix);
-      } else
+      }
+      else
       {
         var members = element.GetType().GetMembers(BindingFlags.Public | BindingFlags.Instance);
 
-        if(element is IEnumerable enumerableElement)
+        if (element is IEnumerable enumerableElement)
         {
           WriteEnumerable(enumerableElement, prefix);
-        } else
+        }
+        else
         {
           WriteMemberInfo(element, prefix, members);
           DepthWriter(element, members);
@@ -105,16 +107,17 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
       WriteIndent();
       Write(prefix);
       var propWritten = false;
-      foreach(var m in members)
+      foreach (var m in members)
       {
         var f = m as FieldInfo;
         var p = m as PropertyInfo;
         if (f == null && p == null) continue;
 
-        if(propWritten)
+        if (propWritten)
         {
           WriteTab();
-        } else
+        }
+        else
         {
           propWritten = true;
         }
@@ -122,34 +125,40 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
         Write(m.Name);
         Write("=");
 
-        var t = f != null ? f.FieldType : p.PropertyType;
-        if(t.IsValueType || t == typeof(string))
-        {
-          WriteValue(f != null ? f.GetValue(element) : p.GetValue(element, null));
-        } else
-        {
-          Write(typeof(IEnumerable).IsAssignableFrom(t) ? "..." : "{ }");
-        }
+        WriteMemberInfoDetails(element, f, p);
       }
-      if(propWritten) WriteLine();
+      if (propWritten) WriteLine();
+    }
+
+    private void WriteMemberInfoDetails(object element, FieldInfo f, PropertyInfo p)
+    {
+      var t = f != null ? f.FieldType : p.PropertyType;
+      if (t.IsValueType || t == typeof(string))
+      {
+        WriteValue(f != null ? f.GetValue(element) : p.GetValue(element, null));
+      }
+      else
+      {
+        Write(typeof(IEnumerable).IsAssignableFrom(t) ? "..." : "{ }");
+      }
     }
 
     private void DepthWriter(object element, IEnumerable<MemberInfo> members)
     {
-      if(_level >= _depth) return;
+      if (_level >= _depth) return;
 
-      foreach(var m in members)
+      foreach (var m in members)
       {
         var f = m as FieldInfo;
         var p = m as PropertyInfo;
 
-        if(f == null && p == null) continue;
+        if (f == null && p == null) continue;
         var t = f != null ? f.FieldType : p.PropertyType;
 
-        if(t.IsValueType || t == typeof(string)) continue;
+        if (t.IsValueType || t == typeof(string)) continue;
         var value = f != null ? f.GetValue(element) : p.GetValue(element, null);
 
-        if(value == null) continue;
+        if (value == null) continue;
         _level++;
         WriteObject(m.Name + ": ", value);
         _level--;
@@ -166,19 +175,20 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void WriteEnumerable(IEnumerable enumerableElement, string prefix)
     {
-      foreach(var item in enumerableElement)
+      foreach (var item in enumerableElement)
       {
-        if(item is IEnumerable && !(item is string))
+        if (item is IEnumerable && !(item is string))
         {
           WriteIndent();
           Write(prefix);
           Write("...");
           WriteLine();
-          if(_level >= _depth) continue;
+          if (_level >= _depth) continue;
           _level++;
           WriteObject(prefix, item);
           _level--;
-        } else
+        }
+        else
         {
           WriteObject(prefix, item);
         }
@@ -187,7 +197,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
     private void WriteValue(object o)
     {
-      switch(o)
+      switch (o)
       {
         case null:
           Write("null");
