@@ -13,7 +13,5 @@ chmod +x ./codeclimate-test-reporter
 dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=../coverage/lcov --no-restore --verbosity normal
 #cmkdir coverage && mv ./Queryology.Tests/coverage.info coverage/lcov.info
 
-ls
-
 # Send test report result to codeclimate
 ./codeclimate-test-reporter after-build -t lcov -r ${CC_TEST_REPORTER_ID} --exit-code $?
