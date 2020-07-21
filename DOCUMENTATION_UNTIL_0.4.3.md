@@ -11,13 +11,13 @@ Install the [Queryology NuGet Package](https://www.nuget.org/packages/ByteDecode
 ### Package Manager Console
 
 ```bash
-Install-Package ByteDecoder.Queryology
+PM> Install-Package ByteDecoder.Queryology -Version 0.4.3
 ```
 
 ### .NET Core CLI
 
 ```bash
-dotnet add package ByteDecoder.Queryology
+dotnet add package ByteDecoder.Queryology --version 0.4.3
 ```
 
 ## Examples and usage
