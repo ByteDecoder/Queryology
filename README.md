@@ -4,7 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/5636af5394315faa7bd8/maintainability)](https://codeclimate.com/github/ByteDecoder/Queryology/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5636af5394315faa7bd8/test_coverage)](https://codeclimate.com/github/ByteDecoder/Queryology/test_coverage)
 
-You can find the documentation for previous versions < 1.0.0 here [DOCUMENTATION_UNTIL_0.4.3.md](DOCUMENTATION_UNTIL_0.4.3.mdD)
+You can find the documentation for previous versions < 1.0.0 here [documentatation until v0.4.3 here](DOCUMENTATION_UNTIL_0.4.3.md)
 
 Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments
 
