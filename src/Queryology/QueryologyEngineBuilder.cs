@@ -8,7 +8,7 @@ namespace ByteDecoder.Queryology
   /// 
   /// </summary>
   /// <typeparam name="T"></typeparam>
-  public class QueryologyEngineBuilder<T>: IQueryologyEngineBuilder<T> where T : DbContext
+  public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T> where T : DbContext
   {
     private IQueryologyEngine<T> _queryologyEngine;
 
@@ -21,7 +21,8 @@ namespace ByteDecoder.Queryology
     {
       var options = new QueryologyEngineOptions<T>();
       queryologyEngineOptions(options);
-      _queryologyEngine = new QueryologyEngine<T>(options.DataContextProvider, new QueryFactory<T>(), options.ObjectDisplayerProvider);
+      options.QueryFactoryProvider ??= new QueryFactory<T>();
+      _queryologyEngine = new QueryologyEngine<T>(options.DataContextProvider, options.QueryFactoryProvider, options.ObjectDisplayerProvider);
 
       return this;
     }
