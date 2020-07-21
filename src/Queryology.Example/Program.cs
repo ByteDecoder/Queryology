@@ -1,6 +1,6 @@
 ﻿using ByteDecoder.Queryology.Example.Models;
-using System;
 using ByteDecoder.Queryology.Providers.ObjectDumper;
+using System;
 
 namespace ByteDecoder.Queryology.Example
 {
