@@ -21,7 +21,7 @@ namespace ByteDecoder.Queryology
     {
       var options = new QueryologyEngineOptions<T>();
       queryologyEngineOptions(options);
-      _queryologyEngine = new QueryologyEngine<T>(options.DataContextProvider, options.ObjectDisplayerProvider);
+      _queryologyEngine = new QueryologyEngine<T>(options.DataContextProvider, new QueryFactory<T>(), options.ObjectDisplayerProvider);
 
       return this;
     }

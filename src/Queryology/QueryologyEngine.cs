@@ -15,6 +15,7 @@ namespace ByteDecoder.Queryology
   public class QueryologyEngine<T>: IQueryologyEngine<T> where T : DbContext
   {
     private readonly T _dataContext;
+    private readonly IQueryFactory<T> _queryFactory;
     private readonly IObjectDisplayer _objectDisplayer;
     private bool _ignoreExcludedQueries;
 
@@ -22,11 +23,12 @@ namespace ByteDecoder.Queryology
     /// 
     /// </summary>
     /// <param name="dataContext"></param>
+    /// <param name="queryFactory"></param>
     /// <param name="objectDisplayer"></param>
-    /// <returns></returns>
-    public QueryologyEngine(T dataContext, IObjectDisplayer objectDisplayer)
+    public QueryologyEngine(T dataContext, IQueryFactory<T> queryFactory, IObjectDisplayer objectDisplayer)
     {
       _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+      _queryFactory = queryFactory ?? throw new ArgumentNullException(nameof(queryFactory));
       _objectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(objectDisplayer));
       _ignoreExcludedQueries = true;
     }
@@ -72,7 +74,7 @@ namespace ByteDecoder.Queryology
 
       foreach(var type in loadedTypes)
       {
-        var query = (IQuery<T>)Activator.CreateInstance(type);
+        var query = _queryFactory.Create(type);
         query.DataContext = _dataContext;
         query.ObjectDisplayer = _objectDisplayer;
         yield return query;

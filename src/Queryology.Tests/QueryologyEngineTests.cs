@@ -5,14 +5,16 @@ using Xunit;
 
 namespace ByteDecoder.Queryology.Tests
 {
-  public class QueryologyEngineTests: IDisposable
+  public class QueryologyEngineTests : IDisposable
   {
     private TestBuilderFactory _testBuilderFactory;
     private bool _disposedValue;
+    private readonly QueryFactory<InMemoryDbContext> _queryFactory;
 
     public QueryologyEngineTests()
     {
       _testBuilderFactory = new TestBuilderFactory();
+      _queryFactory = new QueryFactory<InMemoryDbContext>();
     }
 
     [Fact]
@@ -21,9 +23,21 @@ namespace ByteDecoder.Queryology.Tests
       // Arrange
       // Act
       // Assert
-      Assert.Throws<ArgumentNullException>(() => new QueryologyEngine<InMemoryDbContext>(null, null));
+      Assert.Throws<ArgumentNullException>(() => new QueryologyEngine<InMemoryDbContext>(null, null, null));
     }
 
+    [Fact]
+    public void Instantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsQueryFactory()
+    {
+      // Arrange
+      // Act
+      // Assert
+      Assert.Throws<ArgumentNullException>(() =>
+      {
+        var dbContext = new InMemoryDbContext();
+        new QueryologyEngine<InMemoryDbContext>(dbContext, null, null);
+      });
+    }
 
     [Fact]
     public void Instantiate_ThrowsArgumentNullException_WhenNullValueIsPassedAsObjectDisplayer()
@@ -34,7 +48,7 @@ namespace ByteDecoder.Queryology.Tests
       Assert.Throws<ArgumentNullException>(() =>
       {
         var dbContext = new InMemoryDbContext();
-        return new QueryologyEngine<InMemoryDbContext>(dbContext, null);
+        return new QueryologyEngine<InMemoryDbContext>(dbContext, _queryFactory, null);
       });
     }
 
@@ -126,9 +140,9 @@ namespace ByteDecoder.Queryology.Tests
 
     protected virtual void Dispose(bool disposing)
     {
-      if(_disposedValue) return;
+      if (_disposedValue) return;
 
-      if(disposing)
+      if (disposing)
       {
         // Dispose managed resources
       }

@@ -17,7 +17,7 @@
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp netcoreapp3.1 EntityFrameworkCore EFCore entity-framework-core</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/ByteDecoder/Queryology</PackageProjectUrl>
     <Summary>Abstractions for extending and building the minimalist Queryology Engine</Summary>
