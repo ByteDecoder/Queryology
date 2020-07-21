@@ -3,7 +3,7 @@ curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-lin
 chmod +x ./codeclimate-test-reporter
 
 # Install dotnet tools to generate test report
-dotnet tool install --global coverlet.console 
+#dotnet tool install --global coverlet.console 
 #dotnet add package coverlet.msbuild
 
 # Start codeclimate process
