@@ -1,3 +1,6 @@
+### 1.1.0 - 2020-07-21
+  * QueryologyEngineOptions<T> acdepts now IQueryFactory<T> for building an IQueryologyEngine<T>
+
 ### 1.0.0 - 2020-07-21
   * Microsoft.EntityFrameworkCore upgraded to version 3.1.6
   * Framework redesigned for easy usage, refer thr README to learn more about the API changes
