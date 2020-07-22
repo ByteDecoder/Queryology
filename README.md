@@ -77,9 +77,8 @@ public class MyQuery : QueryBase<MyDbCoreContext>
 }
 
 // In your .Net Core application, instantiate the engine and execute it!
-using ByteDecoder.Queryology.Example.Models;
+using ByteDecoder.Queryology;
 using ByteDecoder.Queryology.Providers.ObjectDumper;
-using System;
 
 class Program
 {
@@ -113,9 +112,8 @@ public class LinqToObjectsQuery : QueryBase<NullDbContext>
 }
 
 // In your .Net Core application, instantiate the engine and execute it!
-using ByteDecoder.Queryology.Example.Models;
+using ByteDecoder.Queryology;
 using ByteDecoder.Queryology.Providers.ObjectDumper;
-using System;
 
 class Program
 {
