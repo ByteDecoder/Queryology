@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>ByteDecoder.Queryology</RootNamespace>
     <Authors>ByteDecoder</Authors>
-    <Company />
+    <Company/>
     <PackageId>ByteDecoder.Queryology</PackageId>
     <Title>ByteDecoder.Queryology</Title>
     <Description>Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments</Description>
@@ -14,6 +14,7 @@
     <PackageTags>csharp netcoreapp3.1 EntityFrameworkCore EFCore entity-framework-core </PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.1.0</Version>
+    <PackageIcon>icon.png</PackageIcon>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>ByteDecoder.Queryology</AssemblyName>
     <PackageProjectUrl>https://github.com/ByteDecoder/Queryology</PackageProjectUrl>
@@ -22,13 +23,17 @@
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
-      <PackagePath />
+      <PackagePath/>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.4.0" />
+    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.4.0"/>
+    <PackageReference Include="ByteDecoder.Common" Version="0.1.0"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj" />
+    <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 </Project>

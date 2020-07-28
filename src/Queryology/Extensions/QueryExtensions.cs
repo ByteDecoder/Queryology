@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ByteDecoder.Common.GuardClauses;
 using ByteDecoder.Queryology.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,9 +21,9 @@ namespace ByteDecoder.Queryology.Extensions
     public static IEnumerable<IQuery<T>> IgnoreExcludedQueries<T>(this IEnumerable<IQuery<T>> source, bool ignoreQueries = true)
       where T : DbContext
     {
-      if(source == null) throw new ArgumentNullException(nameof(source));
+      Guard.Break.IfArgumentIsNull(source, nameof(source));
 
-      if(ignoreQueries)
+      if (ignoreQueries)
         source = source.Where(query => query.Executable);
 
       return source;
