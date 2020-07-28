@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ByteDecoder.Common.GuardClauses;
 using ByteDecoder.Queryology.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,11 +19,8 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
     public static IQueryologyEngineBuilder<T> AddObjectDumper<T>(this IQueryologyEngineBuilder<T> queryologyEngineBuilder, T dbContext)
         where T : DbContext
     {
-      if (queryologyEngineBuilder is null)
-        throw new ArgumentNullException(nameof(queryologyEngineBuilder));
-
-      if (dbContext == null)
-        throw new ArgumentNullException(nameof(dbContext));
+      Guard.Break.IfArgumentIsNull(queryologyEngineBuilder, nameof(queryologyEngineBuilder));
+      Guard.Break.IfArgumentIsNull(dbContext, nameof(dbContext));
 
       queryologyEngineBuilder.Configure(options =>
       {

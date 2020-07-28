@@ -1,15 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>ByteDecoder.Queryology.Providers.ObjectDumper</RootNamespace>
     <AssemblyName>ByteDecoder.Queryology.Providers.ObjectDumper</AssemblyName>
-
     <Authors>ByteDecoder</Authors>
-    <Company />
+    <Company/>
     <PackageId>ByteDecoder.Queryology.Providers.ObjectDumper</PackageId>
     <Title>ByteDecoder.Queryology.Providers.ObjectDumper</Title>
-
     <Description>ObjectDumper provider the minimalist Queryology Engine</Description>
     <copyright>Copyright (c) 2020 released under the MIT license</copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -22,15 +19,16 @@
     <PackageProjectUrl>https://github.com/ByteDecoder/Queryology</PackageProjectUrl>
     <Summary>ObjectDumper provider the minimalist Queryology Engine</Summary>
   </PropertyGroup>
-
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
-      <PackagePath />
+      <PackagePath/>
     </None>
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj" />
+    <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ByteDecoder.Common" Version="0.1.0"/>
   </ItemGroup>
 </Project>
