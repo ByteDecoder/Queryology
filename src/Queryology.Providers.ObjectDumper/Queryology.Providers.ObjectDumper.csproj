@@ -14,7 +14,9 @@
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp netcoreapp3.1 EntityFrameworkCore EFCore entity-framework-core</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
+    <PackageIcon>icon.png</PackageIcon>
+
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageProjectUrl>https://github.com/ByteDecoder/Queryology</PackageProjectUrl>
     <Summary>ObjectDumper provider the minimalist Queryology Engine</Summary>
@@ -29,6 +31,9 @@
     <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ByteDecoder.Common" Version="0.2.0"/>
+    <PackageReference Include="ByteDecoder.Common" Version="0.3.0"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@ namespace ByteDecoder.Queryology.Tests
   public class QueryBaseExtensionsTests: IDisposable
   {
     private TestBuilderFactory _testBuilderFactory;
+    private bool _disposedValue;
 
     public QueryBaseExtensionsTests()
     {
@@ -56,6 +57,23 @@ namespace ByteDecoder.Queryology.Tests
       Assert.Equal(3, result);
     }
 
-    public void Dispose() => _testBuilderFactory = null;
+    protected virtual void Dispose(bool disposing)
+    {
+      if(_disposedValue) return;
+
+      if(disposing)
+      {
+        // Dispose managed resources
+      }
+
+      _testBuilderFactory = null;
+      _disposedValue = true;
+    }
+
+    public void Dispose()
+    {
+      Dispose(disposing: true);
+      GC.SuppressFinalize(this);
+    }
   }
 }
