@@ -1,5 +1,6 @@
 ﻿using System;
 using ByteDecoder.Queryology.Abstractions;
+using ByteDecoder.Queryology.Providers;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology
@@ -22,7 +23,8 @@ namespace ByteDecoder.Queryology
       var options = new QueryologyEngineOptions<T>();
       queryologyEngineOptions(options);
       options.QueryFactoryProvider ??= new QueryFactory<T>();
-      _queryologyEngine = new QueryologyEngine<T>(options.DataContextProvider, options.QueryFactoryProvider, options.ObjectDisplayerProvider);
+      options.ObjectDisplayerProvider ??= NullObjectDisplayer.Instance;
+      _queryologyEngine = new QueryologyEngine<T>(options);
 
       return this;
     }
