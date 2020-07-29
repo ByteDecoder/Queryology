@@ -13,7 +13,7 @@
     <RepositoryType>MIT</RepositoryType>
     <PackageTags>csharp netcoreapp3.1 EntityFrameworkCore EFCore entity-framework-core </PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <PackageIcon>icon.png</PackageIcon>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>ByteDecoder.Queryology</AssemblyName>
@@ -27,8 +27,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.4.0"/>
-    <PackageReference Include="ByteDecoder.Common" Version="0.2.3"/>
+    <PackageReference Include="ByteDecoder.RoyalLibrary" Version="1.5.0"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj"/>
