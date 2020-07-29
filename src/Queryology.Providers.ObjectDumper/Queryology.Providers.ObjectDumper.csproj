@@ -29,6 +29,6 @@
     <ProjectReference Include="..\Queryology.Abstractions\Queryology.Abstractions.csproj"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ByteDecoder.Common" Version="0.2.0"/>
+    <PackageReference Include="ByteDecoder.Common" Version="0.2.3"/>
   </ItemGroup>
 </Project>

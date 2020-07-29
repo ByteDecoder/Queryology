@@ -1,3 +1,7 @@
+### 1.1.1 - 2020-07-28
+  * ByteDecoder.Common imported to use Guard Clauses
+  * Resharper problem: Possible multiple enumeration of IEnumerable, solved after importing ByteDecoder.Common package
+
 ### 1.1.0 - 2020-07-21
   * QueryologyEngineOptions<T> acdepts now IQueryFactory<T> for building an IQueryologyEngine<T>
 
