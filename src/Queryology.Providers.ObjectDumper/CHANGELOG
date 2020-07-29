@@ -1,0 +1,3 @@
+### 0.2.1 - 2020-07-28
+  * ByteDecoder.Common imported to use Guard Clauses
+  * Resharper problem: Possible multiple enumeration of IEnumerable, solved after importing ByteDecoder.Common package
