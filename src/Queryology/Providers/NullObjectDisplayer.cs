@@ -9,7 +9,7 @@ namespace ByteDecoder.Queryology.Providers
   public sealed class NullObjectDisplayer : IObjectDisplayer
   {
     private static NullObjectDisplayer _instance;
-    private static bool Initialised => _instance != null;
+    private static bool Initialized => _instance != null;
 
     private NullObjectDisplayer() { }
 
@@ -21,7 +21,7 @@ namespace ByteDecoder.Queryology.Providers
     {
       get
       {
-        if (Initialised) return _instance;
+        if (Initialized) return _instance;
         _instance = new NullObjectDisplayer();
         return _instance;
       }

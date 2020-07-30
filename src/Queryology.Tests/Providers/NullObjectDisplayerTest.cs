@@ -1,12 +1,12 @@
 using ByteDecoder.Queryology.Providers;
 using Xunit;
 
-namespace Queryology.Tests.Providers
+namespace ByteDecoder.Queryology.Tests.Providers
 {
   public class NullObjectDisplayerTest
   {
     [Fact]
-    public void Getting_Alwways_Same_Object_Intance()
+    public void Getting_Always_Same_Object_Instance()
     {
       // Assert
       // Act

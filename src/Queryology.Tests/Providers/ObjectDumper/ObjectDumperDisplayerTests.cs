@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using ByteDecoder.Queryology.Providers.ObjectDumper;
-using Queryology.Tests.Providers.Dummies;
+using ByteDecoder.Queryology.Tests.Providers.Dummies;
 using Xunit;
 
-namespace Queryology.Tests.Providers
+namespace ByteDecoder.Queryology.Tests.Providers.ObjectDumper
 {
   public class ObjectDumperDisplayerTests
   {

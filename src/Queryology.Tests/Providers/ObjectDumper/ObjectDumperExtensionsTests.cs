@@ -1,11 +1,10 @@
 using System;
-using ByteDecoder.Queryology;
 using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Providers.ObjectDumper;
 using ByteDecoder.Queryology.Tests.Data;
 using Xunit;
 
-namespace Queryology.Tests.Providers
+namespace ByteDecoder.Queryology.Tests.Providers.ObjectDumper
 {
   public class ObjectDumperExtensionsTests
   {
@@ -13,10 +12,11 @@ namespace Queryology.Tests.Providers
     public void AddObjectDumper_ThrowsArgumentNullException_WhenSourceInputIsNull()
     {
       // Arrange
-      IQueryologyEngineBuilder<InMemoryDbContext> engineBuilder = null;
-
       // Act
-      var exception = Record.Exception(() => engineBuilder.AddObjectDumper(null));
+      var exception = Record.Exception(() =>
+      {
+        ((IQueryologyEngineBuilder<InMemoryDbContext>)null).AddObjectDumper(null);
+      });
 
       // Assert
       Assert.IsType<ArgumentNullException>(exception);

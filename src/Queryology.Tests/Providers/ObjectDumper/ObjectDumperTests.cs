@@ -1,27 +1,26 @@
-using ByteDecoder.Queryology.Providers.ObjectDumper;
-using Queryology.Tests.Providers.Dummies;
+using ByteDecoder.Queryology.Tests.Providers.Dummies;
 using Xunit;
 
-namespace Queryology.Tests.Providers
+namespace ByteDecoder.Queryology.Tests.Providers.ObjectDumper
 {
   public class ObjectDumperTests
   {
-    private readonly DataStorage _dataSorage;
+    private readonly DataStorage _dataStorage;
 
     public ObjectDumperTests()
     {
-      _dataSorage = new DataStorage();
+      _dataStorage = new DataStorage();
     }
 
     [Fact]
-    public void Write_DumpData_WhenOnjectIsPassed()
+    public void Write_DumpData_WhenObjectIsPassed()
     {
       // Arrange    
 
       // Act
       var exception = Record.Exception(() =>
       {
-        ObjectDumper.Write(_dataSorage.Materials);
+        Queryology.Providers.ObjectDumper.ObjectDumper.Write(_dataStorage.Materials);
       });
 
       // Assert

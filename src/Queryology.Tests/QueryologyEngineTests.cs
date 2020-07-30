@@ -31,12 +31,14 @@ namespace ByteDecoder.Queryology.Tests
     {
       // Arrange
       // Act
-      // Assert
-      Assert.Throws<ArgumentNullException>(() =>
+      var exception = Record.Exception(() =>
       {
         var dbContext = new InMemoryDbContext();
-        new QueryologyEngine<InMemoryDbContext>(dbContext, null, null);
+        var dummy = new QueryologyEngine<InMemoryDbContext>(dbContext, null, null);
       });
+
+      // Assert
+      Assert.IsType<ArgumentNullException>(exception);
     }
 
     [Fact]

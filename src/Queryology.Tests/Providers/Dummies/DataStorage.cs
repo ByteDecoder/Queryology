@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Queryology.Tests.Providers.Dummies
+namespace ByteDecoder.Queryology.Tests.Providers.Dummies
 {
   public class DataStorage
   {
