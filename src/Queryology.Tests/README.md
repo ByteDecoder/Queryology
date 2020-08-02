@@ -41,10 +41,12 @@ Then Press **F1** in *VSCode* and choose *Coverage Gutters: Preview Report Cover
 
 Install VSCode .Net Test Explorer extension and add this configuration
 
+Windows
+
 ```json
 {
   "dotnet-test-explorer.testProjectPath": "./src/Queryology.Tests/Queryology.Tests.csproj",
-  "dotnet-test-explorer.testArguments": "/p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=../coverage/lcov.info"
+  "dotnet-test-explorer.testArguments": "/p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=../../coverage/lcov.info"
 }
 ```
 
