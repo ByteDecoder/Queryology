@@ -20,7 +20,7 @@ namespace ByteDecoder.Queryology
     private bool _ignoreExcludedQueries;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="queryologyOptions"></param>
     public QueryologyEngine(QueryologyEngineOptions<T> queryologyOptions)
@@ -31,7 +31,7 @@ namespace ByteDecoder.Queryology
     { }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="dataContext"></param>
     /// <param name="queryFactory"></param>
@@ -45,7 +45,7 @@ namespace ByteDecoder.Queryology
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="ignoreQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
     /// <returns></returns>
@@ -76,7 +76,7 @@ namespace ByteDecoder.Queryology
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <returns>An enumerator for each of the Query Types registered in the loaded assemblies</returns>
     private IEnumerable<IQuery<T>> RegisteredQueries()
