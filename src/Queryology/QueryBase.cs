@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 namespace ByteDecoder.Queryology
 {
   /// <summary>
-  /// 
+  ///
   /// </summary>
   /// <typeparam name="T"></typeparam>
   public abstract class QueryBase<T> : IQuery<T> where T : DbContext
   {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <value></value>
     public dynamic Data { get; protected set; }
@@ -23,7 +23,7 @@ namespace ByteDecoder.Queryology
     public T DataContext { get; set; }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public IObjectDisplayer ObjectDisplayer { get; set; }
 
@@ -33,12 +33,12 @@ namespace ByteDecoder.Queryology
     public virtual bool Executable => true;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     protected QueryBase() { }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="dataContext"></param>
     /// <param name="objectDisplayer"></param>
@@ -49,12 +49,12 @@ namespace ByteDecoder.Queryology
     }
 
     /// <summary>
-    /// Execute the query main logic body 
+    /// Execute the query main logic body
     /// </summary>
     public abstract void Execute();
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="title">Message to label the query execution</param>
     /// <param name="depth">Level of depth for object exploration</param>

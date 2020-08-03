@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ByteDecoder.Queryology.Abstractions
 {
   /// <summary>
-  /// 
+  ///
   /// </summary>
   /// <typeparam name="T"></typeparam>
   public interface IQuery<T> where T : DbContext
@@ -15,7 +15,7 @@ namespace ByteDecoder.Queryology.Abstractions
     T DataContext { get; set; }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <value></value>
     dynamic Data { get; }
@@ -26,12 +26,12 @@ namespace ByteDecoder.Queryology.Abstractions
     bool Executable { get; }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     IObjectDisplayer ObjectDisplayer { get; set; }
 
     /// <summary>
-    /// Execute the query main logic body 
+    /// Execute the query main logic body
     /// </summary>
     void Execute();
   }
