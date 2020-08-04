@@ -1,7 +1,7 @@
 ﻿namespace ByteDecoder.Queryology.Abstractions
 {
   /// <summary>
-  /// 
+  /// Interface that defines the operations supported by an ObjectDisplayer implementation.
   /// </summary>
   public interface IObjectDisplayer
   {

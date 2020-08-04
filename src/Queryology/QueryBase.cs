@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using ByteDecoder.Queryology.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +8,8 @@ namespace ByteDecoder.Queryology
   ///
   /// </summary>
   /// <typeparam name="T"></typeparam>
-  public abstract class QueryBase<T> : IQuery<T> where T : DbContext
+  public abstract class QueryBase<T> : IQuery<T>
+    where T : DbContext
   {
     /// <summary>
     ///

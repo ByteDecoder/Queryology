@@ -30,9 +30,9 @@ namespace ByteDecoder.Queryology
     }
 
     /// <summary>
-    /// 
+    /// Build a Queryology Engine.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>QueryologyEngine</returns>
     public IQueryologyEngine<T> Build()
     {
       return _queryologyEngine;
