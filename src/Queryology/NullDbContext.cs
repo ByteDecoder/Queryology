@@ -2,8 +2,8 @@
 
 namespace ByteDecoder.Queryology
 {
-  /// <summary>
-  ///
-  /// </summary>
-  public class NullDbContext : DbContext { }
+    /// <summary>
+    ///
+    /// </summary>
+    public class NullDbContext : DbContext { }
 }

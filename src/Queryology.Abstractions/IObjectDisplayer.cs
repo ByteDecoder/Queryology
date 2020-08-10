@@ -6,7 +6,7 @@
     public interface IObjectDisplayer
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="title"></param>
         /// <param name="data"></param>

@@ -9,7 +9,7 @@ namespace ByteDecoder.Queryology.Abstractions
         where T : DbContext
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="ignoreQueries">The default is true, otherwise all queries will executed even if they are mark as not executable.</param>
         /// <returns>Current QueryologyEngine instance.</returns>

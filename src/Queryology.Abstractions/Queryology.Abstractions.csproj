@@ -1,55 +1,55 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>ByteDecoder.Queryology.Abstractions</RootNamespace>
-        <AssemblyName>ByteDecoder.Queryology.Abstractions</AssemblyName>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ByteDecoder.Queryology.Abstractions</RootNamespace>
+    <AssemblyName>ByteDecoder.Queryology.Abstractions</AssemblyName>
 
-        <Authors>ByteDecoder</Authors>
-        <Company />
-        <PackageId>ByteDecoder.Queryology.Abstractions</PackageId>
-        <Title>ByteDecoder.Queryology.Abstractions</Title>
+    <Authors>ByteDecoder</Authors>
+    <Company />
+    <PackageId>ByteDecoder.Queryology.Abstractions</PackageId>
+    <Title>ByteDecoder.Queryology.Abstractions</Title>
 
-        <Description>Abstractions for extending and building the minimalist Queryology Engine</Description>
-        <copyright>Copyright (c) 2020 released under the MIT license</copyright>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <RepositoryUrl>https://github.com/ByteDecoder/Queryology</RepositoryUrl>
-        <RepositoryType>MIT</RepositoryType>
-        <PackageTags>csharp netcoreapp3.1 EntityFrameworkCore EFCore entity-framework-core</PackageTags>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.3.0</Version>
-        <PackageIcon>icon.png</PackageIcon>
+    <Description>Abstractions for extending and building the minimalist Queryology Engine</Description>
+    <copyright>Copyright (c) 2020 released under the MIT license</copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/ByteDecoder/Queryology</RepositoryUrl>
+    <RepositoryType>MIT</RepositoryType>
+    <PackageTags>csharp netcoreapp3.1 EntityFrameworkCore EFCore entity-framework-core</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.3.0</Version>
+    <PackageIcon>icon.png</PackageIcon>
 
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <PackageProjectUrl>https://github.com/ByteDecoder/Queryology</PackageProjectUrl>
-        <Summary>Abstractions for extending and building the minimalist Queryology Engine</Summary>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageProjectUrl>https://github.com/ByteDecoder/Queryology</PackageProjectUrl>
+    <Summary>Abstractions for extending and building the minimalist Queryology Engine</Summary>
 
-        <CodeAnalysisRuleSet>$(SolutionDir)StyleCop.ruleset</CodeAnalysisRuleSet>
-    </PropertyGroup>
+    <CodeAnalysisRuleSet>$(SolutionDir)StyleCop.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="..\..\LICENSE">
-            <Pack>True</Pack>
-            <PackagePath />
-        </None>
-    </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath />
+    </None>
+  </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
-        <AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+    <AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
 
-    <PropertyGroup>
-        <CodeAnalysisRuleSet>$(SolutionDir)\_stylecop\StyleCopRules.ruleset</CodeAnalysisRuleSet>
-    </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(SolutionDir)\_stylecop\StyleCopRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
-    </ItemGroup>
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
 
 </Project>
 
