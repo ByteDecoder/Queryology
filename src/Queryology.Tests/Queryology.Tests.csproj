@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>ByteDecoder.Queryology.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1"/>
-    <PackageReference Include="xunit" Version="2.4.1"/>
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.2">
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -15,14 +15,24 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.6"/>
-    <PackageReference Include="coverlet.msbuild" Version="2.9.0"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.6" />
+    <PackageReference Include="coverlet.msbuild" Version="2.9.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Queryology.Providers.ObjectDumper\Queryology.Providers.ObjectDumper.csproj"/>
-    <ProjectReference Include="..\Queryology\Queryology.csproj"/>
+    <ProjectReference Include="..\Queryology.Providers.ObjectDumper\Queryology.Providers.ObjectDumper.csproj" />
+    <ProjectReference Include="..\Queryology\Queryology.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Support\"/>
+    <Folder Include="Support\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+    <AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(SolutionDir)\_stylecop\StyleCopRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
 </Project>

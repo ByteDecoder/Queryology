@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.Common.GuardClauses;
 using ByteDecoder.Queryology.Abstractions;
@@ -7,12 +7,12 @@ using Microsoft.EntityFrameworkCore;
 namespace ByteDecoder.Queryology.Extensions
 {
   /// <summary>
-  /// IQuery LINQ query operator extensions
+  /// IQuery LINQ query operator extensions.
   /// </summary>
   public static class QueryExtensions
   {
     /// <summary>
-    /// LINQ deferred query operator to filter the query execution if queries are Executable or ignore that object state
+    /// LINQ deferred query operator to filter the query execution if queries are Executable or ignore that object state.
     /// </summary>
     /// <param name="source">source enumerable sequence</param>
     /// <param name="ignoreQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
