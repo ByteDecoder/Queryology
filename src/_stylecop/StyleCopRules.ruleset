@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="StyleCopeRules" Description="StyleCopeRules custom ruleset" ToolsVersion="15.0">
+<RuleSet Name="StyleCopRules" Description="StyleCopRules custom ruleset" ToolsVersion="16.0">
   <IncludeAll Action="Warning" />
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <!-- A call to an instance member of the local class or a base class is not prefixed with 'this.' -->
     <Rule Id="SA1101" Action="None" />
+    <!-- Field should not begin with an underscore -->
+    <Rule Id="SA1309" Action="None" />
+    <!-- Braces should not be omitted -->
+    <Rule Id="SA1503" Action="None" />
+    <!-- The file header is missing or not located at the top of the file. -->
+    <Rule Id="SA1633" Action="None" />
   </Rules>
 </RuleSet>

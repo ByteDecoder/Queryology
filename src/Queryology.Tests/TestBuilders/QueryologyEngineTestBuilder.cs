@@ -1,11 +1,12 @@
-using System;
+﻿using System;
 using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Tests.Support;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology.Tests.TestBuilders
 {
-  internal class QueryologyEngineTestBuilder<T> : IDisposable where T : DbContext, new()
+  internal class QueryologyEngineTestBuilder<T> : IDisposable
+      where T : DbContext, new()
   {
     private T _dbContext;
     private IQueryologyEngine<T> _queryologyEngine;
@@ -40,13 +41,14 @@ namespace ByteDecoder.Queryology.Tests.TestBuilders
 
     protected virtual void Dispose(bool disposing)
     {
-      if (_disposedValue) return;
+      if (_disposedValue)
+        return;
 
       if (disposing)
       {
         _dbContext.Dispose();
       }
-        
+
       _dbContext = null;
       _queryologyEngine = null;
 
