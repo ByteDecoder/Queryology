@@ -3,30 +3,31 @@
 namespace ByteDecoder.Queryology.Abstractions
 {
     /// <summary>
-    ///
+    /// Describes the contract for IQuery.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface IQuery<T> where T : DbContext
+    /// <typeparam name="T">DbContext Type.</typeparam>
+    public interface IQuery<T>
+        where T : DbContext
     {
         /// <summary>
-        /// Reference to the EF Core DbContext class allowed to use in the query.
+        /// Gets or sets the reference to the EF Core DbContext class allowed to use in the query.
         /// </summary>
-        /// <value></value>
+        /// <value>DbContext.</value>
         T DataContext { get; set; }
 
         /// <summary>
-        ///
+        /// Gets the data object processed.
         /// </summary>
-        /// <value></value>
+        /// <value>Data object.</value>
         dynamic Data { get; }
 
         /// <summary>
-        /// If the field is true, means the query can be executed, otherwise is not executed.
+        /// Gets a value indicating whether gets if the query can be executed.
         /// </summary>
         bool Executable { get; }
 
         /// <summary>
-        ///
+        /// Gets or sets the IObjectDisplayer.
         /// </summary>
         IObjectDisplayer ObjectDisplayer { get; set; }
 

@@ -68,7 +68,8 @@ namespace ByteDecoder.Queryology
               .ForEach(query =>
               {
                   query.Execute();
-                  checked { totalExecQueries++; }
+                  checked
+                  { totalExecQueries++; }
               });
 
             _ignoreExcludedQueries = true;
@@ -97,7 +98,7 @@ namespace ByteDecoder.Queryology
         /// </summary>
         /// <param name="targetType">Target Type to find</param>
         /// <returns></returns>
-        private static IEnumerable<Type> GetLoadedTypes(Type targetType) =>
+        private IEnumerable<Type> GetLoadedTypes(Type targetType) =>
           AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(assembly => assembly.GetTypes())
             .Where(targetType.IsAssignableFrom);

@@ -1,4 +1,5 @@
 ﻿using System;
+using ByteDecoder.Common.GuardClauses;
 using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Providers;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,8 @@ namespace ByteDecoder.Queryology
     ///
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T> where T : DbContext
+    public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
+        where T : DbContext
     {
         private IQueryologyEngine<T> _queryologyEngine;
 
@@ -20,6 +22,8 @@ namespace ByteDecoder.Queryology
         /// <returns></returns>
         public IQueryologyEngineBuilder<T> Configure(Action<QueryologyEngineOptions<T>> queryologyEngineOptions)
         {
+            Guard.Break.IfArgumentIsNull(queryologyEngineOptions, nameof(queryologyEngineOptions));
+
             var options = new QueryologyEngineOptions<T>();
             queryologyEngineOptions(options);
             options.QueryFactoryProvider ??= new QueryFactory<T>();

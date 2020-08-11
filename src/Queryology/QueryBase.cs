@@ -12,34 +12,12 @@ namespace ByteDecoder.Queryology
       where T : DbContext
     {
         /// <summary>
-        ///
-        /// </summary>
-        /// <value></value>
-        public dynamic Data { get; protected set; }
-
-        /// <summary>
-        /// Reference to the EF Core DbContext class allowed to use in the query
-        /// </summary>
-        /// <value></value>
-        public T DataContext { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public IObjectDisplayer ObjectDisplayer { get; set; }
-
-        /// <summary>
-        /// If the field is true, means the query can be executed, otherwise is not executed
-        /// </summary>
-        public virtual bool Executable => true;
-
-        /// <summary>
-        ///
+        /// Initializes a new instance of the <see cref="QueryBase{T}"/> class.
         /// </summary>
         protected QueryBase() { }
 
         /// <summary>
-        ///
+        /// Initializes a new instance of the <see cref="QueryBase{T}"/> class.
         /// </summary>
         /// <param name="dataContext"></param>
         /// <param name="objectDisplayer"></param>
@@ -50,15 +28,37 @@ namespace ByteDecoder.Queryology
         }
 
         /// <summary>
-        /// Execute the query main logic body
+        ///
+        /// </summary>
+        /// <value></value>
+        public dynamic Data { get; protected set; }
+
+        /// <summary>
+        /// Reference to the EF Core DbContext class allowed to use in the query.
+        /// </summary>
+        /// <value></value>
+        public T DataContext { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public IObjectDisplayer ObjectDisplayer { get; set; }
+
+        /// <summary>
+        /// If the field is true, means the query can be executed, otherwise is not executed.
+        /// </summary>
+        public virtual bool Executable => true;
+
+        /// <summary>
+        /// Execute the query main logic body.
         /// </summary>
         public abstract void Execute();
 
         /// <summary>
         ///
         /// </summary>
-        /// <param name="title">Message to label the query execution</param>
-        /// <param name="depth">Level of depth for object exploration</param>
+        /// <param name="title">Message to label the query execution.</param>
+        /// <param name="depth">Level of depth for object exploration.</param>
         protected void DisplayData(string title, int depth = 1)
         {
             ObjectDisplayer.DisplayData(title, Data, depth);
