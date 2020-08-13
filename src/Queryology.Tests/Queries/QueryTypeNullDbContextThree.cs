@@ -1,12 +1,18 @@
-namespace ByteDecoder.Queryology.Tests.Queries
+﻿namespace ByteDecoder.Queryology.Tests.Queries
 {
-  public class QueryTypeNullDbContextThree: QueryBase<NullDbContext>
+  /// <summary>
+  /// 
+  /// </summary>
+  public class QueryTypeNullDbContextThree : QueryBase<NullDbContext>
   {
+    /// <summary>
+    /// 
+    /// </summary>
     public override bool Executable => false;
 
-    public override void Execute()
-    {
-
-    }
+    /// <summary>
+    /// 
+    /// </summary>
+    public override void Execute() { }
   }
 }

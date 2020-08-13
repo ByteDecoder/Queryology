@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using ByteDecoder.Queryology.Tests.Data;
 using ByteDecoder.Queryology.Tests.TestBuilders;
 using Xunit;

@@ -55,38 +55,38 @@ namespace ByteDecoder.Queryology.Example.Models
 
     public static IEnumerable<Author> AuthorsData() => new[]
       {
-        new Author { AuthorId = 1, Name="Mary Hogan" },
-        new Author { AuthorId = 2, Name="Molly Kramer" },
-        new Author { AuthorId = 3, Name="Rhonda Ferguson" },
-        new Author { AuthorId = 4, Name="Jessie Salinas" },
-        new Author { AuthorId = 5, Name="Maryam Jenkins" },
-        new Author { AuthorId = 6, Name="Adele Gonzalez" },
-        new Author { AuthorId = 7, Name="Yasmine Chapman" },
+        new Author { AuthorId = 1, Name = "Mary Hogan" },
+        new Author { AuthorId = 2, Name = "Molly Kramer" },
+        new Author { AuthorId = 3, Name = "Rhonda Ferguson" },
+        new Author { AuthorId = 4, Name = "Jessie Salinas" },
+        new Author { AuthorId = 5, Name = "Maryam Jenkins" },
+        new Author { AuthorId = 6, Name = "Adele Gonzalez" },
+        new Author { AuthorId = 7, Name = "Yasmine Chapman" },
       };
 
     public static IEnumerable<BookAuthor> BookAuthors() => new[]
       {
-        new BookAuthor { AuthorId = 5, BookId=1, Order = 1 },
-        new BookAuthor { AuthorId = 7, BookId=1, Order = 2 },
-        new BookAuthor { AuthorId = 2, BookId=1, Order = 3 },
+        new BookAuthor { AuthorId = 5, BookId = 1, Order = 1 },
+        new BookAuthor { AuthorId = 7, BookId = 1, Order = 2 },
+        new BookAuthor { AuthorId = 2, BookId = 1, Order = 3 },
 
-        new BookAuthor { AuthorId=1, BookId=2, Order = 1 },
-        new BookAuthor { AuthorId=4, BookId=2, Order = 2 },
-        new BookAuthor { AuthorId=7, BookId=2, Order = 3 },
+        new BookAuthor { AuthorId = 1, BookId = 2, Order = 1 },
+        new BookAuthor { AuthorId = 4, BookId = 2, Order = 2 },
+        new BookAuthor { AuthorId = 7, BookId = 2, Order = 3 },
 
-        new BookAuthor { AuthorId=1, BookId=3, Order = 1 },
-        new BookAuthor { AuthorId=2, BookId=3, Order = 2 },
-        new BookAuthor { AuthorId=3, BookId=3, Order = 3 },
-        new BookAuthor { AuthorId=4, BookId=3, Order = 4 },
-        new BookAuthor { AuthorId=5, BookId=3, Order = 5 },
-        new BookAuthor { AuthorId=6, BookId=3, Order = 6 },
-        new BookAuthor { AuthorId=7, BookId=3, Order = 7 },
+        new BookAuthor { AuthorId = 1, BookId = 3, Order = 1 },
+        new BookAuthor { AuthorId = 2, BookId = 3, Order = 2 },
+        new BookAuthor { AuthorId = 3, BookId = 3, Order = 3 },
+        new BookAuthor { AuthorId = 4, BookId = 3, Order = 4 },
+        new BookAuthor { AuthorId = 5, BookId = 3, Order = 5 },
+        new BookAuthor { AuthorId = 6, BookId = 3, Order = 6 },
+        new BookAuthor { AuthorId = 7, BookId = 3, Order = 7 },
       };
 
     public static IEnumerable<PriceOffer> PromotionsData() => new[]
       {
-        new PriceOffer { PriceOfferId=1, BookId=1, NewPrice=15.00M, PromotionalText="Get the saga!!!" },
-        new PriceOffer { PriceOfferId=2, BookId=2, NewPrice=23.99M, PromotionalText="Do not be behind!!!" }
+        new PriceOffer { PriceOfferId = 1, BookId = 1, NewPrice = 15.00M, PromotionalText = "Get the saga!!!" },
+        new PriceOffer { PriceOfferId = 2, BookId = 2, NewPrice = 23.99M, PromotionalText = "Do not be behind!!!" }
       };
 
   }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using ByteDecoder.Queryology.Abstractions;
@@ -8,7 +8,7 @@ using Xunit;
 
 namespace ByteDecoder.Queryology.Tests
 {
-  public class QueryBaseExtensionsTests: IDisposable
+  public class QueryBaseExtensionsTests : IDisposable
   {
     private TestBuilderFactory _testBuilderFactory;
     private bool _disposedValue;
@@ -59,9 +59,10 @@ namespace ByteDecoder.Queryology.Tests
 
     protected virtual void Dispose(bool disposing)
     {
-      if(_disposedValue) return;
+      if (_disposedValue)
+        return;
 
-      if(disposing)
+      if (disposing)
       {
         // Dispose managed resources
       }
