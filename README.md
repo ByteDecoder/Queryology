@@ -3,6 +3,7 @@
 ![CI](https://github.com/ByteDecoder/Queryology/workflows/CI/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5636af5394315faa7bd8/maintainability)](https://codeclimate.com/github/ByteDecoder/Queryology/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5636af5394315faa7bd8/test_coverage)](https://codeclimate.com/github/ByteDecoder/Queryology/test_coverage)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 You can find the documentation for previous versions < 1.0.0 here [documentation until v0.4.3 here](DOCUMENTATION_UNTIL_0.4.3.md)
 
