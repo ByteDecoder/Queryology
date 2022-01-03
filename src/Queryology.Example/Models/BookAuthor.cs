@@ -1,13 +1,12 @@
-namespace ByteDecoder.Queryology.Example.Models
+namespace ByteDecoder.Queryology.Example.Models;
+
+public class BookAuthor
 {
-  public class BookAuthor
-  {
     public int BookId { get; set; }
     public int AuthorId { get; set; }
     public int Order { get; set; }
 
     // Relationships
-    public Book Book { get; set; }
-    public Author Author { get; set; }
-  }
+    public Book? Book { get; set; }
+    public Author? Author { get; set; }
 }

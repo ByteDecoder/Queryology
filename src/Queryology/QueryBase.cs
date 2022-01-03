@@ -1,5 +1,5 @@
-﻿using System;
-using ByteDecoder.Queryology.Abstractions;
+﻿using ByteDecoder.Queryology.Abstractions;
+using ByteDecoder.Queryology.Providers;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology
@@ -12,7 +12,7 @@ namespace ByteDecoder.Queryology
       where T : DbContext
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QueryBase{T}"/> class.
+        /// Default class constructor.
         /// </summary>
         protected QueryBase() { }
 
@@ -31,7 +31,7 @@ namespace ByteDecoder.Queryology
         ///
         /// </summary>
         /// <value></value>
-        public dynamic Data { get; protected set; }
+        public object Data { get; protected set; } = new();
 
         /// <summary>
         /// Reference to the EF Core DbContext class allowed to use in the query.
@@ -42,7 +42,7 @@ namespace ByteDecoder.Queryology
         /// <summary>
         ///
         /// </summary>
-        public IObjectDisplayer ObjectDisplayer { get; set; }
+        public IObjectDisplayer ObjectDisplayer { get; set; } = NullObjectDisplayer.Instance;
 
         /// <summary>
         /// If the field is true, means the query can be executed, otherwise is not executed.

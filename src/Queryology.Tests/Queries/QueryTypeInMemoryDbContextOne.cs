@@ -1,13 +1,18 @@
-﻿using ByteDecoder.Queryology.Tests.Data;
+﻿using ByteDecoder.Queryology.Abstractions;
+using ByteDecoder.Queryology.Tests.Data;
 
-namespace ByteDecoder.Queryology.Tests.Queries
+namespace ByteDecoder.Queryology.Tests.Queries;
+
+public class QueryTypeInMemoryDbContextOne : QueryBase<InMemoryDbContext>
 {
-    public class QueryTypeInMemoryDbContextOne : QueryBase<InMemoryDbContext>
-    {
-        public override bool Executable => false;
+    public QueryTypeInMemoryDbContextOne(
+        InMemoryDbContext dataContext,
+        IObjectDisplayer objectDisplayer) : base(dataContext, objectDisplayer) { }
 
-        public override void Execute()
-        {
-        }
+    public override bool Executable => false;
+
+    public override void Execute()
+    {
     }
 }
+
