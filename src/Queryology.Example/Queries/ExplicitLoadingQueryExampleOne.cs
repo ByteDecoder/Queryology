@@ -4,6 +4,9 @@ namespace ByteDecoder.Queryology.Example.Queries;
 
 public class ExplicitLoadingQueryExampleOne : QueryBase<EfCoreContext>
 {
+    public ExplicitLoadingQueryExampleOne(EfCoreContext dbContext)
+        : base(dbContext) { }
+
     public override void Execute()
     {
         var book = DataContext.Books.First();
