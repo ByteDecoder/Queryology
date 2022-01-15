@@ -14,6 +14,20 @@ public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
     private IQueryologyEngine<T>? _queryologyEngine;
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public QueryologyEngineOptions<T> Options { get; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public QueryologyEngineBuilder()
+    {
+        Options = new QueryologyEngineOptions<T>();
+    }
+
+    /// <summary>
     ///
     /// </summary>
     /// <param name="queryologyEngineOptions"></param>
@@ -23,11 +37,10 @@ public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
     {
         ArgumentNullException.ThrowIfNull(queryologyEngineOptions, nameof(queryologyEngineOptions));
 
-        var options = new QueryologyEngineOptions<T>();
-        queryologyEngineOptions(options);
-        options.QueryFactoryProvider ??= new QueryFactory<T>();
-        options.ObjectDisplayerProvider ??= NullObjectDisplayer.DisplayData;
-        _queryologyEngine = new QueryologyEngine<T>(options);
+        queryologyEngineOptions(Options);
+        Options.QueryFactoryProvider ??= new QueryFactory<T>();
+        Options.ObjectDisplayerProvider ??= NullObjectDisplayer.DisplayData;
+        _queryologyEngine = new QueryologyEngine<T>(Options);
 
         return this;
     }

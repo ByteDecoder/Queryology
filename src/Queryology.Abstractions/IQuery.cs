@@ -28,7 +28,7 @@ namespace ByteDecoder.Queryology.Abstractions
         /// Gets the data object processed.
         /// </summary>
         /// <value>Data object.</value>
-        dynamic Data { get; }
+        object Data { get; }
 
         /// <summary>
         /// Gets a value indicating whether gets if the query can be executed.

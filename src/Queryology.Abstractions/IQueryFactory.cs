@@ -13,6 +13,7 @@ public interface IQueryFactory<T>
     /// Creates a new instance of type IQuery.
     /// </summary>
     /// <param name="type">Query type.</param>
+    /// <param name="constructorParams"></param>
     /// <returns>Query instance.</returns>
-    IQuery<T>? Create(Type type);
+    IQuery<T> Create(Type type, params object[] constructorParams);
 }

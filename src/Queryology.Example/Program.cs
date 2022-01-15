@@ -22,10 +22,10 @@ internal static class Program
         // Only to work with LINQ to Objects
         using var nullDbContext = new NullDbContext();
         totalQueries = new QueryologyEngineBuilder<NullDbContext>()
-        .Configure(options => options.DataContextProvider = nullDbContext)
-          .AddObjectDumper()
-          .Build()
-          .Execute();
+            .Configure(options => options.DataContextProvider = nullDbContext)
+            .AddObjectDumper()
+            .Build()
+            .Execute();
 
         Console.WriteLine($"\n🦄🦄 Total Queries allowed to be executed by QueryologyEngine<NullDbContext>: {totalQueries}");
         Console.WriteLine("🐵🐵 Press Enter to continue... 🐵🐵");

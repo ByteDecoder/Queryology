@@ -10,6 +10,12 @@ public interface IQueryologyEngineBuilder<T>
     where T : DbContext
 {
     /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    QueryologyEngineOptions<T> Options { get; }
+
+    /// <summary>
     ///
     /// </summary>
     /// <param name="queryologyEngineOptions"></param>

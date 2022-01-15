@@ -19,10 +19,7 @@ public static class ObjectDumperProviderExtensions
     {
         ArgumentNullException.ThrowIfNull(queryologyEngineBuilder, nameof(queryologyEngineBuilder));
 
-        queryologyEngineBuilder.Configure(options =>
-        {
-            options.ObjectDisplayerProvider = ObjectDumperDisplayer.DisplayData;
-        });
+        queryologyEngineBuilder.Options.ObjectDisplayerProvider = ObjectDumperDisplayer.DisplayData;
 
         return queryologyEngineBuilder;
     }

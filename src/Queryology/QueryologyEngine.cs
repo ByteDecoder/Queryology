@@ -87,10 +87,7 @@ public class QueryologyEngine<T> : IQueryologyEngine<T>
 
         foreach (var type in loadedTypes)
         {
-            var query = _queryFactory.Create(type);
-
-            ArgumentNullException.ThrowIfNull(query, nameof(query));
-            query.DataContext = _dataContext;
+            var query = _queryFactory.Create(type, new[] { _dataContext });
             query.ObjectDisplayer = _objectDisplayer;
 
             yield return query;
