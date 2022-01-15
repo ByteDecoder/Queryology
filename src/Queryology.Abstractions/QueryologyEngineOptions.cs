@@ -18,7 +18,7 @@ public class QueryologyEngineOptions<T>
     ///
     /// </summary>
     /// <value></value>
-    public IObjectDisplayer? ObjectDisplayerProvider { get; set; }
+    public DisplayObjectData? ObjectDisplayerProvider { get; set; }
 
     /// <summary>
     ///

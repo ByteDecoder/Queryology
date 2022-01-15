@@ -39,10 +39,9 @@ public class QueryBaseTests
     {
         // Arrange
         using var dbContext = new InMemoryDbContext();
-        var objectViewer = new TestObjectViewer();
 
         // Act
-        var sut = new QueryTypeInMemoryDbContextTwo(dbContext, objectViewer);
+        var sut = new QueryTypeInMemoryDbContextTwo(dbContext, TestObjectViewer.DisplayData);
 
         // Assert
         Assert.NotNull(sut);
@@ -76,8 +75,7 @@ public class QueryBaseTests
     {
         // Arrange
         using var dbContext = new InMemoryDbContext();
-        var objectViewer = new TestObjectViewer();
-        var query = new QueryTypeInMemoryDbContextTwo(dbContext, objectViewer);
+        var query = new QueryTypeInMemoryDbContextTwo(dbContext, TestObjectViewer.DisplayData);
 
         // Act
         query.Execute();

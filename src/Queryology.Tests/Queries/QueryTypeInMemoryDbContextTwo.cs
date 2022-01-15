@@ -7,7 +7,7 @@ public class QueryTypeInMemoryDbContextTwo : QueryBase<InMemoryDbContext>
 {
     public QueryTypeInMemoryDbContextTwo(
         InMemoryDbContext dataContext,
-        IObjectDisplayer objectDisplayer) : base(dataContext, objectDisplayer) { }
+        DisplayObjectData objectDisplayer) : base(dataContext, objectDisplayer) { }
 
     public override void Execute()
     {

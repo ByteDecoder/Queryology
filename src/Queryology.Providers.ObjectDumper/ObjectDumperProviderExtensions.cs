@@ -25,7 +25,7 @@ public static class ObjectDumperProviderExtensions
         queryologyEngineBuilder.Configure(options =>
         {
             options.DataContextProvider = dbContext;
-            options.ObjectDisplayerProvider = new ObjectDumperDisplayer();
+            options.ObjectDisplayerProvider = new ObjectDumperDisplayer().DisplayData;
         });
 
         return queryologyEngineBuilder;

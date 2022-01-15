@@ -7,7 +7,7 @@ public class QueryTypeInMemoryDbContextOne : QueryBase<InMemoryDbContext>
 {
     public QueryTypeInMemoryDbContextOne(
         InMemoryDbContext dataContext,
-        IObjectDisplayer objectDisplayer) : base(dataContext, objectDisplayer) { }
+        DisplayObjectData objectDisplayer) : base(dataContext, objectDisplayer) { }
 
     public override bool Executable => false;
 

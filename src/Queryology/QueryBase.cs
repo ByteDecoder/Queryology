@@ -24,7 +24,7 @@ namespace ByteDecoder.Queryology
         /// </summary>
         /// <param name="dataContext"></param>
         /// <param name="objectDisplayer"></param>
-        protected QueryBase(T dataContext, IObjectDisplayer objectDisplayer)
+        protected QueryBase(T dataContext, DisplayObjectData objectDisplayer)
         {
             DataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
             ObjectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(dataContext));
@@ -45,7 +45,7 @@ namespace ByteDecoder.Queryology
         /// <summary>
         ///
         /// </summary>
-        public IObjectDisplayer ObjectDisplayer { get; set; } = NullObjectDisplayer.Instance;
+        public DisplayObjectData ObjectDisplayer { get; set; } = NullObjectDisplayer.DisplayData;
 
         /// <summary>
         /// If the field is true, means the query can be executed, otherwise is not executed.
@@ -62,9 +62,7 @@ namespace ByteDecoder.Queryology
         /// </summary>
         /// <param name="title">Message to label the query execution.</param>
         /// <param name="depth">Level of depth for object exploration.</param>
-        protected void DisplayData(string title, int depth = 1)
-        {
-            ObjectDisplayer.DisplayData(title, Data, depth);
-        }
+        protected void DisplayData(string title, int depth = 1) =>
+            ObjectDisplayer(title, Data, depth);
     }
 }

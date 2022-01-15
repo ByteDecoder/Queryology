@@ -8,11 +8,12 @@ namespace ByteDecoder.Queryology;
 /// QueryologyEngine will look for all query objects loaded in the Current AppDomain with the type IQuery.
 /// </summary>
 /// <typeparam name="T">An Entity Framework DbContext derived class</typeparam>
-public class QueryologyEngine<T> : IQueryologyEngine<T> where T : DbContext
+public class QueryologyEngine<T> : IQueryologyEngine<T>
+    where T : DbContext
 {
     private readonly T _dataContext;
     private readonly IQueryFactory<T> _queryFactory;
-    private readonly IObjectDisplayer _objectDisplayer;
+    private readonly DisplayObjectData _objectDisplayer;
     private bool _ignoreExcludedQueries;
 
     /// <summary>
@@ -32,7 +33,10 @@ public class QueryologyEngine<T> : IQueryologyEngine<T> where T : DbContext
     /// <param name="dataContext"></param>
     /// <param name="queryFactory"></param>
     /// <param name="objectDisplayer"></param>
-    public QueryologyEngine(T? dataContext, IQueryFactory<T>? queryFactory, IObjectDisplayer? objectDisplayer)
+    public QueryologyEngine(
+        T? dataContext,
+        IQueryFactory<T>? queryFactory,
+        DisplayObjectData? objectDisplayer)
     {
         _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
         _queryFactory = queryFactory ?? throw new ArgumentNullException(nameof(queryFactory));

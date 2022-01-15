@@ -9,7 +9,7 @@ public class QueryTypeNullDbContextThree : QueryBase<NullDbContext>
 {
     public QueryTypeNullDbContextThree(
         NullDbContext dataContext,
-        IObjectDisplayer objectDisplayer) : base(dataContext, objectDisplayer) { }
+        DisplayObjectData objectDisplayer) : base(dataContext, objectDisplayer) { }
 
     /// <summary>
     ///

@@ -26,7 +26,7 @@ public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
         var options = new QueryologyEngineOptions<T>();
         queryologyEngineOptions(options);
         options.QueryFactoryProvider ??= new QueryFactory<T>();
-        options.ObjectDisplayerProvider ??= NullObjectDisplayer.Instance;
+        options.ObjectDisplayerProvider ??= NullObjectDisplayer.DisplayData;
         _queryologyEngine = new QueryologyEngine<T>(options);
 
         return this;
