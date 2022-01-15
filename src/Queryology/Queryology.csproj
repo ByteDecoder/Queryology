@@ -36,7 +36,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118"/>
-		<PackageReference Include="NuGetDefense" Version="2.1.2.1"/>
+		<PackageReference Include="NuGetDefense" Version="3.0.0-pre0017"/>
 		<AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json"/>
 		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0"/>
 		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.0"/>

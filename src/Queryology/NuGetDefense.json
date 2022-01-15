@@ -17,6 +17,12 @@
     "AllowedPackages": [],
     "BlockedPackages": []
   },
+  "GitHubAdvisoryDatabase": {
+    "ApiToken": "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",
+    "Username": "ByteDecoder",
+    "Enabled": true,
+    "BreakIfCannotRun": false
+  },
   "OssIndex": {
     "ApiToken": "",
     "Username": "",
