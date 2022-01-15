@@ -12,14 +12,6 @@ namespace ByteDecoder.Queryology
       where T : DbContext
     {
         /// <summary>
-        /// Default class constructor.
-        /// </summary>
-        protected QueryBase(T dataContext)
-        {
-            DataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="QueryBase{T}"/> class.
         /// </summary>
         /// <param name="dataContext"></param>

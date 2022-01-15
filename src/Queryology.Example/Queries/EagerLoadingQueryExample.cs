@@ -1,3 +1,4 @@
+using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Example.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,8 +6,9 @@ namespace ByteDecoder.Queryology.Example.Queries;
 
 public class EagerLoadingQueryExample : QueryBase<EfCoreContext>
 {
-    public EagerLoadingQueryExample(EfCoreContext dbContext)
-      : base(dbContext) { }
+    public EagerLoadingQueryExample(
+        EfCoreContext dataContext,
+        DisplayObjectData objectDisplayer) : base(dataContext, objectDisplayer) { }
 
     public override void Execute()
     {

@@ -1,11 +1,13 @@
+using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Example.Models;
 
 namespace ByteDecoder.Queryology.Example.Queries;
 
 public class ExplicitLoadingQueryExampleOne : QueryBase<EfCoreContext>
 {
-    public ExplicitLoadingQueryExampleOne(EfCoreContext dbContext)
-        : base(dbContext) { }
+    public ExplicitLoadingQueryExampleOne(
+        EfCoreContext dataContext,
+        DisplayObjectData objectDisplayer) : base(dataContext, objectDisplayer) { }
 
     public override void Execute()
     {

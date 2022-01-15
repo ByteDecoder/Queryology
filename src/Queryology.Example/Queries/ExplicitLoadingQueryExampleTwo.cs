@@ -1,3 +1,4 @@
+using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Example.Models;
 using ByteDecoder.Queryology.Providers.ObjectDumper;
 
@@ -5,8 +6,9 @@ namespace ByteDecoder.Queryology.Example.Queries;
 
 public class ExplicitLoadingQueryExampleTwo : QueryBase<EfCoreContext>
 {
-    public ExplicitLoadingQueryExampleTwo(EfCoreContext dbContext)
-        : base(dbContext) { }
+    public ExplicitLoadingQueryExampleTwo(
+        EfCoreContext dataContext,
+        DisplayObjectData objectDisplayer) : base(dataContext, objectDisplayer) { }
 
     public override void Execute()
     {

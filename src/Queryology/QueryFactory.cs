@@ -10,7 +10,7 @@ public class QueryFactory<T> : IQueryFactory<T>
     where T : DbContext
 {
     /// <summary>
-    /// 
+    /// Creates query instance using reflection.
     /// </summary>
     /// <param name="type"></param>
     /// <param name="constructorParams"></param>
