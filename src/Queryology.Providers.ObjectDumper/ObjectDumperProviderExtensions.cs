@@ -12,20 +12,16 @@ public static class ObjectDumperProviderExtensions
     ///
     /// </summary>
     /// <param name="queryologyEngineBuilder"></param>
-    /// <param name="dbContext"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public static IQueryologyEngineBuilder<T> AddObjectDumper<T>(
-        this IQueryologyEngineBuilder<T> queryologyEngineBuilder,
-        T dbContext) where T : DbContext
+        this IQueryologyEngineBuilder<T> queryologyEngineBuilder) where T : DbContext
     {
         ArgumentNullException.ThrowIfNull(queryologyEngineBuilder, nameof(queryologyEngineBuilder));
-        ArgumentNullException.ThrowIfNull(dbContext, nameof(dbContext));
 
         queryologyEngineBuilder.Configure(options =>
         {
-            options.DataContextProvider = dbContext;
-            options.ObjectDisplayerProvider = new ObjectDumperDisplayer().DisplayData;
+            options.ObjectDisplayerProvider = ObjectDumperDisplayer.DisplayData;
         });
 
         return queryologyEngineBuilder;

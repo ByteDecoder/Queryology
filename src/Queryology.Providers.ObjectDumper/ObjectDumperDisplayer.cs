@@ -3,7 +3,7 @@
     /// <summary>
     ///
     /// </summary>
-    public class ObjectDumperDisplayer
+    public static class ObjectDumperDisplayer
     {
         /// <summary>
         ///
@@ -11,7 +11,7 @@
         /// <param name="title"></param>
         /// <param name="data"></param>
         /// <param name="depth"></param>
-        public void DisplayData(string title, object data, int depth)
+        public static void DisplayData(string title, object data, int depth)
         {
             Console.WriteLine();
             Console.WriteLine(title);
