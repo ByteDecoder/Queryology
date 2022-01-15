@@ -38,7 +38,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
         /// <param name="log"></param>
         public static void Write(object element, int depth, TextWriter log)
         {
-            var dumper = new ObjectDumper(depth) { _writer = log };
+            var dumper = new ObjectDumper(depth, log);
             dumper.WriteObject(null, element);
         }
 
@@ -49,9 +49,10 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
         private int _level;
         private readonly int _depth;
 
-        private ObjectDumper(int depth)
+        private ObjectDumper(int depth, TextWriter writer)
         {
             _depth = depth;
+            _writer = writer;
         }
 
         private void Write(string? s)
@@ -139,10 +140,10 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
         private void WriteMemberInfoDetails(object element, FieldInfo? f, PropertyInfo? p)
         {
-            var t = f != null ? f.FieldType : p.PropertyType;
+            var t = f != null ? f.FieldType : p!.PropertyType;
             if (t.IsValueType || t == typeof(string))
             {
-                WriteValue(f != null ? f.GetValue(element) : p.GetValue(element, null));
+                WriteValue(f != null ? f.GetValue(element) : p!.GetValue(element, null));
             }
             else
             {
@@ -162,14 +163,17 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
 
                 if (f == null && p == null)
                     continue;
-                var t = f != null ? f.FieldType : p.PropertyType;
+
+                var t = f != null ? f.FieldType : p!.PropertyType;
 
                 if (t.IsValueType || t == typeof(string))
                     continue;
-                var value = f != null ? f.GetValue(element) : p.GetValue(element, null);
+
+                var value = f != null ? f.GetValue(element) : p!.GetValue(element, null);
 
                 if (value == null)
                     continue;
+
                 _level++;
                 WriteObject(m.Name + ": ", value);
                 _level--;
@@ -207,7 +211,7 @@ namespace ByteDecoder.Queryology.Providers.ObjectDumper
             }
         }
 
-        private void WriteValue(object o)
+        private void WriteValue(object? o)
         {
             switch (o)
             {
