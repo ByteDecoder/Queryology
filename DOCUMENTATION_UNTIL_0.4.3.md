@@ -22,27 +22,27 @@ dotnet add package ByteDecoder.Queryology --version 0.4.3
 
 ## Examples and usage
 
-If you are exploring a query or learning *Entity Framework core*,  and want to analyze, understand, and doing some experiments, but you do not want to spend a lot of time doing boilerplate infrastructure. Enter the **Queryology Engine**.
+If you are exploring a query or learning _Entity Framework core_, and want to analyze, understand, and doing some experiments, but you do not want to spend a lot of time doing boilerplate infrastructure. Enter the **Queryology Engine**.
 
 By using it, allow you to stay focus reviewing and writing your queries, executing them, and you can disable them for not execution in runtime with the minimal code changes.
 
 The basic theory that you need:
 
 - **Queryology** NuGet package installed
-- Your *EF Core DbContext class*, or if you want to use only *LINQ to Objects*, **Queryology** provides a default *NullDbContext* to avoid setting one by yourself
+- Your _EF Core DbContext class_, or if you want to use only _LINQ to Objects_, **Queryology** provides a default _NullDbContext_ to avoid setting one by yourself
 - Have a query class per each one of your experiments
-- Inherit and implement *QueryBase\<T\>* where **T** is the type of your *EF Core DbContext class*
+- Inherit and implement _QueryBase\<T\>_ where **T** is the type of your _EF Core DbContext class_
 - **QueryBase\<T\>** Uses an **ObjectDumper** from Microsoft for exploring your Linq results
-- Don't forget to add a *logger* in your *EF Core DbContext class* to analyze the *SQL output*
-- Just call an instance of **QueryologyEngine** with your *EF Core DbContext class* and, it will find for you all your query classes that inherit from  **QueryBase\<T\>** and it will execute them
+- Don't forget to add a _logger_ in your _EF Core DbContext class_ to analyze the _SQL output_
+- Just call an instance of **QueryologyEngine** with your _EF Core DbContext class_ and, it will find for you all your query classes that inherit from **QueryBase\<T\>** and it will execute them
 - Enjoy
 
 **QueryBase\<T\>** Provides you:
 
-- *DataContext property* which holds the reference to the provided *EF Core DbContext class*
-- *DisplayData method* to write in the console the structure of your query result using the **Data** property
-- *Data property* defined as *dynamic* since you can project *anonymous types* with LINQ
-- *Executable property* that is overridable to set to **false** if you do not want this rule to be executed by *QueryologyEngine*
+- _DataContext property_ which holds the reference to the provided _EF Core DbContext class_
+- _DisplayData method_ to write in the console the structure of your query result using the **Data** property
+- _Data property_ defined as _object_ since you can project _anonymous types_ with LINQ
+- _Executable property_ that is overridable to set to **false** if you do not want this rule to be executed by _QueryologyEngine_
 
 Minimalist EF Core DbContext example code:
 
@@ -115,7 +115,7 @@ class Program
 }
 ```
 
-Mark a *Query class* to be ignored and not to be executed at runtime:
+Mark a _Query class_ to be ignored and not to be executed at runtime:
 
 ```csharp
 // Just override the Executable property; and set it to false.

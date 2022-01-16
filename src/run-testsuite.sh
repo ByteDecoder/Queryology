@@ -4,7 +4,7 @@ clear
 
 rm -r ../coverage/*
 
-dotnet test Queryology.sln --logger:trx \
+dotnet test Queryology.sln -c Release --logger:trx \
    --results-directory ../../coverage \
    /p:CollectCoverage=true \
    /p:CoverletOutput=../../coverage/ \

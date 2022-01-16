@@ -7,9 +7,9 @@ namespace ByteDecoder.Queryology.Example.Models
     {
         private static readonly ILoggerFactory LoggerFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(configure => configure.AddConsole());
 
-        public DbSet<Book> Books { get; set; }
-        public DbSet<Author> Authors { get; set; }
-        public DbSet<PriceOffer> PriceOffers { get; set; }
+        public DbSet<Book> Books => Set<Book>();
+        public DbSet<Author> Authors => Set<Author>();
+        public DbSet<PriceOffer> PriceOffers => Set<PriceOffer>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

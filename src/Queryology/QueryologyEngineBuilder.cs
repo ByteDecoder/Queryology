@@ -1,45 +1,59 @@
-﻿using System;
-using ByteDecoder.Common.GuardClauses;
-using ByteDecoder.Queryology.Abstractions;
+﻿using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Providers;
 using Microsoft.EntityFrameworkCore;
 
-namespace ByteDecoder.Queryology
+namespace ByteDecoder.Queryology;
+
+/// <summary>
+///
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
+    where T : DbContext
 {
+    private IQueryologyEngine<T>? _queryologyEngine;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public QueryologyEngineOptions<T> Options { get; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public QueryologyEngineBuilder()
+    {
+        Options = new QueryologyEngineOptions<T>();
+    }
+
     /// <summary>
     ///
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
-        where T : DbContext
+    /// <param name="queryologyEngineOptions"></param>
+    /// <returns></returns>
+    public IQueryologyEngineBuilder<T> Configure(
+        Action<QueryologyEngineOptions<T>> queryologyEngineOptions)
     {
-        private IQueryologyEngine<T> _queryologyEngine;
+        ArgumentNullException.ThrowIfNull(queryologyEngineOptions, nameof(queryologyEngineOptions));
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="queryologyEngineOptions"></param>
-        /// <returns></returns>
-        public IQueryologyEngineBuilder<T> Configure(Action<QueryologyEngineOptions<T>> queryologyEngineOptions)
-        {
-            Guard.Break.IfArgumentIsNull(queryologyEngineOptions, nameof(queryologyEngineOptions));
+        queryologyEngineOptions(Options);
+        Options.QueryFactoryProvider ??= new QueryFactory<T>();
+        Options.ObjectDisplayerProvider ??= NullObjectDisplayer.DisplayData;
+        _queryologyEngine = new QueryologyEngine<T>(Options);
 
-            var options = new QueryologyEngineOptions<T>();
-            queryologyEngineOptions(options);
-            options.QueryFactoryProvider ??= new QueryFactory<T>();
-            options.ObjectDisplayerProvider ??= NullObjectDisplayer.Instance;
-            _queryologyEngine = new QueryologyEngine<T>(options);
+        return this;
+    }
 
-            return this;
-        }
+    /// <summary>
+    /// Build a Queryology Engine.
+    /// </summary>
+    /// <returns>QueryologyEngine</returns>
+    /// 
+    public IQueryologyEngine<T> Build()
+    {
+        ArgumentNullException.ThrowIfNull(_queryologyEngine, nameof(_queryologyEngine));
 
-        /// <summary>
-        /// Build a Queryology Engine.
-        /// </summary>
-        /// <returns>QueryologyEngine</returns>
-        public IQueryologyEngine<T> Build()
-        {
-            return _queryologyEngine;
-        }
+        return _queryologyEngine;
     }
 }

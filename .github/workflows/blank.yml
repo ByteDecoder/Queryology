@@ -2,27 +2,41 @@ name: .NET Core
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.302
-    - name: Install dependencies
-      run: cd src && dotnet restore
-    - name: Build
-      run: cd src && dotnet build --configuration Release --no-restore
-    - name: Test
-      run: cd src && ./codeclimate_code_coverage.sh
-      env:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-      #run: cd src && dotnet test --no-restore --verbosity normal
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Install dependencies
+        run: cd src && dotnet restore
+
+      - name: .Net Version
+        run: cd src && dotnet --version
+
+      - name: Build
+        run: cd src && dotnet build --configuration Release --no-restore
+
+      - name: Security Code Scan
+        run: cd src && ./run-security-code-scan.sh
+
+      - name: Test
+        run: cd src && ./codeclimate_code_coverage.sh
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        #run: cd src && dotnet test --no-restore --verbosity normal

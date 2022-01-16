@@ -1,21 +1,25 @@
-using System;
 using ByteDecoder.Queryology.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace ByteDecoder.Queryology
+namespace ByteDecoder.Queryology;
+
+/// <summary>
+///
+/// </summary>
+public class QueryFactory<T> : IQueryFactory<T>
+    where T : DbContext
 {
     /// <summary>
-    ///
+    /// Creates query instance using reflection.
     /// </summary>
-    public class QueryFactory<T> : IQueryFactory<T> where T : DbContext
+    /// <param name="type"></param>
+    /// <param name="constructorParams"></param>
+    /// <returns></returns>
+    public IQuery<T> Create(Type type, params object[] constructorParams)
     {
-        /// <summary>
-        ///
-        /// </summary>
-        /// <returns></returns>
-        public IQuery<T> Create(Type type)
-        {
-            return (IQuery<T>)Activator.CreateInstance(type);
-        }
+        var query = Activator.CreateInstance(type, constructorParams) as IQuery<T>;
+        ArgumentNullException.ThrowIfNull(query);
+
+        return query;
     }
 }
