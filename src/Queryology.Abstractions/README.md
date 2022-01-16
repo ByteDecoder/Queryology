@@ -2,7 +2,7 @@
 
 Abstractions for extending and building the minimalist Queryology Engine
 
-Targeted to .Net Core 3.1
+Targeted to .Net 6
 
 ## Installation
 

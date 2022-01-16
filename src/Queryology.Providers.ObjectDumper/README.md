@@ -1,9 +1,9 @@
 # Queryology.Providers.ObjectDumper
 
-ObjectDumper provider extension for use with the minimalist Queryology Engine. This library is based on *ByteDecoder.Queryology.Abstractions* which
+ObjectDumper provider extension for use with the minimalist Queryology Engine. This library is based on _ByteDecoder.Queryology.Abstractions_ which
 are the engine foundations.
 
-Targeted to .Net Core 3.1
+Targeted to .Net 6
 
 ## Installation
 
