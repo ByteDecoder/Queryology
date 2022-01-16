@@ -49,6 +49,7 @@ public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
     /// Build a Queryology Engine.
     /// </summary>
     /// <returns>QueryologyEngine</returns>
+    /// 
     public IQueryologyEngine<T> Build()
     {
         ArgumentNullException.ThrowIfNull(_queryologyEngine, nameof(_queryologyEngine));

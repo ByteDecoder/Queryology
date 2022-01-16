@@ -23,24 +23,12 @@ namespace ByteDecoder.Queryology.Tests.Providers.ObjectDumper
         }
 
         [Fact]
-        public void AddObjectDumper_ThrowsArgumentNullException_WhenDbContextInputIsNull()
-        {
-            // Arrange
-            var engineBuilder = new QueryologyEngineBuilder<InMemoryDbContext>();
-
-            // Act
-            var exception = Record.Exception(() => engineBuilder.AddObjectDumper());
-
-            // Assert
-            Assert.IsType<ArgumentNullException>(exception);
-        }
-
-        [Fact]
         public void AddObjectDumper_ReturnsIQueryologyEngineBuilder_WhenHasCorrectInputParams()
         {
             // Arrange
-            var sut = new QueryologyEngineBuilder<InMemoryDbContext>();
             using var dbContext = new InMemoryDbContext();
+            var sut = new QueryologyEngineBuilder<InMemoryDbContext>()
+                .Configure(options => options.DataContextProvider = dbContext);
 
             // Act
             sut.AddObjectDumper();

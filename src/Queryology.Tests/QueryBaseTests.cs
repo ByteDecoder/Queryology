@@ -9,32 +9,6 @@ namespace ByteDecoder.Queryology.Tests;
 public class QueryBaseTests
 {
     [Fact]
-    public void Constructor_ThrowsArgumentNullException_WhenNullIsPassedAsDbContext()
-    {
-        // Arrange
-        // Act
-        var exception = Record.Exception(() => new QueryTypeInMemoryDbContextTwo(null, null));
-
-        // Assert
-        Assert.IsType<ArgumentNullException>(exception);
-    }
-
-    [Fact]
-    public void Constructor_ThrowsArgumentNullException_WhenNullIsPassedAsObjectViewer()
-    {
-        // Arrange
-        // Act
-        var exception = Record.Exception(() =>
-        {
-            using var dbContext = new InMemoryDbContext();
-            return new QueryTypeInMemoryDbContextTwo(dbContext, null);
-        });
-
-        // Assert
-        Assert.IsType<ArgumentNullException>(exception);
-    }
-
-    [Fact]
     public void Constructor_CreatesObjectInstance_WhenHasValidParams()
     {
         // Arrange
@@ -48,30 +22,7 @@ public class QueryBaseTests
     }
 
     [Fact]
-    public void ObjectDisplayer_IsNullByDefault_WhenObjectIsCreated()
-    {
-        // Arrange
-        // Act
-        var sut = new QueryTypeInMemoryDbContextTwo(null, null);
-
-        // Assert
-        Assert.Null(sut.ObjectDisplayer);
-    }
-
-    [Fact]
-    public void Data_SetDataToNull_WhenNullWhenQueryObjectIsCreated()
-    {
-        // Arrange
-        using var dbContext = new InMemoryDbContext();
-        var query = new QueryTypeInMemoryDbContextTwo(dbContext, null);
-
-        // Act
-        // Assert
-        Assert.Null(query.Data);
-    }
-
-    [Fact]
-    public void Data_HasValue_WhenIsProvided()
+    public void Execute_Run_QueryInstanceSuccessful()
     {
         // Arrange
         using var dbContext = new InMemoryDbContext();
@@ -89,7 +40,7 @@ public class QueryBaseTests
     {
         // Arrange
         using var dbContext = new InMemoryDbContext();
-        var query = new QueryTypeInMemoryDbContextTwo(dbContext, null);
+        var query = new QueryTypeInMemoryDbContextTwo(dbContext, TestObjectViewer.DisplayData);
 
         // Act
         // Assert
@@ -97,15 +48,40 @@ public class QueryBaseTests
     }
 
     [Fact]
-    public void Execute_ThrowsNullReferenceException_WhenStrategyIsNull()
+    public void Execute_ThrowsArgumentNullException_WhenDbContextIsNull()
     {
         // Arrange
-        var query = new QueryTypeInMemoryDbContextTwo(null, null);
-
         // Act
-        var exception = Record.Exception(() => query.Execute());
+        var exception = Record.Exception(() =>
+        {
+            new QueryTypeInMemoryDbContextTwo(null, TestObjectViewer.DisplayData);
+        });
 
         // Assert
-        Assert.IsType<NullReferenceException>(exception);
+        Assert.IsType<ArgumentNullException>(exception);
+    }
+
+    [Fact]
+    public void Execute_ThrowsArgumentNullException_WhenDisplayerDeleagteIsNull()
+    {
+        // Arrange
+        using var dbContext = new InMemoryDbContext();
+
+        // Act
+        var exception = Record.Exception(() => new QueryTypeInMemoryDbContextTwo(dbContext, null));
+
+        // Assert
+        Assert.IsType<ArgumentNullException>(exception);
+    }
+
+    [Fact]
+    public void Constructor_ThrowsArgumentNullException_WhenDbContextAndDisplayerDeleagteIsNull()
+    {
+        // Arrange
+        // Act
+        var exception = Record.Exception(() => new QueryTypeInMemoryDbContextTwo(null, null));
+
+        // Assert
+        Assert.IsType<ArgumentNullException>(exception);
     }
 }

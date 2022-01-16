@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ByteDecoder.Queryology.Abstractions;
 using ByteDecoder.Queryology.Tests.Queries;
+using ByteDecoder.Queryology.Tests.Support;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteDecoder.Queryology.Tests.TestBuilders;
@@ -16,8 +17,8 @@ internal class TestBuilderFactory
     public IEnumerable<IQuery<NullDbContext>> CreateNullDbContextObjectQueries(NullDbContext dbContext) =>
         new List<IQuery<NullDbContext>>()
             {
-                new QueryTypeNullDbContextOne(dbContext, null),
-                new QueryTypeNullDbContextTwo ( dbContext, null),
-                new QueryTypeNullDbContextThree(dbContext, null)
+                new QueryTypeNullDbContextOne(dbContext, TestObjectViewer.DisplayData),
+                new QueryTypeNullDbContextTwo(dbContext, TestObjectViewer.DisplayData),
+                new QueryTypeNullDbContextThree(dbContext, TestObjectViewer.DisplayData)
             };
 }

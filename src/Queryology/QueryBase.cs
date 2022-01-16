@@ -19,7 +19,7 @@ namespace ByteDecoder.Queryology
         protected QueryBase(T dataContext, DisplayObjectData objectDisplayer)
         {
             DataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
-            ObjectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(dataContext));
+            ObjectDisplayer = objectDisplayer ?? throw new ArgumentNullException(nameof(objectDisplayer));
         }
 
         /// <summary>
