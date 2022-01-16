@@ -63,8 +63,8 @@ public class MyDbCoreContext : DbContext { ... }
 // is your EF Core DbContext class
 public class MyQuery : QueryBase<MyDbCoreContext>
 {
-    public MyQuery(MyDbCoreContext dbContext)
-      : base(dbContext) { }
+    public MyQuery(MyDbCoreContext dbContext, DisplayObjectData objectDisplayer)
+      : base(dataContext, objectDisplayer) { }
 
     public override void Execute()
     {
@@ -110,8 +110,8 @@ Minimalist EF Core only with LINQ to Objects example code:
 // as your type T
 public class LinqToObjectsQuery : QueryBase<NullDbContext>
 {
-    public LinqToObjectsQuery(NullDbContext dbContext)
-      : base(dbContext) { }
+    public LinqToObjectsQuery(NullDbContext dbContext, DisplayObjectData objectDisplayer)
+      : base(dataContext, objectDisplayer) { }
 
     public override void Execute()
     {
@@ -148,8 +148,8 @@ Mark a _Query class_ to be ignored and not to be executed at runtime:
 // Just override the Executable property; and set it to false.
 public class NeverAgainQuery : QueryBase<MyDbCoreContext>
 {
-    public NeverAgainQuery(EfCoreContext dbContext)
-      : base(dbContext) { }
+    public NeverAgainQuery(EfCoreContext dbContext, DisplayObjectData objectDisplayer)
+      : base(dataContext, objectDisplayer) { }
 
     public override bool Executable => false;
 
