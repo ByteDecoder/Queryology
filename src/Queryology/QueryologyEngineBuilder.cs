@@ -11,8 +11,6 @@ namespace ByteDecoder.Queryology;
 public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
     where T : DbContext
 {
-    private IQueryologyEngine<T>? _queryologyEngine;
-
     /// <summary>
     /// 
     /// </summary>
@@ -40,7 +38,6 @@ public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
         queryologyEngineOptions(Options);
         Options.QueryFactoryProvider ??= new QueryFactory<T>();
         Options.ObjectDisplayerProvider ??= NullObjectDisplayer.DisplayData;
-        _queryologyEngine = new QueryologyEngine<T>(Options);
 
         return this;
     }
@@ -50,10 +47,6 @@ public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
     /// </summary>
     /// <returns>QueryologyEngine</returns>
     /// 
-    public IQueryologyEngine<T> Build()
-    {
-        ArgumentNullException.ThrowIfNull(_queryologyEngine, nameof(_queryologyEngine));
+    public IQueryologyEngine<T> Build() => new QueryologyEngine<T>(Options);
 
-        return _queryologyEngine;
-    }
 }
