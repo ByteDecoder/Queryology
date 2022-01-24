@@ -355,3 +355,4 @@ MigrationBackup/
 
 coverage/
 .idea/
+.code-metrics/
