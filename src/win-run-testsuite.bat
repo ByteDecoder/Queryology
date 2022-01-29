@@ -5,6 +5,8 @@ cls
 echo Legion awaits
 del /S /Q ..\coverage\ >nul 2>nul
 
+dotnet tool update dotnet-reportgenerator-globaltool
+
 dotnet test Queryology.sln -c Release --logger:trx ^
   --results-directory ../../coverage ^
   /p:CollectCoverage=true ^

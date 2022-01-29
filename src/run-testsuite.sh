@@ -4,6 +4,8 @@ clear
 
 rm -r ../coverage/*
 
+dotnet tool update dotnet-reportgenerator-globaltool
+
 dotnet test Queryology.sln -c Release --logger:trx \
    --results-directory ../../coverage \
    /p:CollectCoverage=true \
