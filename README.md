@@ -50,7 +50,7 @@ The basic theory that you need:
 
 - _DataContext property_ which holds the reference to the provided _EF Core DbContext class_
 - _DisplayData method_ to write in the console the structure of your query result using the **Data** property
-- _Data property_ defined as _dynamic_ since you can project _anonymous types_ with LINQ
+- _Data property_ defined as _object_ since you can project _anonymous types_ with LINQ
 - _Executable property_ that is overridable to set to **false** if you do not want this rule to be executed by _QueryologyEngine_
 
 Minimalist EF Core DbContext example code:
