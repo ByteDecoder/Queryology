@@ -4,11 +4,15 @@
   "tools": {
     "security-scan": {
       "version": "5.6.0",
-      "commands": ["security-scan"]
+      "commands": [
+        "security-scan"
+      ]
     },
     "dotnet-reportgenerator-globaltool": {
-      "version": "5.0.3",
-      "commands": ["reportgenerator"]
+      "version": "5.0.4",
+      "commands": [
+        "reportgenerator"
+      ]
     }
   }
 }
