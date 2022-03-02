@@ -38,7 +38,7 @@
 		<PackageReference Include="ByteDecoder.Common" Version="1.0.0"/>
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118"/>
 		<AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json"/>
-		<PackageReference Include="NuGetDefense" Version="3.0.0"/>
+		<PackageReference Include="NuGetDefense" Version="3.0.1"/>
 		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0"/>
 		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.0"/>
 		<PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.3"/>
