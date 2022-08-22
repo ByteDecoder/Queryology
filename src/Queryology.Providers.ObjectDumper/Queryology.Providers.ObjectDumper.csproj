@@ -9,7 +9,7 @@
 		<RootNamespace>ByteDecoder.Queryology.Providers.ObjectDumper</RootNamespace>
 		<AssemblyName>ByteDecoder.Queryology.Providers.ObjectDumper</AssemblyName>
 		<Authors>ByteDecoder</Authors>
-		<Company/>
+		<Companyy/>
 		<PackageId>ByteDecoder.Queryology.Providers.ObjectDumper</PackageId>
 		<Title>ByteDecoder.Queryology.Providers.ObjectDumper</Title>
 		<Description>ObjectDumper provider the minimalist Queryology Engine</Description>
@@ -40,7 +40,7 @@
 		<AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json" />
 		<PackageReference Include="NuGetDefense" Version="3.0.7" />
 		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0" />
-		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.5" />
+		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.6" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.3" />
 	</ItemGroup>
 	<ItemGroup>
