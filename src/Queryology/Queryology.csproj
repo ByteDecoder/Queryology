@@ -8,7 +8,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>ByteDecoder.Queryology</RootNamespace>
 		<Authors>ByteDecoder</Authors>
-		<Company></Company>
+		<Companyy/>
 		<PackageId>ByteDecoder.Queryology</PackageId>
 		<Title>ByteDecoder.Queryology</Title>
 		<Description>Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments</Description>
@@ -31,12 +31,12 @@
 	<ItemGroup>
 		<None Include="..\..\LICENSE">
 			<Pack>True</Pack>
-			<PackagePath/>
+			<PackagePath></PackagePath>
 		</None>
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
-		<PackageReference Include="NuGetDefense" Version="3.0.7" />
+		<PackageReference Include="NuGetDefense" Version="3.0.8" />
 		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0" />
 		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.3" />
