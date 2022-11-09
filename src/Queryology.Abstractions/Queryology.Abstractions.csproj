@@ -9,7 +9,7 @@
 		<RootNamespace>ByteDecoder.Queryology.Abstractions</RootNamespace>
 		<AssemblyName>ByteDecoder.Queryology.Abstractions</AssemblyName>
 		<Authors>ByteDecoder</Authors>
-		<Companyy/>
+		<Companyyy/>
 		<PackageId>ByteDecoder.Queryology.Abstractions</PackageId>
 		<Title>ByteDecoder.Queryology.Abstractions</Title>
 		<Description>Abstractions for extending and building the minimalist Queryology Engine</Description>
@@ -28,11 +28,11 @@
 	<ItemGroup>
 		<None Include="..\..\LICENSE">
 			<Pack>True</Pack>
-			<PackagePath></PackagePath>
+			<PackagePath />
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
 		<AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json" />
 		<PackageReference Include="NuGetDefense" Version="3.0.8" />
