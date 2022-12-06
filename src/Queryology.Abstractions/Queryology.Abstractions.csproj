@@ -9,7 +9,6 @@
 		<RootNamespace>ByteDecoder.Queryology.Abstractions</RootNamespace>
 		<AssemblyName>ByteDecoder.Queryology.Abstractions</AssemblyName>
 		<Authors>ByteDecoder</Authors>
-		<Companyyy/>
 		<PackageId>ByteDecoder.Queryology.Abstractions</PackageId>
 		<Title>ByteDecoder.Queryology.Abstractions</Title>
 		<Description>Abstractions for extending and building the minimalist Queryology Engine</Description>
