@@ -20,5 +20,3 @@ ren ..\coverage\coverage.info lcov.info >nul 2>nul
 
 echo Preparing Test Report with reportgenerator
 dotnet reportgenerator "-reports:..\coverage/lcov.info" "-reporttypes:HTMLInline;Badges" "-targetdir:..\coverage/report"
-
-echo We are Legion...

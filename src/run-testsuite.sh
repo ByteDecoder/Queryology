@@ -19,5 +19,3 @@ mv ../coverage/coverage.info ../coverage/lcov.info
 
 echo Preparing Test Report with reportgenerator
 reportgenerator "-reports:../coverage/lcov.info" "-reporttypes:HTMLInline;Badges" "-targetdir:../coverage/report"
-
-echo "We are Legion..."
