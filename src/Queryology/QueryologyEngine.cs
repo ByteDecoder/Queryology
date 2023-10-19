@@ -94,10 +94,10 @@ public class QueryologyEngine<T> : IQueryologyEngine<T>
     }
 
     /// <summary>
-    /// From the loaded Assembly, finds the types assignable to the targetType
+    /// From the loaded Assembly, finds the types assignable to the targetType.
     /// </summary>
-    /// <param name="targetType">Target Type to find</param>
-    /// <returns></returns>
+    /// <param name="targetType">Target Type to find.</param>
+    /// <returns>IEnumerable of Type.</returns>
     private IEnumerable<Type> GetLoadedTypes(Type targetType) =>
       AppDomain.CurrentDomain.GetAssemblies()
         .SelectMany(assembly => assembly.GetTypes())
