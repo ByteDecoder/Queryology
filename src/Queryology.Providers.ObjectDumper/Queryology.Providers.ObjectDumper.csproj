@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>ByteDecoder.Queryology.Providers.ObjectDumper</RootNamespace>
 		<AssemblyName>ByteDecoder.Queryology.Providers.ObjectDumper</AssemblyName>
 		<Authors>ByteDecoder</Authors>
@@ -17,7 +17,7 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/ByteDecoder/Queryology</RepositoryUrl>
 		<RepositoryType>MIT</RepositoryType>
-		<PackageTags>csharp net6.0 EntityFrameworkCore EFCore entity-framework-core</PackageTags>
+		<PackageTags>csharp net7.0 EntityFrameworkCore EFCore entity-framework-core</PackageTags>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Version>2.0.0</Version>
 		<PackageIcon>icon.png</PackageIcon>
