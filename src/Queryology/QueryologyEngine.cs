@@ -17,9 +17,10 @@ public class QueryologyEngine<T> : IQueryologyEngine<T>
     private bool _ignoreExcludedQueries;
 
     /// <summary>
-    ///
+    /// Initializes a new instance of the <see cref="QueryologyEngine{T}"/> class.
     /// </summary>
-    /// <param name="queryologyOptions"></param>
+    /// <param name="queryologyOptions">Expect and instance of instance of
+    /// the <see cref="QueryologyEngineOptions{T}"/> class.</param>
     public QueryologyEngine(QueryologyEngineOptions<T> queryologyOptions)
     : this(
       queryologyOptions.DataContextProvider,
@@ -45,10 +46,11 @@ public class QueryologyEngine<T> : IQueryologyEngine<T>
     }
 
     /// <summary>
-    ///
+    /// LINQ deferred query operator to filter the query execution if queries are
+    /// Executable or ignore that object state.
     /// </summary>
     /// <param name="ignoreQueries">The default is true, otherwise all queries will executed even if they are mark as not executable</param>
-    /// <returns></returns>
+    /// <returns>returns the IQueryologyEngine of type T instance.</returns>
     public IQueryologyEngine<T> IgnoreExcludedQueries(bool ignoreQueries)
     {
         _ignoreExcludedQueries = ignoreQueries;
@@ -56,9 +58,9 @@ public class QueryologyEngine<T> : IQueryologyEngine<T>
     }
 
     /// <summary>
-    /// Execute each query object IQuery, loaded in the Current AppDomain
+    /// Execute each query object IQuery, loaded in the Current AppDomain.
     /// </summary>
-    /// <returns>Total executed queries</returns>
+    /// <returns>Total executed queries.</returns>
     public int Execute()
     {
         var totalExecQueries = 0;
@@ -71,16 +73,16 @@ public class QueryologyEngine<T> : IQueryologyEngine<T>
             query.Execute();
             checked
             { totalExecQueries++; }
-        };
+        }
 
         _ignoreExcludedQueries = true;
         return totalExecQueries;
     }
 
     /// <summary>
-    ///
+    /// Scan the assembly for all types assignable to IQuery and create an instance of each.
     /// </summary>
-    /// <returns>An enumerator for each of the Query Types registered in the loaded assemblies</returns>
+    /// <returns>An enumerator for each of the Query Types registered in the loaded assemblies.</returns>
     private IEnumerable<IQuery<T>> RegisteredQueries()
     {
         var loadedTypes = GetLoadedTypes(typeof(IQuery<T>));

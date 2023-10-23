@@ -45,4 +45,3 @@ public interface IQuery<T>
     /// </summary>
     void Execute();
 }
-
