@@ -7,7 +7,7 @@ namespace ByteDecoder.Queryology;
 /// <summary>
 /// QueryologyEngine will look for all query objects loaded in the Current AppDomain with the type IQuery.
 /// </summary>
-/// <typeparam name="T">An Entity Framework DbContext derived class</typeparam>
+/// <typeparam name="T">An Entity Framework DbContext derived class.</typeparam>
 public class QueryologyEngine<T> : IQueryologyEngine<T>
     where T : DbContext
 {
