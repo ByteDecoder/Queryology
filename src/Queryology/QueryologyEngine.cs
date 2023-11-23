@@ -104,5 +104,4 @@ public class QueryologyEngine<T> : IQueryologyEngine<T>
       AppDomain.CurrentDomain.GetAssemblies()
         .SelectMany(assembly => assembly.GetTypes())
         .Where(targetType.IsAssignableFrom);
-
 }
