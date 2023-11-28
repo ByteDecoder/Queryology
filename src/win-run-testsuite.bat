@@ -2,7 +2,6 @@
 
 cls
 
-echo Legion awaits
 del /S /Q ..\coverage\ >nul 2>nul
 
 dotnet tool update dotnet-reportgenerator-globaltool
