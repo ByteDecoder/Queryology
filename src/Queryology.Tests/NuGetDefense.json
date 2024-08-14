@@ -15,13 +15,21 @@
     ],
     "IgnoredCvEs": [],
     "AllowedPackages": [],
-    "BlockedPackages": []
+    "WhiteListedPackages": [],
+    "BlockedPackages": [],
+    "BlacklistedPackages": []
   },
   "OssIndex": {
     "ApiToken": "",
     "Username": "",
     "Enabled": true,
     "BreakIfCannotRun": true
+  },
+  "GitHubAdvisoryDatabase": {
+    "ApiToken": "",
+    "Username": "",
+    "Enabled": false,
+    "BreakIfCannotRun": false
   },
   "NVD": {
     "SelfUpdate": false,
