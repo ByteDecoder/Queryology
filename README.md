@@ -10,7 +10,7 @@ You can find the documentation for previous versions < 1.0.0 here [documentation
 
 Minimalist query engine executor used with Entity Framework Core + LINQ for quick experiments
 
-Targeted to .Net 6
+Targeted to .Net 8
 
 ## Installation
 

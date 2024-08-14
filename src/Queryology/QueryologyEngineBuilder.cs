@@ -18,7 +18,7 @@ public class QueryologyEngineBuilder<T> : IQueryologyEngineBuilder<T>
     public QueryologyEngineOptions<T> Options { get; }
 
     /// <summary>
-    /// 
+    /// Queryology Engine Builder Constructor
     /// </summary>
     public QueryologyEngineBuilder()
     {
