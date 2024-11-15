@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<RootNamespace>ByteDecoder.Queryology.Abstractions</RootNamespace>
 		<AssemblyName>ByteDecoder.Queryology.Abstractions</AssemblyName>
 		<Authors>ByteDecoder</Authors>
@@ -31,10 +31,10 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
 		<AdditionalFiles Include="$(SolutionDir)\_stylecop\stylecop.json" Link="stylecop.json" />
-		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
 		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" />
 	</ItemGroup>
